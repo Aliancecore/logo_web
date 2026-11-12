@@ -57,6 +57,21 @@
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
     <symbol id="i-support" viewBox="0 0 24 24"><path d="M4.5 15v-3a7.5 7.5 0 0 1 15 0v3"/><rect x="3" y="13.5" width="4.5" height="6.5" rx="1.6"/><rect x="16.5" y="13.5" width="4.5" height="6.5" rx="1.6"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <!-- Sample sites -->
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <!-- Mount Elgon at sunrise: a broad flat summit, then coffee terraces drawn as rows of dots -->
+    <symbol id="art-elgon" viewBox="0 0 400 160">
+      <circle cx="292" cy="62" r="27" fill="#7799F8" opacity=".14"/>
+      <circle cx="292" cy="62" r="17" fill="#E9EFFD"/>
+      <path fill="#1E40AF" d="M0 104c40-12 70-32 110-44 25-8 40-11 65-11l60-1c27 1 50 12 77 26 33 16 60 24 88 28v58H0Z"/>
+      <path fill="#1D4ED8" d="M0 122c55-18 105-20 160-10 50 9 90-14 140-16 45-2 75 8 100 14v50H0Z"/>
+      <path fill="#0F172A" d="M0 138c70-20 140-22 205-12 55 8 115-6 195-2v36H0Z"/>
+      <g fill="none" stroke="#7799F8" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0 7">
+        <path d="M-6 147c70-20 140-22 211-12 55 8 115-6 201-2"/>
+        <path d="M-6 156c70-20 140-22 211-12 55 8 115-6 201-2"/>
+        <path d="M150 121c45-4 90-16 140-18 40-2 70 6 110 12" opacity=".55"/>
+      </g>
+    </symbol>
   </svg>
 
   <!-- ============ Header ============ -->
@@ -71,6 +86,7 @@
       <nav class="site-nav" aria-label="Main">
         <ul class="site-nav__list" id="nav-list" role="list">
           <li><a href="#services">Services</a></li>
+          <li><a href="#examples">Examples</a></li>
           <li><a href="#packages">Packages</a></li>
           <li><a href="#week">How it works</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -275,6 +291,212 @@
       </div>
     </section>
 
+    <!-- ============ Examples ============
+         Three sample sites, drawn in HTML/CSS (no screenshots), one per package.
+         The drawings are hidden from assistive tech: each caption says what the site does. -->
+    <section class="section showcase" id="examples" aria-labelledby="examples-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="examples-title">What goes live under your name.</h2>
+          <p class="section-head__intro">Three sample sites, one for each package. Yours is built around your own name, prices and photos, and made for phones first.</p>
+        </header>
+
+        <ul class="cases" role="list">
+
+          <!-- Startup: coffee cooperative -->
+          <li class="cases__item" data-reveal style="--d:0">
+            <figure class="case">
+              <div class="case__stage" aria-hidden="true" data-tilt>
+                <div class="case__rig">
+                  <div class="browser">
+                    <div class="browser__bar">
+                      <span class="browser__dots"><i></i><i></i><i></i></span>
+                      <span class="browser__url"><svg class="icon"><use href="#i-lock"/></svg><span>elgonridgecoffee<span class="browser__tld">.co.ug</span></span></span>
+                    </div>
+                    <div class="browser__view site site--coffee">
+                      <div class="site__nav">
+                        <span class="site__logo"><i class="site__bean"></i>Elgon Ridge</span>
+                        <span class="site__links"><i></i><i></i><i></i></span>
+                        <span class="site__btn site__btn--ghost">Contact</span>
+                      </div>
+                      <div class="coffee__hero">
+                        <svg class="coffee__hills" viewBox="0 0 400 160" preserveAspectRatio="xMidYMax slice"><use href="#art-elgon"/></svg>
+                        <div class="coffee__copy">
+                          <span class="site__title">Arabica from the slopes of Mount Elgon.</span>
+                          <i class="site__line" style="--w:72%"></i>
+                          <span class="site__btn">Talk to the co-op</span>
+                        </div>
+                      </div>
+                      <div class="site__cols">
+                        <span class="site__card"><i class="site__line" style="--w:62%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:78%"></i></span>
+                        <span class="site__card"><i class="site__line" style="--w:48%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:66%"></i></span>
+                        <span class="site__card"><i class="site__line" style="--w:56%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:84%"></i></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="phone">
+                    <div class="phone__frame">
+                      <div class="phone__screen site site--coffee">
+                        <div class="site__nav">
+                          <span class="site__logo"><i class="site__bean"></i>Elgon Ridge</span>
+                          <i class="site__burger"></i>
+                        </div>
+                        <div class="coffee__hero">
+                          <svg class="coffee__hills" viewBox="0 0 400 160" preserveAspectRatio="xMidYMax slice"><use href="#art-elgon"/></svg>
+                          <div class="coffee__copy">
+                            <span class="site__title">Arabica from Mount Elgon.</span>
+                            <span class="site__btn">Talk to the co-op</span>
+                          </div>
+                        </div>
+                        <div class="site__cols">
+                          <span class="site__card"><i class="site__line" style="--w:58%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:74%"></i></span>
+                          <span class="site__card"><i class="site__line" style="--w:44%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:68%"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <figcaption class="case__cap">
+                <p class="case__kind">Coffee cooperative, Kapchorwa</p>
+                <h3 class="case__domain"><span class="sr-only">Sample site: </span>elgonridgecoffee<span class="case__tld">.co.ug</span></h3>
+                <p class="case__desc">A first website: the farms, the harvest and an easy way for buyers to get in touch.</p>
+                <p class="tag case__plan">Startup package</p>
+              </figcaption>
+            </figure>
+          </li>
+
+          <!-- SME: beauty salon -->
+          <li class="cases__item" data-reveal style="--d:1">
+            <figure class="case">
+              <div class="case__stage" aria-hidden="true" data-tilt>
+                <div class="case__rig">
+                  <div class="browser">
+                    <div class="browser__bar">
+                      <span class="browser__dots"><i></i><i></i><i></i></span>
+                      <span class="browser__url"><svg class="icon"><use href="#i-lock"/></svg><span>joysbeautysalon<span class="browser__tld">.co.ug</span></span></span>
+                    </div>
+                    <div class="browser__view site site--salon">
+                      <div class="site__nav">
+                        <span class="site__logo">Joy’s<i class="site__pip"></i></span>
+                        <span class="site__links"><i></i><i></i><i></i></span>
+                        <span class="site__btn">Book now</span>
+                      </div>
+                      <div class="salon__hero">
+                        <div class="salon__copy">
+                          <i class="site__line site__line--accent" style="--w:34%"></i>
+                          <span class="site__title">Braids, nails and spa days in Ntinda.</span>
+                          <i class="site__line"></i>
+                          <i class="site__line" style="--w:76%"></i>
+                          <span class="site__actions"><span class="site__btn">Book a visit</span><span class="site__btn site__btn--ghost">Call us</span></span>
+                        </div>
+                        <div class="salon__visual">
+                          <div class="salon__arch">
+                            <i class="salon__bun"></i><i class="salon__hair"></i><i class="salon__neck"></i><i class="salon__body"></i><i class="salon__face"></i>
+                          </div>
+                          <span class="salon__open">Open until 8 pm</span>
+                        </div>
+                      </div>
+                      <div class="salon__prices">
+                        <span class="salon__price">Box braids<i></i>UGX 60,000</span>
+                        <span class="salon__price">Manicure<i></i>UGX 25,000</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="phone">
+                    <div class="phone__frame">
+                      <div class="phone__screen site site--salon">
+                        <div class="site__nav">
+                          <span class="site__logo">Joy’s<i class="site__pip"></i></span>
+                          <i class="site__burger"></i>
+                        </div>
+                        <div class="book">
+                          <span class="book__title">Pick a time</span>
+                          <span class="book__service"><i class="site__line" style="--w:70%"></i><i class="site__line" style="--w:46%"></i></span>
+                          <span class="book__days"><span>Fri<b>13</b></span><span class="is-on">Sat<b>14</b></span><span>Sun<b>15</b></span></span>
+                          <span class="book__times"><span>09:00</span><span class="is-on">10:30</span><span>12:00</span><span>14:00</span><span>15:30</span><span>17:00</span></span>
+                          <span class="site__btn site__btn--block">Book Sat, 10:30</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <figcaption class="case__cap">
+                <p class="case__kind">Beauty salon, Ntinda</p>
+                <h3 class="case__domain"><span class="sr-only">Sample site: </span>joysbeautysalon<span class="case__tld">.co.ug</span></h3>
+                <p class="case__desc">Clients find the salon online, check the prices and book a time from their phone.</p>
+                <p class="tag case__plan">SME package</p>
+              </figcaption>
+            </figure>
+          </li>
+
+          <!-- Online Shop: fabric shop -->
+          <li class="cases__item" data-reveal style="--d:2">
+            <figure class="case">
+              <div class="case__stage" aria-hidden="true" data-tilt>
+                <div class="case__rig">
+                  <div class="browser">
+                    <div class="browser__bar">
+                      <span class="browser__dots"><i></i><i></i><i></i></span>
+                      <span class="browser__url"><svg class="icon"><use href="#i-lock"/></svg><span>nakatoprints<span class="browser__tld">.co.ug</span></span></span>
+                    </div>
+                    <div class="browser__view site site--shop">
+                      <div class="site__nav">
+                        <span class="site__logo">Nakato Prints</span>
+                        <span class="shop__search"><svg class="icon"><use href="#i-search"/></svg><i></i></span>
+                        <span class="shop__cart"><svg class="icon"><use href="#i-bag"/></svg><b>2</b></span>
+                      </div>
+                      <div class="shop__head"><span>New this week</span><span>See all</span></div>
+                      <div class="shop__chips"><span class="is-on">Kitenge</span><span>Gomesi</span><span>Bags</span><span>Kids</span></div>
+                      <div class="shop__grid">
+                        <span class="shop__item"><i class="print print--rings"></i><i class="site__line" style="--w:74%"></i><b>UGX 85,000</b></span>
+                        <span class="shop__item"><i class="print print--zigzag"></i><i class="site__line" style="--w:60%"></i><b>UGX 60,000</b></span>
+                        <span class="shop__item"><i class="print print--diamonds"></i><i class="site__line" style="--w:80%"></i><b>UGX 95,000</b></span>
+                        <span class="shop__item"><i class="print print--dots"></i><i class="site__line" style="--w:54%"></i><b>UGX 45,000</b></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="phone">
+                    <div class="phone__frame">
+                      <div class="phone__screen site site--shop">
+                        <div class="site__nav">
+                          <i class="site__back"></i>
+                          <span class="site__logo">Nakato Prints</span>
+                          <span class="shop__cart"><svg class="icon"><use href="#i-bag"/></svg><b>2</b></span>
+                        </div>
+                        <i class="print print--rings shop__hero"></i>
+                        <div class="shop__detail">
+                          <span class="shop__name">Kitenge, 6 yards</span>
+                          <span class="shop__price">UGX 85,000</span>
+                          <span class="shop__swatches"><i class="print print--rings"></i><i class="print print--diamonds"></i><i class="print print--dots"></i></span>
+                          <span class="site__btn site__btn--block">Add to cart</span>
+                          <span class="shop__pay">Pay with Mobile Money or card</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <figcaption class="case__cap">
+                <p class="case__kind">Fabric shop, Kampala</p>
+                <h3 class="case__domain"><span class="sr-only">Sample site: </span>nakatoprints<span class="case__tld">.co.ug</span></h3>
+                <p class="case__desc">Customers browse kitenge and gomesi, fill a cart and pay online.</p>
+                <p class="tag case__plan">Online Shop package</p>
+              </figcaption>
+            </figure>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
     <!-- ============ Packages ============ -->
     <section class="section section--alt packages" id="packages" aria-labelledby="packages-title">
       <div class="wrap">
@@ -426,13 +648,32 @@
         </ol>
 
         <div class="assurance" data-reveal>
-          <p class="assurance__label">What you can count on</p>
-          <p class="assurance__text">
-            Every site comes with <mark>an SSL certificate</mark> and hosting we manage for you.
-            Our team answers <mark>24/7, weekends included</mark>.
-            And we work <mark>from Kampala</mark>, where we have built websites for coffee cooperatives,
-            finance firms, spas, builders, transporters and online shops.
-          </p>
+          <div class="assurance__body">
+            <p class="assurance__label">What you can count on</p>
+            <p class="assurance__text">
+              Every site comes with <mark>an SSL certificate</mark> and hosting we manage for you.
+              Our team answers <mark>24/7, weekends included</mark>.
+              And we work <mark>from Kampala</mark>, where we have built websites for coffee cooperatives,
+              finance firms, spas, builders, transporters and online shops.
+            </p>
+          </div>
+
+          <!-- Stock photos of Kampala (Unsplash License, credits in the footer and assets/img/CREDITS.txt).
+               They show the city and its trade, not our team or our clients. -->
+          <div class="assurance__photos">
+            <img class="photo photo--city"
+                 src="assets/img/kampala-skyline-640.webp"
+                 srcset="assets/img/kampala-skyline-640.webp 640w, assets/img/kampala-skyline-1200.webp 1200w"
+                 sizes="(min-width: 1240px) 380px, (min-width: 1080px) 30vw, (min-width: 680px) 36vw, 80vw"
+                 width="1200" height="800" loading="lazy" decoding="async"
+                 alt="Kampala on a sunny afternoon: green hills, red-roofed houses and new office towers.">
+            <img class="photo photo--shop"
+                 src="assets/img/kampala-shop-360.webp"
+                 srcset="assets/img/kampala-shop-360.webp 360w, assets/img/kampala-shop-720.webp 720w"
+                 sizes="(min-width: 1240px) 180px, (min-width: 1080px) 15vw, (min-width: 680px) 17vw, 38vw"
+                 width="720" height="900" loading="lazy" decoding="async"
+                 alt="A shopkeeper in Kampala sits in front of her stall of printed dresses, baskets and carvings.">
+          </div>
         </div>
       </div>
     </section>
@@ -489,6 +730,7 @@
         <h2 class="site-footer__title">On this page</h2>
         <ul class="site-footer__list" role="list">
           <li><a href="#services">Services</a></li>
+          <li><a href="#examples">Examples</a></li>
           <li><a href="#packages">Packages</a></li>
           <li><a href="#week">How it works</a></li>
           <li><a href="#biz-name" data-focus-name>Search a domain</a></li>
@@ -499,6 +741,7 @@
     <div class="wrap site-footer__base">
       <p>&copy; 2026 Logos Cloud Edge Limited</p>
       <p>Prices in US dollars per year. Shilling amounts are estimates.</p>
+      <p>Photos of Kampala: <a href="https://unsplash.com/photos/a-view-of-a-city-from-a-tall-building-lii0uaz8Ieo">Keith Kasaija</a> and <a href="https://unsplash.com/photos/a-woman-sitting-on-a-chair-in-front-of-a-store-0eWk4klcGOY">Jonathan Ward</a> on Unsplash.</p>
     </div>
   </footer>
 </body>

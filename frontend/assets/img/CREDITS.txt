@@ -1,0 +1,22 @@
+Photos used on the landing page
+================================
+
+Both photos are published under the Unsplash License:
+https://unsplash.com/license
+Free to use, including for commercial purposes, without asking permission.
+Credit is not required; the page credits the photographers in the footer anyway.
+The files were cropped and resized to WebP for this site.
+
+kampala-skyline-640.webp, kampala-skyline-1200.webp
+  "Kampala sights" by Keith Kasaija (@keithkasaija), Kampala, Uganda
+  https://unsplash.com/photos/a-view-of-a-city-from-a-tall-building-lii0uaz8Ieo
+  Cropped from 16:9 to 3:2.
+
+kampala-shop-360.webp, kampala-shop-720.webp
+  A woman sitting on a chair in front of a store, by Jonathan Ward (@jonathanmw), Kampala, Uganda
+  https://unsplash.com/photos/a-woman-sitting-on-a-chair-in-front-of-a-store-0eWk4klcGOY
+  Cropped from 2:3 to 4:5.
+
+Note: the Unsplash License does not include a model release. The shop photo shows an
+identifiable person: keep it as a picture of the city's trade, never present her as a
+client, a member of the team or as endorsing Logos.
