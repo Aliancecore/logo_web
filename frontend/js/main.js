@@ -6,8 +6,15 @@
   var root = document.documentElement;
   var SALES_EMAIL = 'sales@logoswebsiteservices.com';
   var UGX_PER_USD = 3650; // indicative rate, shown to the visitor
-  var DEFAULT_NAME = "Joy's Beauty Salon";
   var KEYS = { theme: 'logos-theme', currency: 'logos-currency' };
+  // Browser bar colour = header colour of each theme
+  var THEME_COLORS = { light: '#0F172A', dark: '#0A101E' };
+
+  // Domains: yearly list prices in US dollars, before the discount.
+  // The discount applies to every domain; every price shown is derived from here.
+  var DOMAIN_DISCOUNT = 0.10;
+  var TLD_PRICES = { 'co.ug': 30, 'ug': 30, 'com': 13, 'org': 15 };
+  var DEFAULT_SLUG = 'yourbusiness';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -31,10 +38,10 @@
   }
 
   function syncTheme() {
-    var dark = currentTheme() === 'dark';
-    if (themeBtn) themeBtn.setAttribute('aria-pressed', String(dark));
+    var theme = currentTheme();
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', String(theme === 'dark'));
     if (root.hasAttribute('data-theme')) {
-      themeMetas.forEach(function (m) { m.setAttribute('content', dark ? '#0F131B' : '#EEF1EC'); });
+      themeMetas.forEach(function (m) { m.setAttribute('content', THEME_COLORS[theme]); });
     }
   }
 
@@ -50,7 +57,7 @@
   syncTheme();
 
   /* ---------------------------------------------------------------------
-     Header: border on scroll, mobile menu, current section
+     Header: shadow on scroll, mobile menu, current section
      --------------------------------------------------------------------- */
   var header = $('[data-header]');
   var navToggle = $('[data-nav-toggle]');
@@ -107,118 +114,6 @@
   }
 
   /* ---------------------------------------------------------------------
-     Fit: condense the lettering first, shrink it only if needed.
-     Like a signwriter running out of board, the variable "wdth" axis of
-     Anybody narrows before the size drops.
-     --------------------------------------------------------------------- */
-  var fitTargets = $$('[data-fit]');
-  root.classList.add('fit-on'); // lettering may now stay on one line: we fit it
-
-  function fit(el, animate) {
-    var text = $('[data-fit-text]', el) || el.firstElementChild;
-    if (!text) return;
-
-    var maxW = parseFloat(el.getAttribute('data-fit-max')) || 120;
-    var minW = parseFloat(el.getAttribute('data-fit-min')) || 60;
-    var minScale = parseFloat(el.getAttribute('data-fit-min-scale')) || 0.45;
-
-    var from = {
-      w: el.style.getPropertyValue('--wdth'),
-      s: el.style.getPropertyValue('--fit')
-    };
-
-    el.classList.add('is-measuring');
-    el.classList.remove('is-wrapped');
-
-    var avail = el.clientWidth;
-    if (!avail) { el.classList.remove('is-measuring'); return; }
-
-    function set(w, s) {
-      el.style.setProperty('--wdth', String(w));
-      el.style.setProperty('--fit', String(s));
-    }
-    function width() { return text.getBoundingClientRect().width; }
-
-    var w = maxW;
-    var s = 1;
-    var wrap = false;
-
-    set(maxW, 1);
-    if (width() > avail) {
-      set(minW, 1);
-      var atMin = width();
-      if (atMin > avail) {
-        w = minW;
-        s = avail / atMin;
-        if (s < minScale) { s = minScale; wrap = true; }
-      } else {
-        var lo = minW;
-        var hi = maxW;
-        for (var i = 0; i < 7; i++) {
-          var mid = (lo + hi) / 2;
-          set(mid, 1);
-          if (width() <= avail) lo = mid; else hi = mid;
-        }
-        w = Math.floor(lo * 10) / 10;
-      }
-    }
-
-    s = Math.floor(s * 1000) / 1000;
-
-    if (animate && !reduceMotion.matches && from.w) {
-      set(from.w, from.s || 1);
-      void el.offsetWidth; // commit the start values
-      el.classList.remove('is-measuring');
-      set(w, s);
-    } else {
-      set(w, s);
-      void el.offsetWidth;
-      el.classList.remove('is-measuring');
-    }
-    el.classList.toggle('is-wrapped', wrap);
-  }
-
-  var fitQueued = false;
-  var fitAnimated = false;
-  function requestFit(animate) {
-    fitAnimated = fitAnimated || !!animate;
-    if (fitQueued) return;
-    fitQueued = true;
-    window.requestAnimationFrame(function () {
-      fitQueued = false;
-      var a = fitAnimated;
-      fitAnimated = false;
-      fitTargets.forEach(function (el) { fit(el, a); });
-    });
-  }
-
-  // Refit when a box changes width (not height, which the fit itself changes).
-  // The CSS keeps these boxes independent of their text; the budget below is
-  // a safety net so a layout regression can never turn into a refit loop.
-  if ('ResizeObserver' in window) {
-    var widths = new WeakMap();
-    var budget = { count: 0, since: 0 };
-    var ro = new ResizeObserver(function (entries) {
-      var changed = false;
-      entries.forEach(function (entry) {
-        var wNow = Math.round(entry.contentRect.width);
-        if (widths.get(entry.target) !== wNow) {
-          widths.set(entry.target, wNow);
-          changed = true;
-        }
-      });
-      if (!changed) return;
-      var now = Date.now();
-      if (now - budget.since > 1000) { budget.since = now; budget.count = 0; }
-      if (++budget.count > 30) { ro.disconnect(); return; }
-      requestFit(false);
-    });
-    fitTargets.forEach(function (el) { ro.observe(el); });
-  } else {
-    window.addEventListener('resize', function () { requestFit(false); });
-  }
-
-  /* ---------------------------------------------------------------------
      Prices: US dollars or Ugandan shillings
      --------------------------------------------------------------------- */
   var usdFmt2 = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -228,7 +123,7 @@
   function formatPrice(usd, currency) {
     if (currency === 'UGX') {
       var ugx = Math.round((usd * UGX_PER_USD) / 100) * 100;
-      return { cur: 'UGX', num: ugxFmt.format(ugx), sep: ' ' };
+      return { cur: 'UGX', num: ugxFmt.format(ugx), sep: ' ' };
     }
     return { cur: '$', num: (usd % 1 ? usdFmt2 : usdFmt0).format(usd), sep: '' };
   }
@@ -259,18 +154,26 @@
       currency = input.value;
       store.set(KEYS.currency, currency);
       renderPrices();
-      requestFit(true);
     });
   });
 
   /* ---------------------------------------------------------------------
-     The signboard: business name -> lettering, slug, domain, email
+     Domain search: business name + ending -> address, price, email
      --------------------------------------------------------------------- */
-  var form = $('[data-checker]');
+  var form = $('[data-search]');
+  var field = $('[data-search-field]');
   var nameInput = $('#biz-name');
-  var signName = $('[data-sign-name]');
+  var tldSelect = $('[data-tld-select]');
+  var endingBtns = $$('[data-ending]');
+  var wasEl = $('[data-price-was]');
+  var nowEl = $('[data-price-now]');
+  var errorEl = $('[data-search-error]');
   var ctaMail = $('[data-cta-mail]');
-  var tld = 'co.ug';
+  var tld = tldSelect && TLD_PRICES[tldSelect.value] ? tldSelect.value : 'co.ug';
+
+  function discounted(usd) {
+    return Math.round(usd * (1 - DOMAIN_DISCOUNT) * 100) / 100;
+  }
 
   function slugify(value) {
     return value
@@ -282,21 +185,30 @@
       .slice(0, 63);
   }
 
-  function currentName() {
-    var raw = nameInput ? nameInput.value.trim() : '';
-    return raw || 'Your business';
+  function typedName() {
+    return nameInput ? nameInput.value.trim() : '';
   }
 
   function currentDomain() {
-    var slug = slugify(nameInput ? nameInput.value : '') || 'yourbusiness';
-    return { slug: slug, full: slug + '.' + tld };
+    var slug = slugify(typedName());
+    var safe = slug || DEFAULT_SLUG;
+    return { slug: safe, full: safe + '.' + tld, typed: slug !== '' };
   }
 
-  function renderName(animate) {
-    var name = currentName();
-    var domain = currentDomain();
+  // Every ending's price comes from TLD_PRICES, so the HTML values are only a no-JS fallback
+  endingBtns.forEach(function (btn) {
+    var list = TLD_PRICES[btn.getAttribute('data-ending')];
+    var price = $('[data-usd]', btn);
+    if (price && list) price.setAttribute('data-usd', String(discounted(list)));
+  });
 
-    if (signName) signName.textContent = name;
+  function renderDomain() {
+    var domain = currentDomain();
+    var name = typedName();
+
+    root.classList.toggle('no-name', !domain.typed);
+    root.style.setProperty('--len', String(domain.slug.length));
+
     $$('[data-slug]').forEach(function (el) { el.textContent = domain.slug; });
     $$('[data-tld]').forEach(function (el) { el.textContent = '.' + tld; });
     $$('[data-domain]').forEach(function (el) { el.textContent = domain.full; });
@@ -309,44 +221,107 @@
       );
     });
 
+    if (wasEl) wasEl.setAttribute('data-usd', String(TLD_PRICES[tld]));
+    if (nowEl) nowEl.setAttribute('data-usd', String(discounted(TLD_PRICES[tld])));
+    renderPrices();
+
     if (ctaMail) {
+      var subject = domain.typed ? 'Website for ' + name : 'Website for my business';
+      var body = domain.typed
+        ? 'Hello Logos team,\n\nI would like to put ' + domain.full + ' online. Please call me back about the next steps.\n\nThank you.'
+        : 'Hello Logos team,\n\nI would like to put my business online. Please call me back about the next steps.\n\nThank you.';
       ctaMail.href = 'mailto:' + SALES_EMAIL +
-        '?subject=' + encodeURIComponent('Website for ' + name) +
-        '&body=' + encodeURIComponent('Hello Logos team,\n\nI would like to put ' + domain.full + ' online. Please call me back about the next steps.\n\nThank you.');
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
     }
-    requestFit(animate);
+  }
+
+  function syncEndings() {
+    endingBtns.forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.getAttribute('data-ending') === tld));
+    });
+  }
+
+  function swapAnimation() {
+    $$('[data-tld-swap]').forEach(function (el) {
+      el.classList.remove('is-swapping');
+      void el.offsetWidth; // restart the animation
+      el.classList.add('is-swapping');
+    });
+  }
+
+  function setTld(next) {
+    if (!TLD_PRICES[next] || next === tld) return;
+    tld = next;
+    if (tldSelect && tldSelect.value !== next) tldSelect.value = next;
+    syncEndings();
+    renderDomain();
+    swapAnimation();
+  }
+
+  function showError(message) {
+    if (!errorEl || !nameInput) return;
+    errorEl.textContent = message;
+    errorEl.hidden = false;
+    nameInput.setAttribute('aria-invalid', 'true');
+    nameInput.setAttribute('aria-describedby', 'search-error search-help');
+    if (field) field.classList.add('is-invalid');
+  }
+
+  function clearError() {
+    if (!errorEl || errorEl.hidden || !nameInput) return;
+    errorEl.hidden = true;
+    errorEl.textContent = '';
+    nameInput.removeAttribute('aria-invalid');
+    nameInput.setAttribute('aria-describedby', 'search-help');
+    if (field) field.classList.remove('is-invalid');
   }
 
   if (nameInput) {
-    nameInput.addEventListener('input', function () { renderName(true); });
+    nameInput.addEventListener('input', function () {
+      clearError();
+      renderDomain();
+    });
   }
 
-  $$('input[name="tld"]').forEach(function (radio) {
-    radio.addEventListener('change', function () {
-      if (!radio.checked) return;
-      tld = radio.value;
-      $$('.tld').forEach(function (row) {
-        row.classList.toggle('is-selected', row.contains(radio));
-      });
-      renderName(true);
-    });
-    if (radio.checked) tld = radio.value;
+  if (tldSelect) {
+    tldSelect.addEventListener('change', function () { setTld(tldSelect.value); });
+  }
+
+  endingBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () { setTld(btn.getAttribute('data-ending')); });
   });
 
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var name = typedName();
       var domain = currentDomain();
+
+      if (!name) {
+        showError('Type your business name first.');
+        nameInput.focus();
+        return;
+      }
+      if (!domain.typed) {
+        showError('Use letters or numbers: a domain cannot be made of symbols only.');
+        nameInput.focus();
+        return;
+      }
+      clearError();
+
+      var price = formatPrice(discounted(TLD_PRICES[tld]), 'USD');
       var subject = 'Domain request: ' + domain.full;
-      var body = 'Hello Logos team,\n\nI would like to register ' + domain.full +
-        ' for ' + currentName() + '.\nPlease confirm that it is available and send me the next steps.\n\nThank you.';
+      var body = 'Hello Logos team,\n\nI would like to register ' + domain.full + ' for ' + name +
+        ' (' + price.cur + price.num + ' a year with the ' + Math.round(DOMAIN_DISCOUNT * 100) + '% domain discount).\n' +
+        'Please confirm that it is available and send me the next steps.\n\nThank you.';
       window.location.href = 'mailto:' + SALES_EMAIL +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(body);
     });
   }
 
-  // Links that send the visitor back to the sign focus the name field
+  // Links that send the visitor back to the search focus the name field
   $$('[data-focus-name]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       if (!nameInput) return;
@@ -375,12 +350,6 @@
   /* ---------------------------------------------------------------------
      Start
      --------------------------------------------------------------------- */
-  renderPrices();
-  renderName(false);
-  if (document.fonts) {
-    if (document.fonts.ready) document.fonts.ready.then(function () { requestFit(false); });
-    if (document.fonts.addEventListener) {
-      document.fonts.addEventListener('loadingdone', function () { requestFit(false); });
-    }
-  }
+  syncEndings();
+  renderDomain(); // also renders every price in the saved currency
 })();

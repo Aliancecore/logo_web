@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Logos · Domains, websites and hosting for Ugandan businesses</title>
   <meta name="description" content="Register a .ug, .co.ug or .com domain, get a professional website in under 5 working days, plus managed hosting, business email, logos and digital marketing. Logos Cloud Edge, Kampala.">
-  <meta name="theme-color" content="#EEF1EC" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0F131B" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A101E" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <!-- Theme set before first paint to avoid a flash -->
@@ -21,8 +21,9 @@
   </script>
 
   <!-- Self-hosted variable fonts (SIL OFL): no third-party request, works offline.
-       The display face is preloaded because the hero lettering depends on it. -->
-  <link rel="preload" href="assets/fonts/anybody-latin.woff2" as="font" type="font/woff2" crossorigin>
+       Both latin files are preloaded because the hero uses both faces. -->
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -30,17 +31,13 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Icon sprite + paint filter -->
+  <!-- Icon sprite -->
   <svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
-    <defs>
-      <filter id="paint-edge" x="-5%" y="-10%" width="110%" height="120%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="grain"/>
-        <feDisplacementMap in="SourceGraphic" in2="grain" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-    </defs>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
-    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.6 0v2.5M12 14.5v2"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l2 5-2.5 1.6a11 11 0 0 0 5.4 5.4l1.6-2.5 5 2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 4.8 4.8L19.5 7"/></symbol>
@@ -49,10 +46,21 @@
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.4A8.5 8.5 0 1 1 10.6 3.5a6.6 6.6 0 0 0 9.9 9.9Z"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <!-- Services -->
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="7" rx="2"/><rect x="3.5" y="13" width="17" height="7" rx="2"/><path d="M7.5 7.5h.01M7.5 16.5h.01M11.5 7.5h5M11.5 16.5h5"/></symbol>
+    <symbol id="i-browser" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 13h10M7 16.5h6"/></symbol>
+    <symbol id="i-shapes" viewBox="0 0 24 24"><circle cx="7.5" cy="7.5" r="4"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/><path d="M17 3.5 21 10h-8l4-6.5ZM3.5 20.5l4-7 4 7h-8Z"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17.5 9 11.5l4 4 8-8.5"/><path d="M15 7h6v6"/></symbol>
+    <!-- Reassurance -->
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.2c0 4.4 3 8.2 7 9.8 4-1.6 7-5.4 7-9.8V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+    <symbol id="i-support" viewBox="0 0 24 24"><path d="M4.5 15v-3a7.5 7.5 0 0 1 15 0v3"/><rect x="3" y="13.5" width="4.5" height="6.5" rx="1.6"/><rect x="16.5" y="13.5" width="4.5" height="6.5" rx="1.6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
   </svg>
 
   <!-- ============ Header ============ -->
-  <header class="site-header" data-header>
+  <header class="site-header on-dark" data-header>
     <div class="wrap site-header__inner">
       <a class="brand" href="#top">
         <span class="brand__mark" aria-hidden="true">L</span>
@@ -76,7 +84,7 @@
           <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
           <span class="sr-only">Dark theme</span>
         </button>
-        <a class="btn btn--small site-header__call" href="tel:+256709781426">
+        <a class="btn btn--ghost btn--small site-header__call" href="tel:+256709781426">
           <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
           Call sales
         </a>
@@ -95,181 +103,183 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap hero__grid">
 
-        <p class="hero__directions">
-          <span class="label">How customers find you today</span>
-          <s class="hero__strike">Ntinda, past the boda stage, behind the green kiosk, first floor. Ask for Joy.</s>
-        </p>
-
-        <h1 class="hero__title" id="hero-title">
-          <span class="hero__line" data-fit data-fit-max="118" data-fit-min="62" data-fit-min-scale="0.62"><span data-fit-text>An address.</span></span>
-          <span class="hero__line" data-fit data-fit-max="118" data-fit-min="62" data-fit-min-scale="0.62"><span data-fit-text>Not directions.</span></span>
-        </h1>
-
         <div class="hero__intro">
-          <p class="lead">A domain is the one address every customer can find. We register it, build the website behind it and keep it running, all from Kampala. Your site goes live in under 5 working days.</p>
-          <a class="link-arrow" href="#packages">
-            See the packages
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg>
-          </a>
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__line">Your business online<span class="punct">,</span></span>
+            <span class="hero__line hero__accent">under your own name<span class="punct">.</span></span>
+          </h1>
+          <p class="lead hero__lead">Search for your domain below. We register it, build the website behind it, host it and set up your business email. Your site goes live in under 5 working days.</p>
         </div>
 
-        <div class="hero__stage">
-          <!-- The signboard: a live, decorative preview of the form below -->
-          <div class="sign enamel" aria-hidden="true">
-            <div class="sign__board">
-              <p class="sign__kicker">Welcome to</p>
-              <p class="sign__name" data-fit data-fit-max="128" data-fit-min="58">
-                <span class="sign__name-text" data-fit-text data-sign-name>Joy's Beauty Salon</span>
+        <!-- Domain search: the one thing this page asks you to do -->
+        <form class="search" id="domain-search" action="mailto:sales@logoswebsiteservices.com" method="get" novalidate data-search>
+          <div class="search__head">
+            <label class="search__label" for="biz-name">Search for your business name</label>
+            <span class="tag">10% off every domain</span>
+          </div>
+
+          <div class="search__bar">
+            <div class="search__field" data-search-field>
+              <svg class="icon search__icon" aria-hidden="true"><use href="#i-search"/></svg>
+              <input class="search__input" id="biz-name" name="name" type="text" placeholder="e.g. Joy's Salon" maxlength="48" autocomplete="organization" spellcheck="false" enterkeyhint="send" aria-describedby="search-help">
+              <span class="search__divider" aria-hidden="true"></span>
+              <div class="search__tld">
+                <label class="sr-only" for="tld">Domain ending</label>
+                <select class="search__select" id="tld" name="tld" data-tld-select>
+                  <option value="co.ug" selected>.co.ug</option>
+                  <option value="ug">.ug</option>
+                  <option value="com">.com</option>
+                  <option value="org">.org</option>
+                </select>
+                <svg class="icon search__chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </div>
+            </div>
+
+            <button class="btn btn--action btn--lg search__submit" type="submit" aria-describedby="domain-preview">
+              Request domain
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </button>
+          </div>
+
+          <p class="search__error" id="search-error" role="alert" data-search-error hidden></p>
+
+          <div class="search__out">
+            <!-- The address, assembled live from the name -->
+            <div class="result">
+              <p class="result__address">
+                <svg class="icon result__lock" aria-hidden="true"><use href="#i-lock"/></svg>
+                <span class="result__domain"><span class="result__scheme" aria-hidden="true">https://</span><span class="result__slug" data-slug>yourbusiness</span><span class="result__tld" data-tld data-tld-swap>.co.ug</span></span>
               </p>
-              <p class="sign__plate">
-                <span class="sign__www">www.</span><span data-slug>joysbeautysalon</span><span class="sign__tld" data-tld>.co.ug</span>
+              <p class="result__price">
+                <span class="sr-only">Usually</span>
+                <s class="result__was price" data-usd="30" data-price-was>$30</s>
+                <span class="sr-only">, now</span>
+                <span class="result__now price" data-usd="27" data-price-now>$27</span>
+                <span class="result__per">per year</span>
               </p>
+            </div>
+
+            <div class="endings">
+              <p class="endings__label" id="endings-label">Compare endings, per year</p>
+              <ul class="endings__list" role="list" aria-labelledby="endings-label">
+                <li><button class="ending" type="button" data-ending="co.ug" aria-pressed="true"><span class="ending__ext">.co.ug</span> <span class="ending__price price" data-usd="27">$27</span></button></li>
+                <li><button class="ending" type="button" data-ending="ug" aria-pressed="false"><span class="ending__ext">.ug</span> <span class="ending__price price" data-usd="27">$27</span></button></li>
+                <li><button class="ending" type="button" data-ending="com" aria-pressed="false"><span class="ending__ext">.com</span> <span class="ending__price price" data-usd="11.7">$11.70</span></button></li>
+                <li><button class="ending" type="button" data-ending="org" aria-pressed="false"><span class="ending__ext">.org</span> <span class="ending__price price" data-usd="13.5">$13.50</span></button></li>
+              </ul>
             </div>
           </div>
 
-          <form class="checker" id="checker" action="mailto:sales@logoswebsiteservices.com" method="get" data-checker>
-            <div class="checker__field">
-              <label class="label" for="biz-name">Try your business name</label>
-              <input class="input" id="biz-name" name="name" type="text" value="Joy's Beauty Salon" placeholder="e.g. Kalungi Hardware" maxlength="48" autocomplete="organization" spellcheck="false" enterkeyhint="send">
-            </div>
+          <p class="search__help" id="search-help">“Request domain” opens an email to our sales team. We check that the name is free and reply by email.</p>
+          <p class="sr-only" id="domain-preview">Your domain: <span data-domain>yourbusiness.co.ug</span></p>
+        </form>
 
-            <fieldset class="checker__tlds">
-              <legend class="sr-only">Pick a domain ending</legend>
-              <div class="checker__head" aria-hidden="true">
-                <span class="label">Pick an ending</span>
-                <span class="tag">10% off every domain</span>
-              </div>
-
-              <div class="tlds">
-                <label class="tld is-selected">
-                  <input type="radio" name="tld" value="co.ug" checked>
-                  <span class="tld__ext">.co.ug</span>
-                  <span class="tld__prices">
-                    <span class="sr-only">usually</span>
-                    <s class="tld__was price" data-usd="30">$30</s>
-                    <span class="sr-only">, now</span>
-                    <span class="tld__now price" data-usd="27">$27</span>
-                  </span>
-                </label>
-                <label class="tld">
-                  <input type="radio" name="tld" value="ug">
-                  <span class="tld__ext">.ug</span>
-                  <span class="tld__prices">
-                    <span class="sr-only">usually</span>
-                    <s class="tld__was price" data-usd="30">$30</s>
-                    <span class="sr-only">, now</span>
-                    <span class="tld__now price" data-usd="27">$27</span>
-                  </span>
-                </label>
-                <label class="tld">
-                  <input type="radio" name="tld" value="com">
-                  <span class="tld__ext">.com</span>
-                  <span class="tld__prices">
-                    <span class="sr-only">usually</span>
-                    <s class="tld__was price" data-usd="13">$13</s>
-                    <span class="sr-only">, now</span>
-                    <span class="tld__now price" data-usd="11.7">$11.70</span>
-                  </span>
-                </label>
-                <label class="tld">
-                  <input type="radio" name="tld" value="org">
-                  <span class="tld__ext">.org</span>
-                  <span class="tld__prices">
-                    <span class="sr-only">usually</span>
-                    <s class="tld__was price" data-usd="15">$15</s>
-                    <span class="sr-only">, now</span>
-                    <span class="tld__now price" data-usd="13.5">$13.50</span>
-                  </span>
-                </label>
-              </div>
-            </fieldset>
-
-            <p class="sr-only" id="domain-preview">Your domain: <span data-domain>joysbeautysalon.co.ug</span></p>
-            <button class="btn btn--block" type="submit" aria-describedby="domain-preview">
-              Request this domain
-              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-            </button>
-            <p class="checker__note">Prices per year. We check availability and reply by email.</p>
-          </form>
-        </div>
+        <ul class="trust" role="list">
+          <li class="trust__item" style="--i:0">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <span><strong>SSL certificate</strong> on every site</span>
+          </li>
+          <li class="trust__item" style="--i:1">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <span><strong>Live in under 5 working days</strong>, from first call</span>
+          </li>
+          <li class="trust__item" style="--i:2">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-support"/></svg></span>
+            <span><strong>24/7 support</strong>, weekends included</span>
+          </li>
+          <li class="trust__item" style="--i:3">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-pin"/></svg></span>
+            <span><strong>A local team</strong> in Kampala, Uganda</span>
+          </li>
+        </ul>
 
       </div>
     </section>
 
     <!-- ============ Services ============ -->
     <section class="section services" id="services" aria-labelledby="services-title">
-      <div class="wrap services__grid">
-        <header class="section-head services__head" data-reveal>
-          <p class="label">Services</p>
+      <div class="wrap">
+        <header class="section-head" data-reveal>
           <h2 class="h2" id="services-title">From the name to the customers.</h2>
           <p class="section-head__intro">Six services that work together. Take one, or hand us the whole job.</p>
         </header>
 
-        <ul class="board" role="list">
-          <li class="board__item" data-reveal style="--d:0">
-            <a class="board__row" href="#biz-name" data-focus-name>
-              <span class="board__name">Domain names</span>
-              <span class="board__desc">Register .com, .org, .co.ug and .ug names, with 10% off every domain.</span>
-              <span class="board__fact">From <span class="price" data-usd="13">$13</span> a year</span>
-              <span class="board__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up"/></svg></span>
-              <span class="sr-only">. Try a name in the sign above.</span>
-            </a>
+        <ul class="services__grid" role="list">
+          <li class="services__item" data-reveal style="--d:0">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-globe"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="#biz-name" data-focus-name>Domain names<span class="sr-only">: search a name</span></a></h3>
+              <p class="service__desc">Register .com, .org, .co.ug and .ug names, with 10% off every domain.</p>
+              <p class="service__foot">
+                <span class="service__fact">From <span class="price" data-usd="11.7">$11.70</span> a year</span>
+                <span class="service__go" aria-hidden="true">Search a name <svg class="icon"><use href="#i-arrow-up"/></svg></span>
+              </p>
+            </article>
           </li>
-          <li class="board__item" data-reveal style="--d:1">
-            <a class="board__row" href="mailto:sales@logoswebsiteservices.com?subject=Website%20for%20my%20business">
-              <span class="board__name">Websites</span>
-              <span class="board__desc">A fast, modern website designed and built for your business, made for phones first.</span>
-              <span class="board__fact">Live in under 5 working days</span>
-              <span class="board__go" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
-              <span class="sr-only">. Email us about websites.</span>
-            </a>
+          <li class="services__item" data-reveal style="--d:1">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-server"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="mailto:sales@logoswebsiteservices.com?subject=Managed%20hosting">Managed hosting<span class="sr-only">: email us about hosting</span></a></h3>
+              <p class="service__desc">Secure, reliable hosting that we look after, so your site stays up and loads fast.</p>
+              <p class="service__foot">
+                <span class="service__fact">SSL included</span>
+                <span class="service__go" aria-hidden="true">Email us <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
           </li>
-          <li class="board__item" data-reveal style="--d:2">
-            <a class="board__row" href="mailto:sales@logoswebsiteservices.com?subject=Managed%20hosting">
-              <span class="board__name">Managed hosting</span>
-              <span class="board__desc">Secure, reliable hosting that we look after, so your site stays up and loads fast.</span>
-              <span class="board__fact">SSL included</span>
-              <span class="board__go" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
-              <span class="sr-only">. Email us about hosting.</span>
-            </a>
+          <li class="services__item" data-reveal style="--d:2">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-browser"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="mailto:sales@logoswebsiteservices.com?subject=Website%20for%20my%20business">Websites<span class="sr-only">: email us about websites</span></a></h3>
+              <p class="service__desc">A fast, modern website designed and built for your business, made for phones first.</p>
+              <p class="service__foot">
+                <span class="service__fact">Live in under 5 working days</span>
+                <span class="service__go" aria-hidden="true">Email us <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
           </li>
-          <li class="board__item" data-reveal style="--d:3">
-            <a class="board__row" href="mailto:sales@logoswebsiteservices.com?subject=Business%20email">
-              <span class="board__name">Business email</span>
-              <span class="board__desc">Addresses on your own domain, so customers know the message really comes from you.</span>
-              <span class="board__fact" data-email>hello@<wbr>joysbeautysalon<wbr>.co.ug</span>
-              <span class="board__go" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
-              <span class="sr-only">. Email us about business email.</span>
-            </a>
+          <li class="services__item" data-reveal style="--d:3">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="mailto:sales@logoswebsiteservices.com?subject=Business%20email">Business email<span class="sr-only">: email us about business email</span></a></h3>
+              <p class="service__desc">Addresses on your own domain, so customers know the message really comes from you.</p>
+              <p class="service__foot">
+                <span class="service__fact" data-email>hello@<wbr>yourbusiness<wbr>.co.ug</span>
+                <span class="service__go" aria-hidden="true">Email us <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
           </li>
-          <li class="board__item" data-reveal style="--d:4">
-            <a class="board__row" href="mailto:sales@logoswebsiteservices.com?subject=Logo%20design">
-              <span class="board__name">Logo design</span>
-              <span class="board__desc">A mark that reads as well on a painted signboard as it does on a phone screen.</span>
-              <span class="board__fact">For sign, print and screen</span>
-              <span class="board__go" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
-              <span class="sr-only">. Email us about logo design.</span>
-            </a>
+          <li class="services__item" data-reveal style="--d:4">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-shapes"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="mailto:sales@logoswebsiteservices.com?subject=Logo%20design">Logo design<span class="sr-only">: email us about logo design</span></a></h3>
+              <p class="service__desc">A logo that works on your shopfront, your receipts and a phone screen alike.</p>
+              <p class="service__foot">
+                <span class="service__fact">For print and screen</span>
+                <span class="service__go" aria-hidden="true">Email us <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
           </li>
-          <li class="board__item" data-reveal style="--d:5">
-            <a class="board__row" href="mailto:sales@logoswebsiteservices.com?subject=Digital%20marketing">
-              <span class="board__name">Digital marketing</span>
-              <span class="board__desc">Social media, search and traffic reports that show who is finding you, and how.</span>
-              <span class="board__fact">Social, search, analytics</span>
-              <span class="board__go" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
-              <span class="sr-only">. Email us about digital marketing.</span>
-            </a>
+          <li class="services__item" data-reveal style="--d:5">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="mailto:sales@logoswebsiteservices.com?subject=Digital%20marketing">Digital marketing<span class="sr-only">: email us about digital marketing</span></a></h3>
+              <p class="service__desc">Social media, search and traffic reports that show who is finding you, and how.</p>
+              <p class="service__foot">
+                <span class="service__fact">Social, search, analytics</span>
+                <span class="service__go" aria-hidden="true">Email us <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
           </li>
         </ul>
       </div>
     </section>
 
     <!-- ============ Packages ============ -->
-    <section class="section packages" id="packages" aria-labelledby="packages-title">
+    <section class="section section--alt packages" id="packages" aria-labelledby="packages-title">
       <div class="wrap">
         <div class="packages__top">
           <header class="section-head" data-reveal>
-            <p class="label">Packages</p>
             <h2 class="h2" id="packages-title">Pick a package, pay once a year.</h2>
             <p class="section-head__intro">Sign up online and get started straight away. Domain, hosting, design, SSL and 24/7 support come with every package.</p>
           </header>
@@ -293,14 +303,18 @@
         <ul class="plans" role="list">
           <li class="plans__item" data-reveal style="--d:0">
             <article class="plan" aria-labelledby="plan-startup">
-              <h3 class="plan__name" id="plan-startup">Startup</h3>
-              <p class="plan__for">A first website for a new business.</p>
-              <div class="plan__price">
-                <p class="plan__amount" data-fit data-fit-max="104" data-fit-min="60" data-fit-min-scale="0.55">
-                  <span class="price price--plan" data-fit-text data-usd="500" data-price-split><span class="price__cur">$</span>500</span>
-                </p>
-                <p class="plan__per">per year</p>
+              <div class="plan__head">
+                <h3 class="plan__name" id="plan-startup">Startup</h3>
+                <p class="plan__for">A first website for a new business.</p>
               </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="500" data-price-split><span class="price__cur">$</span>500</span>
+                <span class="plan__per">per year</span>
+              </p>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20Startup">
+                Choose Startup
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
               <ul class="plan__features" role="list">
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Secure domain</li>
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reliable hosting</li>
@@ -310,23 +324,24 @@
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Content creation</li>
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>24/7 support</li>
               </ul>
-              <a class="btn btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20Startup">
-                Choose Startup
-                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-              </a>
             </article>
           </li>
 
           <li class="plans__item" data-reveal style="--d:1">
-            <article class="plan" aria-labelledby="plan-sme">
-              <h3 class="plan__name" id="plan-sme">SME</h3>
-              <p class="plan__for">For an established business that wants to be found online.</p>
-              <div class="plan__price">
-                <p class="plan__amount" data-fit data-fit-max="104" data-fit-min="60" data-fit-min-scale="0.55">
-                  <span class="price price--plan" data-fit-text data-usd="1000" data-price-split><span class="price__cur">$</span>1,000</span>
-                </p>
-                <p class="plan__per">per year</p>
+            <article class="plan plan--popular" aria-labelledby="plan-sme plan-sme-badge">
+              <p class="badge plan__badge" id="plan-sme-badge">Popular</p>
+              <div class="plan__head">
+                <h3 class="plan__name" id="plan-sme">SME</h3>
+                <p class="plan__for">For an established business that wants to be found online.</p>
               </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="1000" data-price-split><span class="price__cur">$</span>1,000</span>
+                <span class="plan__per">per year</span>
+              </p>
+              <a class="btn btn--action btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20SME">
+                Choose SME
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
               <ul class="plan__features" role="list">
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Secure domain</li>
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reliable hosting</li>
@@ -336,23 +351,23 @@
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Content creation</li>
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>24/7 support</li>
               </ul>
-              <a class="btn btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20SME">
-                Choose SME
-                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-              </a>
             </article>
           </li>
 
           <li class="plans__item" data-reveal style="--d:2">
-            <article class="plan plan--shop enamel" aria-labelledby="plan-shop">
-              <h3 class="plan__name" id="plan-shop">Online Shop</h3>
-              <p class="plan__for">Sell your products online and take payments.</p>
-              <div class="plan__price">
-                <p class="plan__amount" data-fit data-fit-max="104" data-fit-min="60" data-fit-min-scale="0.55">
-                  <span class="price price--plan" data-fit-text data-usd="1500" data-price-split><span class="price__cur">$</span>1,500</span>
-                </p>
-                <p class="plan__per">per year</p>
+            <article class="plan" aria-labelledby="plan-shop">
+              <div class="plan__head">
+                <h3 class="plan__name" id="plan-shop">Online Shop</h3>
+                <p class="plan__for">Sell your products online and take payments.</p>
               </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="1500" data-price-split><span class="price__cur">$</span>1,500</span>
+                <span class="plan__per">per year</span>
+              </p>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20Online%20Shop">
+                Choose Online Shop
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
               <ul class="plan__features" role="list">
                 <li class="plan__extra"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Store inventory</li>
                 <li class="plan__extra"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Online payments</li>
@@ -364,10 +379,6 @@
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Content creation</li>
                 <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>24/7 support</li>
               </ul>
-              <a class="btn btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20Online%20Shop">
-                Choose Online Shop
-                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-              </a>
             </article>
           </li>
         </ul>
@@ -378,7 +389,6 @@
     <section class="section week" id="week" aria-labelledby="week-title">
       <div class="wrap">
         <header class="section-head section-head--wide" data-reveal>
-          <p class="label">A typical week</p>
           <h2 class="h2" id="week-title">From first call to live website in one working week.</h2>
         </header>
 
@@ -416,7 +426,7 @@
         </ol>
 
         <div class="assurance" data-reveal>
-          <p class="label">What you can count on</p>
+          <p class="assurance__label">What you can count on</p>
           <p class="assurance__text">
             Every site comes with <mark>an SSL certificate</mark> and hosting we manage for you.
             Our team answers <mark>24/7, weekends included</mark>.
@@ -428,34 +438,34 @@
     </section>
 
     <!-- ============ Final call to action ============ -->
-    <section class="section cta enamel" id="contact" aria-labelledby="cta-title">
-      <div class="wrap cta__inner">
-        <h2 class="cta__title" id="cta-title">
-          <span class="cta__pre">Let's put</span>
-          <span class="cta__domain" data-fit data-fit-max="118" data-fit-min="72" data-fit-min-scale="0.32">
-            <span class="cta__domain-text" data-fit-text><span data-slug>joysbeautysalon</span><span data-tld>.co.ug</span></span>
-          </span>
-          <span class="cta__post">online this week.</span>
-        </h2>
+    <section class="section contact" id="contact" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta on-blue" data-reveal>
+          <h2 class="cta__title" id="cta-title">
+            <span class="cta__pre">Let's put</span>
+            <span class="cta__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span>
+            <span class="cta__post">online this week.</span>
+          </h2>
 
-        <div class="cta__actions">
-          <a class="btn btn--lg" href="tel:+256709781426">
-            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
-            Call +256 709 781426
-          </a>
-          <a class="btn btn--lg btn--ghost" href="mailto:sales@logoswebsiteservices.com" data-cta-mail>
-            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
-            Email sales
-          </a>
+          <div class="cta__actions">
+            <a class="btn btn--action btn--lg" href="tel:+256709781426">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              Call +256 709 781426
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:sales@logoswebsiteservices.com" data-cta-mail>
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email sales
+            </a>
+          </div>
+          <p class="cta__note">Not your business name? <a href="#biz-name" data-focus-name>Change it in the search bar</a>.</p>
         </div>
-        <p class="cta__note">Not your business name? <a href="#biz-name" data-focus-name>Change it in the sign</a>.</p>
       </div>
     </section>
 
   </main>
 
   <!-- ============ Footer ============ -->
-  <footer class="site-footer ink">
+  <footer class="site-footer on-dark">
     <div class="wrap site-footer__grid">
       <div class="site-footer__brand">
         <a class="brand brand--lg" href="#top">
@@ -467,7 +477,7 @@
       </div>
 
       <div class="site-footer__col">
-        <h2 class="label">Talk to us</h2>
+        <h2 class="site-footer__title">Talk to us</h2>
         <ul class="site-footer__list" role="list">
           <li><a href="mailto:sales@logoswebsiteservices.com">sales@logoswebsiteservices.com</a></li>
           <li><a href="tel:+256709781426">+256 709 781426</a></li>
@@ -476,12 +486,12 @@
       </div>
 
       <nav class="site-footer__col" aria-label="Footer">
-        <h2 class="label">On this page</h2>
+        <h2 class="site-footer__title">On this page</h2>
         <ul class="site-footer__list" role="list">
           <li><a href="#services">Services</a></li>
           <li><a href="#packages">Packages</a></li>
           <li><a href="#week">How it works</a></li>
-          <li><a href="#biz-name" data-focus-name>Try a domain name</a></li>
+          <li><a href="#biz-name" data-focus-name>Search a domain</a></li>
         </ul>
       </nav>
     </div>
