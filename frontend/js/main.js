@@ -1,28 +1,36 @@
-/* Logos Cloud Edge — landing page behaviour.
-   Plain script (no modules) so the page also works when opened from disk. */
+/* Logos Cloud Edge — behaviour shared by every page.
+   Plain script (no modules) so the pages also work when opened from disk.
+   Each block below only runs if its elements exist on the page. */
 (function () {
   'use strict';
 
   var root = document.documentElement;
   var SALES_EMAIL = 'sales@logoswebsiteservices.com';
   var UGX_PER_USD = 3650; // indicative rate, shown to the visitor
-  var KEYS = { theme: 'logos-theme', currency: 'logos-currency' };
+  // theme and currency are preferences (kept); name and ending are what the
+  // visitor typed (kept for this tab only, so every page shows their business)
+  var KEYS = { theme: 'logos-theme', currency: 'logos-currency', name: 'logos-name', tld: 'logos-tld' };
   // Browser bar colour = header colour of each theme
   var THEME_COLORS = { light: '#0F172A', dark: '#0A101E' };
 
   // Domains: yearly list prices in US dollars, before the discount.
-  // The discount applies to every domain; every price shown is derived from here.
+  // The discount applies to every domain; every first-year price shown is derived from here.
   var DOMAIN_DISCOUNT = 0.10;
   var TLD_PRICES = { 'co.ug': 30, 'ug': 30, 'com': 13, 'org': 15 };
   var DEFAULT_SLUG = 'yourbusiness';
+  var DEFAULT_NAME = 'Your business';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  var store = {
-    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
-    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
-  };
+  function safeStore(area) {
+    return {
+      get: function (k) { try { return window[area].getItem(k); } catch (e) { return null; } },
+      set: function (k, v) { try { window[area].setItem(k, v); } catch (e) { /* private mode */ } }
+    };
+  }
+  var store = safeStore('localStorage');
+  var session = safeStore('sessionStorage');
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
@@ -57,7 +65,8 @@
   syncTheme();
 
   /* ---------------------------------------------------------------------
-     Header: shadow on scroll, mobile menu, current section
+     Header: shadow on scroll, mobile menu
+     The current page is marked in the HTML (aria-current="page").
      --------------------------------------------------------------------- */
   var header = $('[data-header]');
   var navToggle = $('[data-nav-toggle]');
@@ -88,29 +97,10 @@
         navToggle.focus();
       }
     });
-    var desktop = window.matchMedia('(min-width: 900px)');
+    // same breakpoint as the CSS: from 1024px the seven links sit in the bar
+    var desktop = window.matchMedia('(min-width: 1024px)');
     var closeOnDesktop = function (e) { if (e.matches) setNav(false); };
     if (desktop.addEventListener) desktop.addEventListener('change', closeOnDesktop);
-  }
-
-  if ('IntersectionObserver' in window && navList) {
-    var links = $$('a[href^="#"]', navList);
-    var byId = {};
-    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
-
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        links.forEach(function (a) { a.classList.remove('is-current'); });
-        var link = byId[entry.target.id];
-        if (link) link.classList.add('is-current');
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-
-    ['top', 'services', 'examples', 'packages', 'week', 'contact'].forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) spy.observe(el);
-    });
   }
 
   /* ---------------------------------------------------------------------
@@ -129,7 +119,7 @@
   }
 
   var currency = store.get(KEYS.currency) === 'UGX' ? 'UGX' : 'USD';
-  var currencyNote = $('[data-currency-note]');
+  var currencyNotes = $$('[data-currency-note]');
 
   function renderPrices() {
     root.setAttribute('data-currency', currency);
@@ -144,7 +134,7 @@
         el.textContent = p.cur + p.sep + p.num;
       }
     });
-    if (currencyNote) currencyNote.hidden = currency !== 'UGX';
+    currencyNotes.forEach(function (note) { note.hidden = currency !== 'UGX'; });
   }
 
   $$('input[name="currency"]').forEach(function (input) {
@@ -158,18 +148,32 @@
   });
 
   /* ---------------------------------------------------------------------
-     Domain search: business name + ending -> address, price, email
+     Your business name, on every page
+     Typed in the domain search (home, domains) or in the small name field
+     under each sample (websites, hosting, email, marketing). Whatever is
+     typed fills [data-name], [data-slug], [data-tld], [data-domain],
+     [data-email] and [data-initial] on the page, and follows the visitor
+     to the next page.
      --------------------------------------------------------------------- */
   var form = $('[data-search]');
   var field = $('[data-search-field]');
-  var nameInput = $('#biz-name');
+  var nameInput = $('#biz-name');          // the domain search field
+  var nameInputs = $$('[data-name-input]'); // every field that holds the name
   var tldSelect = $('[data-tld-select]');
   var endingBtns = $$('[data-ending]');
   var wasEl = $('[data-price-was]');
   var nowEl = $('[data-price-now]');
   var errorEl = $('[data-search-error]');
-  var ctaMail = $('[data-cta-mail]');
-  var tld = tldSelect && TLD_PRICES[tldSelect.value] ? tldSelect.value : 'co.ug';
+
+  var savedTld = session.get(KEYS.tld);
+  var tld = TLD_PRICES[savedTld] ? savedTld
+    : (tldSelect && TLD_PRICES[tldSelect.value] ? tldSelect.value : 'co.ug');
+  if (tldSelect) tldSelect.value = tld;
+
+  // The saved name wins over a value the browser may restore on "Back"
+  var bizName = session.get(KEYS.name);
+  if (bizName === null) bizName = nameInputs.length ? nameInputs[0].value : '';
+  nameInputs.forEach(function (input) { input.value = bizName; });
 
   function discounted(usd) {
     return Math.round(usd * (1 - DOMAIN_DISCOUNT) * 100) / 100;
@@ -186,7 +190,7 @@
   }
 
   function typedName() {
-    return nameInput ? nameInput.value.trim() : '';
+    return bizName.trim();
   }
 
   function currentDomain() {
@@ -195,12 +199,37 @@
     return { slug: safe, full: safe + '.' + tld, typed: slug !== '' };
   }
 
-  // Every ending's price comes from TLD_PRICES, so the HTML values are only a no-JS fallback
+  // Every domain price comes from TLD_PRICES, so the HTML values are only a no-JS fallback
   endingBtns.forEach(function (btn) {
     var list = TLD_PRICES[btn.getAttribute('data-ending')];
     var price = $('[data-usd]', btn);
     if (price && list) price.setAttribute('data-usd', String(discounted(list)));
   });
+  $$('[data-price-of]').forEach(function (el) {
+    var list = TLD_PRICES[el.getAttribute('data-price-of')];
+    if (list) el.setAttribute('data-usd', String(discounted(list)));
+  });
+  $$('[data-list-of]').forEach(function (el) {
+    var list = TLD_PRICES[el.getAttribute('data-list-of')];
+    if (list) el.setAttribute('data-usd', String(list));
+  });
+
+  function capitalise(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
+  // A pre-filled email to sales; the topic comes from data-mail-topic ("" on the home page)
+  function mailHref(topic) {
+    var domain = currentDomain();
+    var name = typedName();
+    var who = domain.typed ? name : 'my business';
+    var subject = (topic ? capitalise(topic) : 'Website') + ' for ' + who;
+    var ask = topic
+      ? 'I would like ' + topic + ' for ' + (domain.typed ? name + ' (' + domain.full + ')' : 'my business') + '.'
+      : 'I would like to put ' + (domain.typed ? domain.full : 'my business') + ' online.';
+    var body = 'Hello Logos team,\n\n' + ask + ' Please call me back about the next steps.\n\nThank you.';
+    return 'mailto:' + SALES_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
 
   function renderDomain() {
     var domain = currentDomain();
@@ -212,10 +241,14 @@
     $$('[data-slug]').forEach(function (el) { el.textContent = domain.slug; });
     $$('[data-tld]').forEach(function (el) { el.textContent = '.' + tld; });
     $$('[data-domain]').forEach(function (el) { el.textContent = domain.full; });
+    $$('[data-name]').forEach(function (el) { el.textContent = domain.typed ? name : DEFAULT_NAME; });
+    $$('[data-initial]').forEach(function (el) {
+      el.textContent = (domain.typed ? name : DEFAULT_NAME).charAt(0).toUpperCase();
+    });
     $$('[data-email]').forEach(function (el) {
       // let long addresses wrap after the @ and before the ending, not mid-word
       el.replaceChildren(
-        'hello@', document.createElement('wbr'),
+        (el.getAttribute('data-email') || 'hello') + '@', document.createElement('wbr'),
         domain.slug, document.createElement('wbr'),
         '.' + tld
       );
@@ -225,15 +258,9 @@
     if (nowEl) nowEl.setAttribute('data-usd', String(discounted(TLD_PRICES[tld])));
     renderPrices();
 
-    if (ctaMail) {
-      var subject = domain.typed ? 'Website for ' + name : 'Website for my business';
-      var body = domain.typed
-        ? 'Hello Logos team,\n\nI would like to put ' + domain.full + ' online. Please call me back about the next steps.\n\nThank you.'
-        : 'Hello Logos team,\n\nI would like to put my business online. Please call me back about the next steps.\n\nThank you.';
-      ctaMail.href = 'mailto:' + SALES_EMAIL +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-    }
+    $$('[data-mail-topic]').forEach(function (link) {
+      link.href = mailHref(link.getAttribute('data-mail-topic'));
+    });
   }
 
   function syncEndings() {
@@ -253,6 +280,7 @@
   function setTld(next) {
     if (!TLD_PRICES[next] || next === tld) return;
     tld = next;
+    session.set(KEYS.tld, tld);
     if (tldSelect && tldSelect.value !== next) tldSelect.value = next;
     syncEndings();
     renderDomain();
@@ -277,12 +305,15 @@
     if (field) field.classList.remove('is-invalid');
   }
 
-  if (nameInput) {
-    nameInput.addEventListener('input', function () {
-      clearError();
+  nameInputs.forEach(function (input) {
+    input.addEventListener('input', function () {
+      bizName = input.value;
+      session.set(KEYS.name, bizName);
+      nameInputs.forEach(function (other) { if (other !== input) other.value = bizName; });
+      if (input === nameInput) clearError();
       renderDomain();
     });
-  }
+  });
 
   if (tldSelect) {
     tldSelect.addEventListener('change', function () { setTld(tldSelect.value); });
@@ -321,14 +352,63 @@
     });
   }
 
-  // Links that send the visitor back to the search focus the name field
+  function focusField(input) {
+    input.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'center' });
+    input.focus({ preventScroll: true });
+    input.select();
+  }
+
+  // Links that send the visitor to a name field focus it.
+  // data-focus-name="" targets the domain search; a value names another field's id.
+  // If the field is not on this page, the link simply follows its href.
   $$('[data-focus-name]').forEach(function (link) {
     link.addEventListener('click', function (e) {
-      if (!nameInput) return;
+      var target = document.getElementById(link.getAttribute('data-focus-name') || 'biz-name');
+      if (!target) return;
       e.preventDefault();
-      nameInput.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'center' });
-      nameInput.focus({ preventScroll: true });
-      nameInput.select();
+      focusField(target);
+    });
+  });
+
+  // Domains page: a card's button picks its ending, then hands over to the search
+  $$('[data-pick-ending]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTld(btn.getAttribute('data-pick-ending'));
+      if (nameInput) focusField(nameInput);
+    });
+  });
+
+  // Arriving from another page on domains.html#biz-name: the field is ready to type in
+  if (nameInput && window.location.hash === '#biz-name') {
+    window.requestAnimationFrame(function () { nameInput.focus({ preventScroll: true }); });
+  }
+
+  /* ---------------------------------------------------------------------
+     Websites page: filter the sites we have built by sector
+     --------------------------------------------------------------------- */
+  var filterBtns = $$('[data-filter]');
+  var sectorItems = $$('[data-sector]');
+  var filterStatus = $('[data-filter-status]');
+
+  function applyFilter(sector, label) {
+    var shown = 0;
+    sectorItems.forEach(function (item) {
+      var match = sector === 'all' || item.getAttribute('data-sector') === sector;
+      item.hidden = !match;
+      if (match) shown += 1;
+    });
+    filterBtns.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-filter') === sector));
+    });
+    if (filterStatus) {
+      filterStatus.textContent = shown + (shown === 1 ? ' site' : ' sites') +
+        (sector === 'all' ? ', all sectors.' : ' in ' + label + '.');
+    }
+  }
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyFilter(btn.getAttribute('data-filter'), btn.textContent.trim());
     });
   });
 
@@ -348,7 +428,7 @@
   }
 
   /* ---------------------------------------------------------------------
-     Examples: depth on the sample sites
+     Sample sites: depth on the drawings (home examples, websites hero)
      A mouse or pen tilts the site under it; scrolling gives a slight
      parallax. Only custom properties are set here (--tx, --ty, --sy),
      the CSS turns them into angles. Touch screens keep the fixed lean.

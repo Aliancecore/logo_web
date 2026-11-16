@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business email on your own domain, and Microsoft 365 · Logos</title>
+  <meta name="description" content="Email addresses on your own domain, with spam and virus filters, Outlook, webmail and phone access, or Microsoft 365. Set up by Logos Cloud Edge, Kampala.">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A101E" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme set before first paint to avoid a flash -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      try {
+        var t = localStorage.getItem('logos-theme');
+        if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Self-hosted variable fonts (SIL OFL): no third-party request, works offline.
+       Both latin files are preloaded because the hero uses both faces. -->
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Icon sprite -->
+  <svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.6 0v2.5M12 14.5v2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l2 5-2.5 1.6a11 11 0 0 0 5.4 5.4l1.6-2.5 5 2V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 4.8 4.8L19.5 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.4A8.5 8.5 0 1 1 10.6 3.5a6.6 6.6 0 0 0 9.9 9.9Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <!-- Services -->
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="7" rx="2"/><rect x="3.5" y="13" width="17" height="7" rx="2"/><path d="M7.5 7.5h.01M7.5 16.5h.01M11.5 7.5h5M11.5 16.5h5"/></symbol>
+    <symbol id="i-browser" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 13h10M7 16.5h6"/></symbol>
+    <symbol id="i-shapes" viewBox="0 0 24 24"><circle cx="7.5" cy="7.5" r="4"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/><path d="M17 3.5 21 10h-8l4-6.5ZM3.5 20.5l4-7 4 7h-8Z"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17.5 9 11.5l4 4 8-8.5"/><path d="M15 7h6v6"/></symbol>
+    <!-- Reassurance -->
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.2c0 4.4 3 8.2 7 9.8 4-1.6 7-5.4 7-9.8V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+    <symbol id="i-support" viewBox="0 0 24 24"><path d="M4.5 15v-3a7.5 7.5 0 0 1 15 0v3"/><rect x="3" y="13.5" width="4.5" height="6.5" rx="1.6"/><rect x="16.5" y="13.5" width="4.5" height="6.5" rx="1.6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <!-- Inner pages -->
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></symbol>
+    <symbol id="i-transfer" viewBox="0 0 24 24"><path d="M4 8h15l-3.5-3.5M20 16H5l3.5 3.5"/></symbol>
+    <symbol id="i-backup" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4.5h-4.5"/><path d="M12 8.5V12l2.5 1.5"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></symbol>
+    <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.3-1.5M12 14.5v2"/></symbol>
+    <symbol id="i-move" viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3.5 10v4a1 1 0 0 0 1 1H7l7 4.5v-15L7 9H4.5a1 1 0 0 0-1 1Z"/><path d="M17.5 9a4 4 0 0 1 0 6"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z"/></symbol>
+    <!-- Mount Elgon at sunrise (sample site art, see the home page) -->
+    <symbol id="art-elgon" viewBox="0 0 400 160">
+      <circle cx="292" cy="62" r="27" fill="#7799F8" opacity=".14"/>
+      <circle cx="292" cy="62" r="17" fill="#E9EFFD"/>
+      <path fill="#1E40AF" d="M0 104c40-12 70-32 110-44 25-8 40-11 65-11l60-1c27 1 50 12 77 26 33 16 60 24 88 28v58H0Z"/>
+      <path fill="#1D4ED8" d="M0 122c55-18 105-20 160-10 50 9 90-14 140-16 45-2 75 8 100 14v50H0Z"/>
+      <path fill="#0F172A" d="M0 138c70-20 140-22 205-12 55 8 115-6 195-2v36H0Z"/>
+      <g fill="none" stroke="#7799F8" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0 7">
+        <path d="M-6 147c70-20 140-22 211-12 55 8 115-6 201-2"/>
+        <path d="M-6 156c70-20 140-22 211-12 55 8 115-6 201-2"/>
+        <path d="M150 121c45-4 90-16 140-18 40-2 70 6 110 12" opacity=".55"/>
+      </g>
+    </symbol>
+    <!-- Sample logo, Nakato Prints: a wax-print flower on a tile.
+         The tile takes currentColor, the flower --mark-2. -->
+    <symbol id="mark-nakato" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="12" fill="currentColor"/>
+      <g style="fill: var(--mark-2, #FFFFFF)">
+        <path d="M24 24A12 12 0 0 1 12 12A12 12 0 0 1 24 24Z"/>
+        <path d="M24 24A12 12 0 0 1 36 12A12 12 0 0 1 24 24Z"/>
+        <path d="M24 24A12 12 0 0 1 36 36A12 12 0 0 1 24 24Z"/>
+        <path d="M24 24A12 12 0 0 1 12 36A12 12 0 0 1 24 24Z"/>
+        <circle cx="24" cy="24" r="3.2"/>
+        <circle cx="24" cy="8.5" r="2.3"/>
+        <circle cx="39.5" cy="24" r="2.3"/>
+        <circle cx="24" cy="39.5" r="2.3"/>
+        <circle cx="8.5" cy="24" r="2.3"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header on-dark" data-header>
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">L</span>
+        <span class="brand__name">Logos</span>
+        <span class="sr-only">, home page</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul class="site-nav__list" id="nav-list" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="domains.html">Domains</a></li>
+          <li><a href="website-design.html">Websites</a></li>
+          <li><a href="hosting.html">Hosting</a></li>
+          <li><a href="email.html" aria-current="page">Email</a></li>
+          <li><a href="logo-design.html">Logo design</a></li>
+          <li><a href="digital-marketing.html">Marketing</a></li>
+          <li class="site-nav__call"><a href="tel:+256709781426">Call +256 709 781426</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="icon-btn theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+          <svg class="icon icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <span class="sr-only">Dark theme</span>
+        </button>
+        <a class="btn btn--ghost btn--small site-header__call" href="tel:+256709781426">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+          Call sales
+        </a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list" data-nav-toggle>
+          <svg class="icon icon--menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon--close" aria-hidden="true"><use href="#i-close"/></svg>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero page-hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap page-hero__grid">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Get a company email<span class="punct">,</span></span>
+          <span class="hero__line hero__accent">boost your credibility<span class="punct">.</span></span>
+        </h1>
+
+        <div class="page-hero__copy">
+          <p class="lead hero__lead">Customers trust an address on your own domain more than a free one. We set up the mailboxes, filter out spam and viruses, and get your email working in Outlook, in the browser and on your phone.</p>
+          <div class="hero__actions">
+            <a class="btn btn--action btn--lg" href="mailto:sales@logoswebsiteservices.com?subject=Business%20email" data-mail-topic="business email">
+              Ask for business email
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#options">Compare options</a>
+          </div>
+        </div>
+
+        <div class="page-hero__media">
+          <figure class="specimen">
+            <div class="mail" aria-hidden="true">
+              <div class="sheet mail__card mail__card--free">
+                <p class="tag tag--plain">Free address</p>
+                <div class="mail__from">
+                  <span class="mail__avatar" data-initial>Y</span>
+                  <span class="mail__name" data-name>Your business</span>
+                  <span class="mail__addr"><s><span data-slug>yourbusiness</span>256@gmail.com</s></span>
+                </div>
+              </div>
+              <div class="sheet mail__card mail__card--own">
+                <p class="tag">On your own domain</p>
+                <div class="mail__from">
+                  <span class="mail__avatar" data-initial>Y</span>
+                  <span class="mail__name" data-name>Your business</span>
+                  <span class="mail__time">09:14</span>
+                  <span class="mail__addr">hello@<span data-slug>yourbusiness</span><span class="blue-tld" data-tld>.co.ug</span></span>
+                </div>
+                <p class="mail__subject">Your quote for Saturday</p>
+                <p class="mail__body">Hello Mary, thank you for your message. Please find the quote attached: we can deliver on Saturday morning.</p>
+              </div>
+            </div>
+            <figcaption class="sr-only">The same message seen by a customer twice: once from a free Gmail address, once from hello at your own domain.</figcaption>
+          </figure>
+          <div class="namer">
+            <label class="namer__label" for="namer-input">See it with your business name</label>
+            <div class="search__field">
+              <svg class="icon search__icon" aria-hidden="true"><use href="#i-edit"/></svg>
+              <input class="search__input" id="namer-input" type="text" placeholder="e.g. Joy's Salon" maxlength="48" autocomplete="organization" spellcheck="false" data-name-input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Addresses ============ -->
+    <section class="section section--after-hero" id="addresses" aria-labelledby="addresses-title">
+      <div class="wrap split">
+        <div class="split__body" data-reveal>
+          <h2 class="h2" id="addresses-title">One domain, an address for every desk.</h2>
+          <p class="section-head__intro">Give each person or department its own address, all on your name. Messages arrive instantly, without the delays of overloaded free services.</p>
+          <ul class="addresses" role="list">
+            <li class="address">hello@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+            <li class="address">sales@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+            <li class="address">accounts@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+            <li class="address">support@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+          </ul>
+        </div>
+
+        <div class="split__body" data-reveal style="--d:1">
+          <h3 class="split__title">Works where you work</h3>
+          <ul class="trust" role="list">
+            <li class="trust__item">
+              <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+              <span><strong>Outlook</strong>, on your computer</span>
+            </li>
+            <li class="trust__item">
+              <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-browser"/></svg></span>
+              <span><strong>Webmail</strong>, in any browser</span>
+            </li>
+            <li class="trust__item">
+              <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span>
+              <span><strong>Your phone</strong>, Android or iPhone</span>
+            </li>
+          </ul>
+          <h3 class="split__title">Also included</h3>
+          <ul class="checklist checklist--cols" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Spam and virus filters</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Instant messaging</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Shared calendars</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Shared contacts</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>24/7 technical support</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Options ============ -->
+    <section class="section section--alt" id="options" aria-labelledby="options-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="options-title">Two ways to run your email.</h2>
+          <p class="section-head__intro">Business email for mail alone, or Microsoft 365 if your team also needs office apps. We set up either one.</p>
+        </header>
+
+        <ul class="plans plans--2" role="list">
+          <li class="plans__item" data-reveal style="--d:0">
+            <article class="plan" aria-labelledby="opt-mail">
+              <div class="plan__head">
+                <h3 class="plan__name" id="opt-mail">Business email</h3>
+                <p class="plan__for">Spam-free, instant email on your domain, at a price any team can afford.</p>
+              </div>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Business%20email%3A%20price">
+                Ask for a price
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Addresses on your domain</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Outlook, webmail and phone</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Spam and virus filters</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Instant messaging</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Shared calendars and contacts</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>24/7 support</span></li>
+              </ul>
+            </article>
+          </li>
+          <li class="plans__item" data-reveal style="--d:1">
+            <article class="plan" aria-labelledby="opt-365">
+              <div class="plan__head">
+                <h3 class="plan__name" id="opt-365">Microsoft 365</h3>
+                <p class="plan__for">Premium office apps with your email: create, communicate and work together from anywhere.</p>
+              </div>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Microsoft%20365%3A%20price">
+                Ask for a price
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Email on your domain, in Outlook</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Word, Excel and PowerPoint</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Teams for chat and meetings</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>OneDrive for your files</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Stronger protection against cyber attacks</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Work from any device</span></li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+
+        <p class="section-foot" data-reveal>The price depends on how many mailboxes you need. Tell us how many people need an address and we reply with a quote.</p>
+      </div>
+    </section>
+
+    <!-- ============ Questions ============ -->
+    <section class="section" id="questions" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="faq-title">Questions about email.</h2>
+          <p class="section-head__intro">Something else? Call us: we answer 24/7.</p>
+        </header>
+        <div class="faq__list" data-reveal style="--d:1">
+            <details class="faq__item">
+              <summary class="faq__q">Why not keep a free address?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>Anyone can open a free address, so customers cannot be sure a message really comes from you. An address on your domain proves it, and our filters keep spam and viruses out.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Will it work on my phone?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>Yes. Your mailbox works in Outlook, in any web browser and in the mail app on Android and iPhone. We help you set it up.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Do I need a website first?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>No. You need a domain: the part after the @. If you do not have one yet, <a href="domains.html">register it here</a>. The website can come later.</p></div>
+            </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Final call to action ============ -->
+    <section class="section contact" id="contact" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta on-blue" data-reveal>
+          <h2 class="cta__title" id="cta-title">
+            <span class="cta__pre">Let's set up</span>
+            <span class="cta__domain" style="--cta-extra: 12">hello@<span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span>
+            <span class="cta__post">this week.</span>
+          </h2>
+
+          <div class="cta__actions">
+            <a class="btn btn--action btn--lg" href="tel:+256709781426">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              Call +256 709 781426
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:sales@logoswebsiteservices.com" data-mail-topic="business email">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email sales
+            </a>
+          </div>
+          <p class="cta__note">Not your business name? <a href="#namer-input" data-focus-name="namer-input">Type it above</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer on-dark">
+    <div class="wrap site-footer__grid site-footer__grid--4">
+      <div class="site-footer__brand">
+        <a class="brand brand--lg" href="index.html">
+          <span class="brand__mark" aria-hidden="true">L</span>
+          <span class="brand__name">Logos</span>
+          <span class="sr-only">, home page</span>
+        </a>
+        <p class="site-footer__mission">Digitizing businesses, touching lives and transforming communities.</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h2 class="site-footer__title">Talk to us</h2>
+        <ul class="site-footer__list" role="list">
+          <li><a href="mailto:sales@logoswebsiteservices.com">sales@logoswebsiteservices.com</a></li>
+          <li><a href="tel:+256709781426">+256 709 781426</a></li>
+          <li><a href="tel:+256790001606">+256 790 001606</a></li>
+          <li>Kampala, Uganda</li>
+        </ul>
+      </div>
+
+      <nav class="site-footer__col" aria-label="Services">
+        <h2 class="site-footer__title">Services</h2>
+        <ul class="site-footer__list" role="list">
+          <li><a href="domains.html">Domain names</a></li>
+          <li><a href="website-design.html">Websites</a></li>
+          <li><a href="hosting.html">Managed hosting</a></li>
+          <li><a href="email.html" aria-current="page">Business email</a></li>
+          <li><a href="logo-design.html">Logo design</a></li>
+          <li><a href="digital-marketing.html">Digital marketing</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="Company">
+        <h2 class="site-footer__title">Company</h2>
+        <ul class="site-footer__list" role="list">
+          <li><a href="about.html">About us</a></li>
+          <li><a href="website-design.html#work">Our work</a></li>
+          <li><a href="index.html#packages">Yearly packages</a></li>
+          <li><a href="index.html#week">How it works</a></li>
+          <li><a href="domains.html#biz-name" data-focus-name>Search a domain</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="wrap site-footer__base">
+      <p>&copy; 2026 Logos Cloud Edge Limited</p>
+      <p>Prices in US dollars. Shilling amounts are estimates.</p>
+      <p>Photos of Kampala: <a href="https://unsplash.com/photos/a-view-of-a-city-from-a-tall-building-lii0uaz8Ieo">Keith Kasaija</a> and <a href="https://unsplash.com/photos/a-woman-sitting-on-a-chair-in-front-of-a-store-0eWk4klcGOY">Jonathan Ward</a> on Unsplash.</p>
+    </div>
+  </footer>
+</body>
+</html>
