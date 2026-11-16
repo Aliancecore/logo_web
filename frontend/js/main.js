@@ -419,9 +419,7 @@
     root.classList.add('reveal-on');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-in');
-        io.unobserve(entry.target);
+        entry.target.classList.toggle('is-in', entry.isIntersecting);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
     $$('[data-reveal]').forEach(function (el) { io.observe(el); });
