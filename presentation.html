@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Refonte du site Logos Cloud Edge — Présentation</title>
-<meta name="description" content="Présentation du projet de refonte du site Logos Cloud Edge Limited : contexte, réalisation, technologies et démonstration en ligne.">
+<title>Redesigning Logos Cloud Edge — Presentation</title>
+<meta name="description" content="Presentation of the Logos Cloud Edge Limited website redesign: context, delivery, technologies and a live demo link.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&family=Inter:wght@400;500;600&display=swap">
@@ -13,6 +13,7 @@
     --navy: #0F172A;
     --blue: #1D4ED8;
     --blue-deep: #1E40AF;
+    --blue-light: #7799F8;
     --orange: #F97316;
     --paper: #F8FAFC;
     --paper-soft: #CBD5E1;
@@ -24,21 +25,66 @@
 
   * { box-sizing: border-box; }
 
-  html, body {
-    margin: 0;
-    scroll-behavior: smooth;
-  }
+  html, body { margin: 0; scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', Arial, sans-serif;
     color: var(--ink);
     background: var(--paper);
+    overflow-x: hidden;
   }
 
-  html {
-    scroll-snap-type: y mandatory;
+  html { scroll-snap-type: y mandatory; }
+
+  /* ---------- Scroll progress bar ---------- */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--blue), var(--orange));
+    z-index: 20;
+    transition: width .1s linear;
   }
 
+  /* ---------- Language toggle ---------- */
+  .lang-toggle {
+    position: fixed;
+    top: clamp(1rem, 2vw, 1.5rem);
+    left: clamp(1rem, 2vw, 1.5rem);
+    z-index: 20;
+    display: flex;
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px;
+    gap: 2px;
+    backdrop-filter: blur(6px);
+  }
+
+  .lang-toggle button {
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-weight: 700;
+    font-size: .8rem;
+    letter-spacing: .03em;
+    border: none;
+    background: transparent;
+    color: var(--slate);
+    padding: .4rem .85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color .25s var(--ease), color .25s var(--ease);
+  }
+
+  .lang-toggle button.is-active {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  .slide.dark ~ .lang-toggle,
+  section.dark + .lang-toggle { }
+
+  /* ---------- Slides ---------- */
   section.slide {
     scroll-snap-align: start;
     min-height: 100vh;
@@ -47,12 +93,10 @@
     justify-content: center;
     padding: clamp(2rem, 6vw, 6rem);
     position: relative;
+    overflow: hidden;
   }
 
-  section.slide.dark {
-    background: var(--navy);
-    color: var(--paper-soft);
-  }
+  section.slide.dark { background: var(--navy); color: var(--paper-soft); }
 
   h1, h2, h3 {
     font-family: 'Plus Jakarta Sans', Arial, sans-serif;
@@ -72,9 +116,19 @@
     font-weight: 700;
     font-size: clamp(.85rem, 1vw, 1rem);
     margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
   }
 
   .dark .eyebrow { color: var(--orange); }
+
+  .live-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: inline-block;
+  }
 
   .lead {
     font-size: clamp(1.05rem, 1.6vw, 1.4rem);
@@ -111,6 +165,12 @@
     border-radius: 18px;
     padding: clamp(1.25rem, 2.5vw, 2rem);
     box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, .1);
   }
 
   .dark .card {
@@ -118,10 +178,9 @@
     border-color: rgba(255, 255, 255, .14);
   }
 
-  .card h3 {
-    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-    margin-bottom: .6rem;
-  }
+  .dark .card:hover { box-shadow: 0 16px 32px rgba(0, 0, 0, .35); }
+
+  .card h3 { font-size: clamp(1.1rem, 1.6vw, 1.35rem); margin-bottom: .6rem; }
 
   .card p {
     font-size: clamp(.95rem, 1.2vw, 1.05rem);
@@ -130,6 +189,15 @@
   }
 
   .dark .card p { color: var(--paper-soft); }
+
+  .stat-card .stat-number {
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: .4rem;
+  }
 
   .swatches {
     display: grid;
@@ -145,7 +213,10 @@
     align-items: flex-end;
     padding: 1.25rem;
     font-weight: 700;
+    transition: transform .3s var(--ease);
   }
+
+  .swatch:hover { transform: translateY(-6px) scale(1.02); }
 
   .swatch span {
     display: block;
@@ -169,7 +240,10 @@
     border-radius: 16px;
     padding: 1.5rem 1.25rem;
     text-align: center;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   }
+
+  .flow-box:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(15, 23, 42, .08); }
 
   .flow-box h3 { font-size: 1.05rem; margin-bottom: .5rem; }
   .flow-box p { font-size: .85rem; color: var(--slate); }
@@ -194,8 +268,10 @@
     gap: clamp(.75rem, 2vw, 2rem);
     padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
     border-bottom: 1px solid var(--line);
+    transition: transform .3s var(--ease);
   }
 
+  .tech-row:hover { transform: translateX(10px); }
   .tech-row:last-child { border-bottom: none; }
 
   .tech-row h3 { font-size: clamp(1.1rem, 1.8vw, 1.35rem); min-width: 14rem; }
@@ -212,6 +288,7 @@
     padding: 1rem 1.75rem;
     display: inline-block;
     text-decoration: none;
+    position: relative;
     transition: transform .25s var(--ease), background-color .25s var(--ease);
   }
 
@@ -223,7 +300,17 @@
 
   .center { text-align: center; align-items: center; }
 
-  /* Side dot navigation */
+  /* ---------- Reveal on scroll (replays both ways) ---------- */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s var(--ease), transform .7s var(--ease);
+    transition-delay: calc(var(--d, 0) * 80ms);
+  }
+
+  [data-reveal].is-in { opacity: 1; transform: none; }
+
+  /* ---------- Dot navigation ---------- */
   nav.dots {
     position: fixed;
     right: clamp(.75rem, 2vw, 1.75rem);
@@ -242,13 +329,49 @@
     background: var(--line);
     border: none;
     display: block;
+    transition: all .3s var(--ease);
   }
 
-  nav.dots a.is-active { background: var(--blue); width: 12px; height: 12px; }
+  nav.dots a.is-active {
+    background: var(--blue);
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 0 4px rgba(29, 78, 216, .18);
+  }
+
+  /* ---------- Floating ambient orbs (dark slides) ---------- */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: .35;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .orb { animation: drift 16s ease-in-out infinite; }
+    .orb--2 { animation-duration: 20s; animation-direction: reverse; }
+    .orb--3 { animation-duration: 24s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -30px) scale(1.12); }
+    }
+
+    .cta-link {
+      animation: pulse-glow 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, .25); }
+      50% { box-shadow: 0 0 0 14px rgba(249, 115, 22, 0); }
+    }
+  }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .cta-link { transition: none; }
+    .cta-link, .card, .swatch, .flow-box, .tech-row { transition: none; }
   }
 
   @media (max-width: 640px) {
@@ -258,185 +381,422 @@
 </head>
 <body>
 
-<nav class="dots" aria-label="Diapositives">
-  <a href="#cover" aria-label="Titre"></a>
-  <a href="#context" aria-label="Contexte"></a>
-  <a href="#overview" aria-label="Réalisation"></a>
-  <a href="#design" aria-label="Direction visuelle"></a>
-  <a href="#features" aria-label="Fonctionnalités"></a>
-  <a href="#architecture" aria-label="Architecture"></a>
-  <a href="#stack" aria-label="Technologies"></a>
-  <a href="#demo" aria-label="Démonstration"></a>
-  <a href="#thanks" aria-label="Merci"></a>
+<div class="progress" id="progress"></div>
+
+<div class="lang-toggle" role="group" aria-label="Language">
+  <button type="button" data-lang-btn="en">EN</button>
+  <button type="button" data-lang-btn="fr">FR</button>
+</div>
+
+<nav class="dots" aria-label="Slides">
+  <a href="#cover" data-i18n-label="nav-cover"></a>
+  <a href="#context" data-i18n-label="nav-context"></a>
+  <a href="#overview" data-i18n-label="nav-overview"></a>
+  <a href="#design" data-i18n-label="nav-design"></a>
+  <a href="#features" data-i18n-label="nav-features"></a>
+  <a href="#architecture" data-i18n-label="nav-architecture"></a>
+  <a href="#stack" data-i18n-label="nav-stack"></a>
+  <a href="#demo" data-i18n-label="nav-demo"></a>
+  <a href="#thanks" data-i18n-label="nav-thanks"></a>
 </nav>
 
 <section class="slide dark" id="cover">
-  <p class="eyebrow">Projet de stage · test technique</p>
-  <h1 class="title">Refonte du site<br><span class="accent">Logos Cloud Edge</span></h1>
-  <p class="lead">Redesign complet d’un site vitrine, demandé par l’entreprise pour évaluer mes compétences en développement front-end.</p>
+  <div class="orb orb--1" style="width:420px; height:420px; background:var(--blue); top:-120px; left:-100px;"></div>
+  <div class="orb orb--2" style="width:360px; height:360px; background:var(--orange); bottom:-140px; right:-80px;"></div>
+  <p class="eyebrow" data-i18n="cover-eyebrow"></p>
+  <h1 class="title" data-i18n="cover-title" data-reveal></h1>
+  <p class="lead" data-i18n="cover-lead" data-reveal style="--d:1"></p>
 </section>
 
 <section class="slide" id="context">
-  <h2 class="heading">Le contexte et l’objectif</h2>
+  <h2 class="heading" data-i18n="context-heading" data-reveal></h2>
   <div class="grid">
-    <div class="card">
-      <h3>La demande</h3>
-      <p>L’entreprise Logos Cloud Edge Limited (Kampala, Ouganda) m’a demandé de refaire le design de son site, pour tester mes compétences en développement front-end.</p>
+    <div class="card" data-reveal style="--d:0">
+      <h3 data-i18n="context-card1-title"></h3>
+      <p data-i18n="context-card1-body"></p>
     </div>
-    <div class="card">
-      <h3>L’objectif</h3>
-      <p>Proposer une identité visuelle plus moderne et plus engageante, tout en gardant l’ensemble des pages et fonctionnalités du site original.</p>
+    <div class="card" data-reveal style="--d:1">
+      <h3 data-i18n="context-card2-title"></h3>
+      <p data-i18n="context-card2-body"></p>
     </div>
   </div>
 </section>
 
 <section class="slide" id="overview">
-  <h2 class="heading">Ce qui a été fait</h2>
+  <h2 class="heading" data-i18n="overview-heading" data-reveal></h2>
   <div class="grid">
-    <div class="card">
-      <h3>8 pages refaites</h3>
-      <p>Accueil, domaines, sites web, hébergement, email, logo, marketing et à propos.</p>
+    <div class="card stat-card" data-reveal style="--d:0">
+      <p class="stat-number" data-count="8">0</p>
+      <h3 data-i18n="overview-card1-title"></h3>
+      <p data-i18n="overview-card1-body"></p>
     </div>
-    <div class="card">
-      <h3>Nouvelle identité visuelle</h3>
-      <p>Palette et mise en page repensées, validées par itérations successives.</p>
+    <div class="card" data-reveal style="--d:1">
+      <h3 data-i18n="overview-card2-title"></h3>
+      <p data-i18n="overview-card2-body"></p>
     </div>
-    <div class="card">
-      <h3>Entièrement responsive</h3>
-      <p>Optimisé du téléphone à l’écran large.</p>
+    <div class="card" data-reveal style="--d:2">
+      <h3 data-i18n="overview-card3-title"></h3>
+      <p data-i18n="overview-card3-body"></p>
     </div>
-    <div class="card">
-      <h3>Contenu réel</h3>
-      <p>Textes et tarifs repris du site d’origine : aucun contenu inventé.</p>
+    <div class="card" data-reveal style="--d:3">
+      <h3 data-i18n="overview-card4-title"></h3>
+      <p data-i18n="overview-card4-body"></p>
     </div>
   </div>
 </section>
 
 <section class="slide" id="design">
-  <h2 class="heading">Direction visuelle</h2>
-  <p class="lead">Palette « confiance + énergie » : un bleu sobre pour la confiance, une touche d’orange réservée aux actions.</p>
+  <h2 class="heading" data-i18n="design-heading" data-reveal></h2>
+  <p class="lead" data-i18n="design-lead1" data-reveal></p>
   <div class="swatches">
-    <div class="swatch" style="background:#1D4ED8; color:#F8FAFC;">Bleu<span>Confiance</span></div>
-    <div class="swatch" style="background:#0F172A; color:#F8FAFC;">Marine<span>Autorité</span></div>
-    <div class="swatch" style="background:#F97316; color:#0F172A;">Orange<span>Action</span></div>
-    <div class="swatch" style="background:#F8FAFC; color:#1E293B; border:1px solid var(--line);">Papier<span>Fond clair</span></div>
+    <div class="swatch" data-reveal style="--d:0; background:#1D4ED8; color:#F8FAFC;">Blue<span data-i18n="swatch-blue"></span></div>
+    <div class="swatch" data-reveal style="--d:1; background:#0F172A; color:#F8FAFC;">Navy<span data-i18n="swatch-navy"></span></div>
+    <div class="swatch" data-reveal style="--d:2; background:#F97316; color:#0F172A;">Orange<span data-i18n="swatch-orange"></span></div>
+    <div class="swatch" data-reveal style="--d:3; background:#F8FAFC; color:#1E293B; border:1px solid var(--line);">Paper<span data-i18n="swatch-paper"></span></div>
   </div>
-  <p class="lead">Et un peu de relief : effets 3D en CSS et illustrations pour montrer des exemples concrets de produits.</p>
+  <p class="lead" data-i18n="design-lead2" data-reveal style="--d:4"></p>
 </section>
 
 <section class="slide" id="features">
-  <h2 class="heading">Fonctionnalités clés</h2>
+  <h2 class="heading" data-i18n="features-heading" data-reveal></h2>
   <div class="grid">
-    <div class="card">
-      <h3>Simulateur de domaine</h3>
-      <p>Le visiteur tape le nom de son entreprise et voit son futur domaine et son prix en direct.</p>
+    <div class="card" data-reveal style="--d:0">
+      <h3 data-i18n="features-card1-title"></h3>
+      <p data-i18n="features-card1-body"></p>
     </div>
-    <div class="card">
-      <h3>Thème clair / sombre</h3>
-      <p>Mémorisé entre les visites.</p>
+    <div class="card" data-reveal style="--d:1">
+      <h3 data-i18n="features-card2-title"></h3>
+      <p data-i18n="features-card2-body"></p>
     </div>
-    <div class="card">
-      <h3>Deux devises</h3>
-      <p>Prix affichés en dollars ou en shillings ougandais.</p>
+    <div class="card" data-reveal style="--d:2">
+      <h3 data-i18n="features-card3-title"></h3>
+      <p data-i18n="features-card3-body"></p>
     </div>
-    <div class="card">
-      <h3>Animations 3D en CSS</h3>
-      <p>Sans bibliothèque externe : juste du CSS.</p>
+    <div class="card" data-reveal style="--d:3">
+      <h3 data-i18n="features-card4-title"></h3>
+      <p data-i18n="features-card4-body"></p>
     </div>
-    <div class="card">
-      <h3>Accessibilité</h3>
-      <p>Navigation au clavier, lecteurs d’écran, contrastes vérifiés.</p>
+    <div class="card" data-reveal style="--d:4">
+      <h3 data-i18n="features-card5-title"></h3>
+      <p data-i18n="features-card5-body"></p>
     </div>
   </div>
 </section>
 
 <section class="slide" id="architecture">
-  <h2 class="heading">Organisation du code</h2>
+  <h2 class="heading" data-i18n="architecture-heading" data-reveal></h2>
   <div class="flow">
-    <div class="flow-box">
-      <h3>Partie commune</h3>
-      <p>En-tête, pied de page, styles et scripts partagés par toutes les pages</p>
+    <div class="flow-box" data-reveal style="--d:0">
+      <h3 data-i18n="architecture-box1-title"></h3>
+      <p data-i18n="architecture-box1-body"></p>
     </div>
-    <p class="flow-arrow">→</p>
-    <div class="flow-box">
-      <h3>Une page, une section</h3>
-      <p>Chaque page est découpée en sections documentées</p>
+    <p class="flow-arrow" data-reveal style="--d:1">→</p>
+    <div class="flow-box" data-reveal style="--d:2">
+      <h3 data-i18n="architecture-box2-title"></h3>
+      <p data-i18n="architecture-box2-body"></p>
     </div>
-    <p class="flow-arrow">→</p>
-    <div class="flow-box">
-      <h3>Script d’assemblage</h3>
-      <p>Un script Python réunit tout avant la mise en ligne</p>
+    <p class="flow-arrow" data-reveal style="--d:3">→</p>
+    <div class="flow-box" data-reveal style="--d:4">
+      <h3 data-i18n="architecture-box3-title"></h3>
+      <p data-i18n="architecture-box3-body"></p>
     </div>
-    <p class="flow-arrow">→</p>
-    <div class="flow-box">
-      <h3>Site généré</h3>
-      <p>Les pages statiques finales, publiées sur GitHub Pages</p>
+    <p class="flow-arrow" data-reveal style="--d:5">→</p>
+    <div class="flow-box" data-reveal style="--d:6">
+      <h3 data-i18n="architecture-box4-title"></h3>
+      <p data-i18n="architecture-box4-body"></p>
     </div>
   </div>
-  <p class="lead">Chaque fichier explique son rôle, et chaque dossier a son propre guide.</p>
+  <p class="lead" data-i18n="architecture-lead" data-reveal style="--d:7"></p>
 </section>
 
 <section class="slide" id="stack">
-  <h2 class="heading">Technologies utilisées</h2>
+  <h2 class="heading" data-i18n="stack-heading" data-reveal></h2>
   <div class="tech-list">
-    <div class="tech-row">
-      <h3>HTML5 &amp; CSS3</h3>
-      <p>Structure et design : variables de couleur, effets 3D, mode sombre</p>
+    <div class="tech-row" data-reveal style="--d:0">
+      <h3 data-i18n="stack-row1-title"></h3>
+      <p data-i18n="stack-row1-body"></p>
     </div>
-    <div class="tech-row">
-      <h3>JavaScript</h3>
-      <p>Comportement du site, sans framework</p>
+    <div class="tech-row" data-reveal style="--d:1">
+      <h3 data-i18n="stack-row2-title"></h3>
+      <p data-i18n="stack-row2-body"></p>
     </div>
-    <div class="tech-row">
-      <h3>Python</h3>
-      <p>Script qui assemble les pages avant la mise en ligne</p>
+    <div class="tech-row" data-reveal style="--d:2">
+      <h3 data-i18n="stack-row3-title"></h3>
+      <p data-i18n="stack-row3-body"></p>
     </div>
-    <div class="tech-row">
-      <h3>Git &amp; GitHub</h3>
-      <p>Gestion de version et hébergement du code</p>
+    <div class="tech-row" data-reveal style="--d:3">
+      <h3 data-i18n="stack-row4-title"></h3>
+      <p data-i18n="stack-row4-body"></p>
     </div>
-    <div class="tech-row">
-      <h3>GitHub Actions &amp; Pages</h3>
-      <p>Construction et mise en ligne automatiques</p>
+    <div class="tech-row" data-reveal style="--d:4">
+      <h3 data-i18n="stack-row5-title"></h3>
+      <p data-i18n="stack-row5-body"></p>
     </div>
   </div>
 </section>
 
 <section class="slide dark center" id="demo">
-  <p class="eyebrow">Démonstration</p>
-  <h2 class="heading">Voir le site en ligne</h2>
-  <p style="margin-bottom:1.75rem;">
+  <div class="orb orb--3" style="width:460px; height:460px; background:var(--blue-light); top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+  <p class="eyebrow" style="justify-content:center;"><span class="live-dot"></span><span data-i18n="demo-eyebrow"></span></p>
+  <h2 class="heading" data-i18n="demo-heading" data-reveal></h2>
+  <p style="margin-bottom:1.75rem; --d:1;" data-reveal>
     <a class="cta-link" href="https://aliancecore.github.io/logo_web/" target="_blank" rel="noopener">aliancecore.github.io/logo_web</a>
   </p>
-  <p class="lead" style="margin:0 auto;">Cliquez sur le lien pour visiter toutes les pages du site.</p>
+  <p class="lead" style="margin:0 auto; --d:2;" data-i18n="demo-lead" data-reveal></p>
 </section>
 
 <section class="slide dark" id="thanks">
-  <h1 class="title" style="margin-bottom:1.25rem;">Merci</h1>
-  <p class="lead">Je reste disponible pour vos retours et vos questions.</p>
+  <h1 class="title" style="margin-bottom:1.25rem;" data-i18n="thanks-title" data-reveal></h1>
+  <p class="lead" data-i18n="thanks-lead" data-reveal style="--d:1"></p>
 </section>
 
 <script>
 (function () {
   'use strict';
+
+  var TRANSLATIONS = {
+    en: {
+      'cover-eyebrow': 'Internship project · technical test',
+      'cover-title': 'Redesigning<br><span class="accent">Logos Cloud Edge</span>',
+      'cover-lead': 'A full visual redesign of a business website, requested by the client to test my front-end development skills.',
+      'context-heading': 'Context and goal',
+      'context-card1-title': 'The request',
+      'context-card1-body': 'Logos Cloud Edge Limited (Kampala, Uganda) asked me to redesign their website, to test my front-end development skills.',
+      'context-card2-title': 'The goal',
+      'context-card2-body': 'Deliver a more modern, more engaging visual identity, while keeping every page and feature of the original site.',
+      'overview-heading': 'What was delivered',
+      'overview-card1-title': 'Pages rebuilt',
+      'overview-card1-body': 'Home, domains, website design, hosting, email, logo design, marketing and about.',
+      'overview-card2-title': 'A new visual identity',
+      'overview-card2-body': 'Palette and layout redesigned, refined over several iterations.',
+      'overview-card3-title': 'Fully responsive',
+      'overview-card3-body': 'Optimised from phone to wide screen.',
+      'overview-card4-title': 'Real content',
+      'overview-card4-body': 'Text and pricing taken from the original site — nothing invented.',
+      'design-heading': 'Visual direction',
+      'design-lead1': 'A “trust + energy” palette: a calm blue for trust, a touch of orange reserved for actions.',
+      'swatch-blue': 'Trust',
+      'swatch-navy': 'Authority',
+      'swatch-orange': 'Action',
+      'swatch-paper': 'Light background',
+      'design-lead2': 'Plus a bit of depth: CSS 3D effects and illustrations to show concrete product examples.',
+      'features-heading': 'Key features',
+      'features-card1-title': 'Domain name simulator',
+      'features-card1-body': 'Visitors type their business name and see their future domain and price live.',
+      'features-card2-title': 'Light / dark theme',
+      'features-card2-body': 'Remembered between visits.',
+      'features-card3-title': 'Two currencies',
+      'features-card3-body': 'Prices shown in US dollars or Ugandan shillings.',
+      'features-card4-title': 'CSS 3D animation',
+      'features-card4-body': 'No external library — just CSS.',
+      'features-card5-title': 'Accessibility',
+      'features-card5-body': 'Keyboard navigation, screen readers, checked contrast.',
+      'architecture-heading': 'Code organisation',
+      'architecture-box1-title': 'Shared base',
+      'architecture-box1-body': 'Header, footer, styles and scripts shared by every page',
+      'architecture-box2-title': 'One page, one section',
+      'architecture-box2-body': 'Each page is split into documented sections',
+      'architecture-box3-title': 'Build script',
+      'architecture-box3-body': 'A Python script assembles everything before deployment',
+      'architecture-box4-title': 'Generated site',
+      'architecture-box4-body': 'The final static pages, published on GitHub Pages',
+      'architecture-lead': 'Every file explains its role, and every folder has its own guide.',
+      'stack-heading': 'Technologies used',
+      'stack-row1-title': 'HTML5 &amp; CSS3',
+      'stack-row1-body': 'Structure and design: colour variables, 3D effects, dark mode',
+      'stack-row2-title': 'JavaScript',
+      'stack-row2-body': 'Site behaviour, no framework',
+      'stack-row3-title': 'Python',
+      'stack-row3-body': 'Script that assembles the pages before deployment',
+      'stack-row4-title': 'Git &amp; GitHub',
+      'stack-row4-body': 'Version control and code hosting',
+      'stack-row5-title': 'GitHub Actions &amp; Pages',
+      'stack-row5-body': 'Automatic build and deployment',
+      'demo-eyebrow': 'Live demo',
+      'demo-heading': 'See the live site',
+      'demo-lead': 'Click the link to visit every page of the site.',
+      'thanks-title': 'Thank you',
+      'thanks-lead': 'I’m happy to answer any questions or feedback.',
+      'nav-cover': 'Title', 'nav-context': 'Context', 'nav-overview': 'Delivery', 'nav-design': 'Visual direction',
+      'nav-features': 'Features', 'nav-architecture': 'Architecture', 'nav-stack': 'Technologies',
+      'nav-demo': 'Live demo', 'nav-thanks': 'Thanks',
+      'doc-title': 'Redesigning Logos Cloud Edge — Presentation'
+    },
+    fr: {
+      'cover-eyebrow': 'Projet de stage · test technique',
+      'cover-title': 'Refonte du site<br><span class="accent">Logos Cloud Edge</span>',
+      'cover-lead': 'Redesign complet d’un site vitrine, demandé par l’entreprise pour évaluer mes compétences en développement front-end.',
+      'context-heading': 'Le contexte et l’objectif',
+      'context-card1-title': 'La demande',
+      'context-card1-body': 'L’entreprise Logos Cloud Edge Limited (Kampala, Ouganda) m’a demandé de refaire le design de son site, pour tester mes compétences en développement front-end.',
+      'context-card2-title': 'L’objectif',
+      'context-card2-body': 'Proposer une identité visuelle plus moderne et plus engageante, tout en gardant l’ensemble des pages et fonctionnalités du site original.',
+      'overview-heading': 'Ce qui a été fait',
+      'overview-card1-title': 'Pages refaites',
+      'overview-card1-body': 'Accueil, domaines, sites web, hébergement, email, logo, marketing et à propos.',
+      'overview-card2-title': 'Nouvelle identité visuelle',
+      'overview-card2-body': 'Palette et mise en page repensées, validées par itérations successives.',
+      'overview-card3-title': 'Entièrement responsive',
+      'overview-card3-body': 'Optimisé du téléphone à l’écran large.',
+      'overview-card4-title': 'Contenu réel',
+      'overview-card4-body': 'Textes et tarifs repris du site d’origine : aucun contenu inventé.',
+      'design-heading': 'Direction visuelle',
+      'design-lead1': 'Palette « confiance + énergie » : un bleu sobre pour la confiance, une touche d’orange réservée aux actions.',
+      'swatch-blue': 'Confiance',
+      'swatch-navy': 'Autorité',
+      'swatch-orange': 'Action',
+      'swatch-paper': 'Fond clair',
+      'design-lead2': 'Et un peu de relief : effets 3D en CSS et illustrations pour montrer des exemples concrets de produits.',
+      'features-heading': 'Fonctionnalités clés',
+      'features-card1-title': 'Simulateur de domaine',
+      'features-card1-body': 'Le visiteur tape le nom de son entreprise et voit son futur domaine et son prix en direct.',
+      'features-card2-title': 'Thème clair / sombre',
+      'features-card2-body': 'Mémorisé entre les visites.',
+      'features-card3-title': 'Deux devises',
+      'features-card3-body': 'Prix affichés en dollars ou en shillings ougandais.',
+      'features-card4-title': 'Animations 3D en CSS',
+      'features-card4-body': 'Sans bibliothèque externe : juste du CSS.',
+      'features-card5-title': 'Accessibilité',
+      'features-card5-body': 'Navigation au clavier, lecteurs d’écran, contrastes vérifiés.',
+      'architecture-heading': 'Organisation du code',
+      'architecture-box1-title': 'Partie commune',
+      'architecture-box1-body': 'En-tête, pied de page, styles et scripts partagés par toutes les pages',
+      'architecture-box2-title': 'Une page, une section',
+      'architecture-box2-body': 'Chaque page est découpée en sections documentées',
+      'architecture-box3-title': 'Script d’assemblage',
+      'architecture-box3-body': 'Un script Python réunit tout avant la mise en ligne',
+      'architecture-box4-title': 'Site généré',
+      'architecture-box4-body': 'Les pages statiques finales, publiées sur GitHub Pages',
+      'architecture-lead': 'Chaque fichier explique son rôle, et chaque dossier a son propre guide.',
+      'stack-heading': 'Technologies utilisées',
+      'stack-row1-title': 'HTML5 &amp; CSS3',
+      'stack-row1-body': 'Structure et design : variables de couleur, effets 3D, mode sombre',
+      'stack-row2-title': 'JavaScript',
+      'stack-row2-body': 'Comportement du site, sans framework',
+      'stack-row3-title': 'Python',
+      'stack-row3-body': 'Script qui assemble les pages avant la mise en ligne',
+      'stack-row4-title': 'Git &amp; GitHub',
+      'stack-row4-body': 'Gestion de version et hébergement du code',
+      'stack-row5-title': 'GitHub Actions &amp; Pages',
+      'stack-row5-body': 'Construction et mise en ligne automatiques',
+      'demo-eyebrow': 'Démonstration',
+      'demo-heading': 'Voir le site en ligne',
+      'demo-lead': 'Cliquez sur le lien pour visiter toutes les pages du site.',
+      'thanks-title': 'Merci',
+      'thanks-lead': 'Je reste disponible pour vos retours et vos questions.',
+      'nav-cover': 'Titre', 'nav-context': 'Contexte', 'nav-overview': 'Réalisation', 'nav-design': 'Direction visuelle',
+      'nav-features': 'Fonctionnalités', 'nav-architecture': 'Architecture', 'nav-stack': 'Technologies',
+      'nav-demo': 'Démonstration', 'nav-thanks': 'Merci',
+      'doc-title': 'Refonte du site Logos Cloud Edge — Présentation'
+    }
+  };
+
+  var KEY = 'logos-pres-lang';
+  function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  var lang = safeGet(KEY) === 'fr' ? 'fr' : 'en';
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-lang-btn]'));
+
+  function applyLang(next) {
+    lang = next;
+    var dict = TRANSLATIONS[lang];
+    document.documentElement.lang = lang;
+    document.title = dict['doc-title'];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-label]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-label');
+      if (dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+    });
+    buttons.forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang-btn') === lang);
+    });
+    safeSet(KEY, lang);
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang-btn')); });
+  });
+
+  applyLang(lang);
+
+  /* ---------- Scroll reveal, replays in both directions ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('is-in', entry.isIntersecting);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  /* ---------- Count-up numbers ---------- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  var countedOnce = [];
+
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    if (reduceMotion.matches) { el.textContent = String(target); return; }
+    var start = performance.now();
+    var duration = 900;
+    function step(now) {
+      var p = Math.min(1, (now - start) / duration);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(eased * target));
+      if (p < 1) window.requestAnimationFrame(step);
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window && counters.length) {
+    var countIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && countedOnce.indexOf(entry.target) === -1) {
+          countedOnce.push(entry.target);
+          animateCount(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { countIo.observe(el); });
+  } else {
+    counters.forEach(function (el) { el.textContent = el.getAttribute('data-count'); });
+  }
+
+  /* ---------- Dot navigation + scroll progress ---------- */
   var dots = Array.prototype.slice.call(document.querySelectorAll('nav.dots a'));
   var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
-  if (!dots.length || !slides.length || !('IntersectionObserver' in window)) return;
-
   var byId = {};
   dots.forEach(function (dot) { byId[dot.getAttribute('href').slice(1)] = dot; });
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        dots.forEach(function (d) { d.classList.remove('is-active'); });
-        var dot = byId[entry.target.id];
-        if (dot) dot.classList.add('is-active');
-      }
-    });
-  }, { threshold: 0.6 });
+  if ('IntersectionObserver' in window && dots.length) {
+    var navIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          dots.forEach(function (d) { d.classList.remove('is-active'); });
+          var dot = byId[entry.target.id];
+          if (dot) dot.classList.add('is-active');
+        }
+      });
+    }, { threshold: 0.6 });
+    slides.forEach(function (slide) { navIo.observe(slide); });
+  }
 
-  slides.forEach(function (slide) { io.observe(slide); });
+  var progressEl = document.getElementById('progress');
+  function updateProgress() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progressEl.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
 })();
 </script>
 
