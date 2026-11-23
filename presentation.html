@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refonte du site Logos Cloud Edge — Présentation</title>
+<meta name="description" content="Présentation du projet de refonte du site Logos Cloud Edge Limited : contexte, réalisation, technologies et démonstration en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --navy: #0F172A;
+    --blue: #1D4ED8;
+    --blue-deep: #1E40AF;
+    --orange: #F97316;
+    --paper: #F8FAFC;
+    --paper-soft: #CBD5E1;
+    --ink: #1E293B;
+    --slate: #64748B;
+    --line: rgba(15, 23, 42, .12);
+    --ease: cubic-bezier(.2, .75, .25, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
+  section.slide {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 6vw, 6rem);
+    position: relative;
+  }
+
+  section.slide.dark {
+    background: var(--navy);
+    color: var(--paper-soft);
+  }
+
+  h1, h2, h3 {
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0;
+  }
+
+  .dark h1, .dark h2, .dark h3 { color: var(--paper); }
+
+  p { margin: 0; }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--blue);
+    font-weight: 700;
+    font-size: clamp(.85rem, 1vw, 1rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .dark .eyebrow { color: var(--orange); }
+
+  .lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+    line-height: 1.5;
+    color: var(--slate);
+    max-width: 44rem;
+  }
+
+  .dark .lead { color: var(--paper-soft); }
+
+  h1.title {
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    line-height: 1.08;
+    max-width: 50rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1.title .accent { color: var(--orange); }
+
+  h2.heading {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+  }
+
+  .dark .card {
+    background: rgba(255, 255, 255, .06);
+    border-color: rgba(255, 255, 255, .14);
+  }
+
+  .card h3 {
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    margin-bottom: .6rem;
+  }
+
+  .card p {
+    font-size: clamp(.95rem, 1.2vw, 1.05rem);
+    line-height: 1.5;
+    color: var(--slate);
+  }
+
+  .dark .card p { color: var(--paper-soft); }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+    margin: clamp(2rem, 4vw, 3rem) 0;
+  }
+
+  .swatch {
+    height: clamp(120px, 16vw, 180px);
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.25rem;
+    font-weight: 700;
+  }
+
+  .swatch span {
+    display: block;
+    font-weight: 400;
+    font-size: .85em;
+    opacity: .85;
+  }
+
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: clamp(.75rem, 2vw, 1.5rem);
+    flex-wrap: wrap;
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0;
+  }
+
+  .flow-box {
+    flex: 1 1 200px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+
+  .flow-box h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+  .flow-box p { font-size: .85rem; color: var(--slate); }
+
+  .flow-arrow {
+    font-size: 1.75rem;
+    color: var(--blue);
+    font-weight: 700;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    max-width: 48rem;
+  }
+
+  .tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: clamp(.75rem, 2vw, 2rem);
+    padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tech-row:last-child { border-bottom: none; }
+
+  .tech-row h3 { font-size: clamp(1.1rem, 1.8vw, 1.35rem); min-width: 14rem; }
+  .tech-row p { font-size: clamp(.9rem, 1.2vw, 1.05rem); color: var(--slate); }
+
+  .cta-link {
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 3.2vw, 2.4rem);
+    color: var(--orange);
+    background: rgba(249, 115, 22, .14);
+    border: 2px solid var(--orange);
+    border-radius: 16px;
+    padding: 1rem 1.75rem;
+    display: inline-block;
+    text-decoration: none;
+    transition: transform .25s var(--ease), background-color .25s var(--ease);
+  }
+
+  .cta-link:hover,
+  .cta-link:focus-visible {
+    background: rgba(249, 115, 22, .24);
+    transform: translateY(-2px);
+  }
+
+  .center { text-align: center; align-items: center; }
+
+  /* Side dot navigation */
+  nav.dots {
+    position: fixed;
+    right: clamp(.75rem, 2vw, 1.75rem);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    z-index: 10;
+  }
+
+  nav.dots a {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--line);
+    border: none;
+    display: block;
+  }
+
+  nav.dots a.is-active { background: var(--blue); width: 12px; height: 12px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cta-link { transition: none; }
+  }
+
+  @media (max-width: 640px) {
+    nav.dots { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="dots" aria-label="Diapositives">
+  <a href="#cover" aria-label="Titre"></a>
+  <a href="#context" aria-label="Contexte"></a>
+  <a href="#overview" aria-label="Réalisation"></a>
+  <a href="#design" aria-label="Direction visuelle"></a>
+  <a href="#features" aria-label="Fonctionnalités"></a>
+  <a href="#architecture" aria-label="Architecture"></a>
+  <a href="#stack" aria-label="Technologies"></a>
+  <a href="#demo" aria-label="Démonstration"></a>
+  <a href="#thanks" aria-label="Merci"></a>
+</nav>
+
+<section class="slide dark" id="cover">
+  <p class="eyebrow">Projet de stage · test technique</p>
+  <h1 class="title">Refonte du site<br><span class="accent">Logos Cloud Edge</span></h1>
+  <p class="lead">Redesign complet d’un site vitrine, demandé par l’entreprise pour évaluer mes compétences en développement front-end.</p>
+</section>
+
+<section class="slide" id="context">
+  <h2 class="heading">Le contexte et l’objectif</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>La demande</h3>
+      <p>L’entreprise Logos Cloud Edge Limited (Kampala, Ouganda) m’a demandé de refaire le design de son site, pour tester mes compétences en développement front-end.</p>
+    </div>
+    <div class="card">
+      <h3>L’objectif</h3>
+      <p>Proposer une identité visuelle plus moderne et plus engageante, tout en gardant l’ensemble des pages et fonctionnalités du site original.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="overview">
+  <h2 class="heading">Ce qui a été fait</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>8 pages refaites</h3>
+      <p>Accueil, domaines, sites web, hébergement, email, logo, marketing et à propos.</p>
+    </div>
+    <div class="card">
+      <h3>Nouvelle identité visuelle</h3>
+      <p>Palette et mise en page repensées, validées par itérations successives.</p>
+    </div>
+    <div class="card">
+      <h3>Entièrement responsive</h3>
+      <p>Optimisé du téléphone à l’écran large.</p>
+    </div>
+    <div class="card">
+      <h3>Contenu réel</h3>
+      <p>Textes et tarifs repris du site d’origine : aucun contenu inventé.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="design">
+  <h2 class="heading">Direction visuelle</h2>
+  <p class="lead">Palette « confiance + énergie » : un bleu sobre pour la confiance, une touche d’orange réservée aux actions.</p>
+  <div class="swatches">
+    <div class="swatch" style="background:#1D4ED8; color:#F8FAFC;">Bleu<span>Confiance</span></div>
+    <div class="swatch" style="background:#0F172A; color:#F8FAFC;">Marine<span>Autorité</span></div>
+    <div class="swatch" style="background:#F97316; color:#0F172A;">Orange<span>Action</span></div>
+    <div class="swatch" style="background:#F8FAFC; color:#1E293B; border:1px solid var(--line);">Papier<span>Fond clair</span></div>
+  </div>
+  <p class="lead">Et un peu de relief : effets 3D en CSS et illustrations pour montrer des exemples concrets de produits.</p>
+</section>
+
+<section class="slide" id="features">
+  <h2 class="heading">Fonctionnalités clés</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Simulateur de domaine</h3>
+      <p>Le visiteur tape le nom de son entreprise et voit son futur domaine et son prix en direct.</p>
+    </div>
+    <div class="card">
+      <h3>Thème clair / sombre</h3>
+      <p>Mémorisé entre les visites.</p>
+    </div>
+    <div class="card">
+      <h3>Deux devises</h3>
+      <p>Prix affichés en dollars ou en shillings ougandais.</p>
+    </div>
+    <div class="card">
+      <h3>Animations 3D en CSS</h3>
+      <p>Sans bibliothèque externe : juste du CSS.</p>
+    </div>
+    <div class="card">
+      <h3>Accessibilité</h3>
+      <p>Navigation au clavier, lecteurs d’écran, contrastes vérifiés.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="architecture">
+  <h2 class="heading">Organisation du code</h2>
+  <div class="flow">
+    <div class="flow-box">
+      <h3>Partie commune</h3>
+      <p>En-tête, pied de page, styles et scripts partagés par toutes les pages</p>
+    </div>
+    <p class="flow-arrow">→</p>
+    <div class="flow-box">
+      <h3>Une page, une section</h3>
+      <p>Chaque page est découpée en sections documentées</p>
+    </div>
+    <p class="flow-arrow">→</p>
+    <div class="flow-box">
+      <h3>Script d’assemblage</h3>
+      <p>Un script Python réunit tout avant la mise en ligne</p>
+    </div>
+    <p class="flow-arrow">→</p>
+    <div class="flow-box">
+      <h3>Site généré</h3>
+      <p>Les pages statiques finales, publiées sur GitHub Pages</p>
+    </div>
+  </div>
+  <p class="lead">Chaque fichier explique son rôle, et chaque dossier a son propre guide.</p>
+</section>
+
+<section class="slide" id="stack">
+  <h2 class="heading">Technologies utilisées</h2>
+  <div class="tech-list">
+    <div class="tech-row">
+      <h3>HTML5 &amp; CSS3</h3>
+      <p>Structure et design : variables de couleur, effets 3D, mode sombre</p>
+    </div>
+    <div class="tech-row">
+      <h3>JavaScript</h3>
+      <p>Comportement du site, sans framework</p>
+    </div>
+    <div class="tech-row">
+      <h3>Python</h3>
+      <p>Script qui assemble les pages avant la mise en ligne</p>
+    </div>
+    <div class="tech-row">
+      <h3>Git &amp; GitHub</h3>
+      <p>Gestion de version et hébergement du code</p>
+    </div>
+    <div class="tech-row">
+      <h3>GitHub Actions &amp; Pages</h3>
+      <p>Construction et mise en ligne automatiques</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark center" id="demo">
+  <p class="eyebrow">Démonstration</p>
+  <h2 class="heading">Voir le site en ligne</h2>
+  <p style="margin-bottom:1.75rem;">
+    <a class="cta-link" href="https://aliancecore.github.io/logo_web/" target="_blank" rel="noopener">aliancecore.github.io/logo_web</a>
+  </p>
+  <p class="lead" style="margin:0 auto;">Cliquez sur le lien pour visiter toutes les pages du site.</p>
+</section>
+
+<section class="slide dark" id="thanks">
+  <h1 class="title" style="margin-bottom:1.25rem;">Merci</h1>
+  <p class="lead">Je reste disponible pour vos retours et vos questions.</p>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var dots = Array.prototype.slice.call(document.querySelectorAll('nav.dots a'));
+  var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+  if (!dots.length || !slides.length || !('IntersectionObserver' in window)) return;
+
+  var byId = {};
+  dots.forEach(function (dot) { byId[dot.getAttribute('href').slice(1)] = dot; });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        dots.forEach(function (d) { d.classList.remove('is-active'); });
+        var dot = byId[entry.target.id];
+        if (dot) dot.classList.add('is-active');
+      }
+    });
+  }, { threshold: 0.6 });
+
+  slides.forEach(function (slide) { io.observe(slide); });
+})();
+</script>
+
+</body>
+</html>

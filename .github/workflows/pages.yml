@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "frontend/**"
+      - "presentation.html"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -28,6 +29,8 @@ jobs:
       - uses: actions/configure-pages@v5
       - name: Build static pages from frontend/shared + frontend/<page>
         run: python3 frontend/build/assemble.py
+      - name: Add the stage presentation page (not part of the site build)
+        run: cp presentation.html frontend/public/presentation.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./frontend/public
