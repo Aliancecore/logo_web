@@ -1,0 +1,30 @@
+<!--
+  faq.html — "Questions about email": 3 <details>-based questions and
+  answers, one linking back to domains.html for visitors who have no
+  domain yet.
+  Needs: shared/styles/faq.css (.faq/.faq__list/.faq__item/.faq__q/.faq__a),
+  shared/styles/typography.css (.h2, .section-head/.section-head__intro).
+-->
+    <!-- ============ Questions ============ -->
+    <section class="section" id="questions" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="faq-title">Questions about email.</h2>
+          <p class="section-head__intro">Something else? Call us: we answer 24/7.</p>
+        </header>
+        <div class="faq__list" data-reveal style="--d:1">
+            <details class="faq__item">
+              <summary class="faq__q">Why not keep a free address?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>Anyone can open a free address, so customers cannot be sure a message really comes from you. An address on your domain proves it, and our filters keep spam and viruses out.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Will it work on my phone?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>Yes. Your mailbox works in Outlook, in any web browser and in the mail app on Android and iPhone. We help you set it up.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Do I need a website first?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>No. You need a domain: the part after the @. If you do not have one yet, <a href="domains.html">register it here</a>. The website can come later.</p></div>
+            </details>
+        </div>
+      </div>
+    </section>

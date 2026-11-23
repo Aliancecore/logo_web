@@ -1,0 +1,62 @@
+<!--
+  whats-looked-after.html — "What we look after, so you don't have to":
+  the 6-card grid of included care (support, SSL, backups, migration,
+  yearly billing, no lock-in). Non-linking cards (nothing to click
+  through to), unlike home's services grid.
+  Needs: shared/styles/services.css (card grid) + shared/styles/info-cards.css
+  (.service--info: no hover lift, since these cards don't link anywhere).
+-->
+    <!-- ============ What we look after ============ -->
+    <section class="section section--after-hero" id="care" aria-labelledby="care-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="care-title">What we look after, so you don’t have to.</h2>
+          <p class="section-head__intro">Every plan gets the same care. Only the cloud underneath changes.</p>
+        </header>
+
+        <ul class="services__grid" role="list">
+          <li class="services__item" data-reveal style="--d:0">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-support"/></svg></span>
+              <h3 class="service__name">24/7/365 support</h3>
+              <p class="service__desc">From small edits and updates to urgent technical help, after the sale and at any hour.</p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:1">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-lock"/></svg></span>
+              <h3 class="service__name">Free SSL certificate</h3>
+              <p class="service__desc">The padlock in the address bar, installed for you and renewed on time.</p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:2">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-backup"/></svg></span>
+              <h3 class="service__name">Automatic backups</h3>
+              <p class="service__desc">Copies of your site are made on a schedule, so a mistake can be undone.</p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:3">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-move"/></svg></span>
+              <h3 class="service__name">Free migration</h3>
+              <p class="service__desc">We move your first website from your old host at no cost, and show you around.</p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:4">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-card"/></svg></span>
+              <h3 class="service__name">Pay once a year</h3>
+              <p class="service__desc">One payment a year covers hosting, maintenance, support and training.</p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:5">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-unlock"/></svg></span>
+              <h3 class="service__name">No lock-in</h3>
+              <p class="service__desc">No contract to sign, and as many applications as you need on any plan.</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>

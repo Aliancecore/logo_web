@@ -1,0 +1,273 @@
+/* packages.css — the yearly pricing-plan cards (.packages__top, .currency
+   toggle, .plans, .plan and children). Shared: used by home, domains.html,
+   hosting.html, email.html, logo-design.html and website-design.html
+   (verified) -- classified "home-only" in the original zone split; promoted
+   here after verification. There is no page-specific residue: unlike
+   .services, no ".packages { --section-pad-top }" rule exists anywhere in
+   the original stylesheet, so no home/styles/packages.css was created.
+
+   - [data-currency] (on :root, set by shared/scripts/pricing-currency.js):
+     switches .plan__amount / .price__cur to the tighter Shillings sizing.
+   - .checklist: the same ticked list as .plan__features, usable outside a
+     plan card (e.g. a page's own feature list).
+   - digital-marketing.html reuses .plan/.plan__head/.plan__name standalone
+     (its "Priced after a short call" quote-request card, not part of a
+     .plans grid) and .checklist twice (inside that card, and inside each
+     .service--info card in its services section) -- confirmed by reading
+     digital-marketing.html; no new CSS needed for either, exactly as this
+     file's own ".checklist: the same ticked list ... outside a plan card"
+     note above anticipates. */
+
+.packages__top {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .packages__top {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.currency {
+  display: grid;
+  justify-items: start;
+  gap: .6rem;
+}
+
+@media (min-width: 900px) {
+  .currency {
+    justify-items: end;
+    text-align: right;
+  }
+}
+
+.currency__legend {
+  float: left; /* lets the legend sit inside the grid like a normal item */
+  width: 100%;
+  margin-bottom: .6rem;
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.currency__options {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background-color: var(--surface);
+}
+
+.currency__options label {
+  position: relative;
+}
+
+.currency__options input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.currency__options span {
+  display: block;
+  padding: .65rem 1.05rem;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: .9375rem;
+  font-weight: 600;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.currency__options label:hover span {
+  color: var(--heading);
+}
+
+.currency__options input:checked + span {
+  background-color: var(--blue);
+  color: var(--on-blue);
+}
+
+.currency__options input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.currency__note {
+  max-width: 22rem;
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.plans {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+}
+
+@media (min-width: 900px) {
+  .plans {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+}
+
+.plans__item {
+  display: grid;
+}
+
+.plan {
+  --plan-pad: clamp(1.5rem, 1.1rem + 1.2vw, 2rem);
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: var(--plan-pad);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.plan--popular {
+  border: 2px solid var(--blue);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Tablets: one plan per row, so the card lays out sideways
+   (name, price and button on the left, what is included on the right) */
+@media (min-width: 640px) and (max-width: 899.98px) {
+  .plan {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(1.5rem, 4vw, 2.5rem);
+    align-items: start;
+  }
+
+  .plan__features {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+}
+
+@media (min-width: 900px) {
+  /* The popular plan stands a little taller than its neighbours */
+  .plan--popular {
+    margin-block: -.9rem;
+    padding-block: calc(var(--plan-pad) + .9rem);
+  }
+}
+
+.plan__badge {
+  position: absolute;
+  top: 0;
+  left: calc(var(--plan-pad) - 2px);
+  transform: translateY(-50%);
+}
+
+.plan__head {
+  display: grid;
+  gap: .4rem;
+}
+
+.plan__name {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.plan__for {
+  color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .plan__for {
+    min-height: 3.2em; /* aligns the three prices */
+  }
+}
+
+.plan__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .1rem .6rem;
+  padding-block: 1.1rem;
+  border-block: 1px solid var(--line);
+}
+
+.plan__amount {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 16cqi, 3.25rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.035em;
+  white-space: nowrap;
+}
+
+[data-currency="UGX"] .plan__amount {
+  font-size: clamp(1.625rem, 11.5cqi, 2.5rem);
+}
+
+.price__cur {
+  display: inline-block;
+  margin-right: .06em;
+  font-size: .52em;
+  letter-spacing: 0;
+  vertical-align: .6em;
+}
+
+[data-currency="UGX"] .price__cur {
+  margin-right: .25em;
+  font-size: .4em;
+  vertical-align: .8em;
+}
+
+.plan__per {
+  color: var(--muted);
+  font-size: .9375rem;
+}
+
+/* .checklist: the same ticked list, outside a plan card */
+.plan__features,
+.checklist {
+  display: grid;
+  gap: .6rem;
+}
+
+.plan__features li,
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+}
+
+.plan__features .icon,
+.checklist .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: .22em;
+  color: var(--blue);
+  stroke-width: 2.4;
+}
+
+.plan__extra {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.plan__extra .icon {
+  stroke-width: 2.8;
+}

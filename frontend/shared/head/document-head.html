@@ -1,0 +1,53 @@
+<!--
+  document-head.html — shared <head> template, used by every page's manifest.
+
+  NOTE ON THIS COMMENT: the five placeholder tokens this file uses (each
+  written below as PAGE_ followed by a word, wrapped in double curly
+  braces) are deliberately NOT spelled out literally anywhere in this
+  comment block — build/assemble.py's substitution is a plain, global
+  string replace over the whole file, so writing a placeholder's exact
+  text here would get it replaced too, garbling this explanation. See the
+  five live placeholders further down in the actual markup instead.
+
+  build/assemble.py fills the PAGE_TITLE and PAGE_DESCRIPTION placeholders
+  from that page's page.manifest.json ("title", "description"), the
+  PAGE_SLUG placeholder with the manifest's "slug", and the PAGE_CSS /
+  PAGE_JS placeholders with the generated stylesheet/script path
+  (public/css/<slug>.css, public/js/<slug>.js).
+
+  PAGE_SLUG is reserved for a future <link rel="canonical"> / og:url (see
+  the commented-out example below) but is not emitted live today: the
+  original site has no canonical/og tags, and this refactor must not add
+  new functionality, only reorganise what already exists.
+
+  The inline theme script (anti-flash-of-wrong-theme) and the font preloads
+  are copied verbatim from the current index.html <head> — identical on
+  every page, so they are not read from shared/scripts/theme-toggle.js (that
+  file only handles the toggle button, not this before-first-paint step).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PAGE_TITLE}}</title>
+<meta name="description" content="{{PAGE_DESCRIPTION}}">
+<meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A101E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<!-- <link rel="canonical" href="https://example.org/{{PAGE_SLUG}}.html"> -->
+
+<!-- Theme set before first paint to avoid a flash -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    try {
+      var t = localStorage.getItem('logos-theme');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+
+<!-- Self-hosted variable fonts (SIL OFL): no third-party request, works offline.
+     Both latin files are preloaded because the hero uses both faces. -->
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{PAGE_CSS}}">
+<script src="{{PAGE_JS}}" defer></script>

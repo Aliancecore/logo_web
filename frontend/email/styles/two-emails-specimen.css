@@ -1,0 +1,130 @@
+/* two-emails-specimen.css — the hero mockup: the same message seen twice,
+   once from a free Gmail-style address (behind, dimmed) and once from an
+   address on the visitor's own domain (in front, highlighted). Verified
+   page-specific: no other of the 8 original pages uses any ".mail__*"
+   class (grep across every *.html confirms "mail__" appears only in
+   email.html). The card chrome itself (.sheet, .tag/.tag--plain) is the
+   shared shared/styles/specimen-shell.css wrapper, loaded before this
+   file; this file only draws what is specific to the "two emails" content.
+
+   - .mail: the vertical stack of the two message cards.
+   - .mail__card: shared padding/gap for both cards.
+   - .mail__card--free: the free address, sits a step back and dimmed
+     (negative margin so it peeks out from behind the card in front).
+   - .mail__card--own: the domain address, in front; its entrance animation
+     (.mail__card--own { animation: card-in ... }) lives in
+     shared/styles/inner-motion.css, since that file already collects every
+     inner-page specimen's on-load animation.
+   - .mail__from: the sender row (avatar, name, optional time), a 3-column
+     grid so the time can sit top-right without disturbing the name/address
+     below it.
+   - .mail__avatar: the round initial badge; blue on the "own domain" card,
+     a neutral grey on the free-address card (.mail__card--free .mail__avatar).
+   - .mail__name / .mail__addr / .mail__time / .mail__subject / .mail__body:
+     the message's own text fields. .mail__card--own .mail__addr is bolder
+     and heading-coloured, to read as "real" next to the dimmed free one.
+     .mail__addr s controls the strikethrough weight on the free address.
+   - .mail__card .tag: realigns the "Free address"/"On your own domain"
+     tag (shared/styles/typography.css's .tag / specimen-shell.css's
+     .tag--plain) to the start of the card instead of the stretched default. */
+
+.mail {
+  display: grid;
+}
+
+.mail__card {
+  display: grid;
+  gap: .9rem;
+  padding: 1.1rem 1.25rem 1.25rem;
+  min-width: 0;
+}
+
+/* The free address sits behind, a step back */
+.mail__card--free {
+  margin: 0 0 -1.5rem 10%;
+  padding-bottom: 2.6rem;
+  background-color: var(--bg-alt);
+  box-shadow: var(--shadow-md);
+}
+
+.mail__card--own {
+  position: relative;
+  margin-right: 5%;
+}
+
+.mail__from {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .1rem .85rem;
+}
+
+.mail__avatar {
+  display: grid;
+  grid-row: span 2;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: var(--blue);
+  color: var(--on-blue);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.mail__card--free .mail__avatar {
+  background-color: var(--line-strong);
+  color: var(--heading);
+}
+
+.mail__name {
+  min-width: 0;
+  color: var(--heading);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.mail__addr {
+  grid-column: 2;
+  min-width: 0;
+  color: var(--muted);
+  font-size: .9375rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.mail__card--own .mail__addr {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.mail__addr s {
+  text-decoration-thickness: 1.5px;
+}
+
+.mail__time {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--muted);
+  font-size: .8125rem;
+}
+
+.mail__subject {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -.015em;
+  line-height: 1.3;
+}
+
+.mail__body {
+  color: var(--text);
+  font-size: .9375rem;
+  line-height: 1.55;
+}
+
+.mail__card .tag {
+  justify-self: start;
+}

@@ -1,0 +1,135 @@
+/* three-logo-styles.css (logo-design) — the "Three styles, three
+   businesses" section: the card grid (.logos, .logo-card and children),
+   the emblem variant (raw inline SVG, no extra class needed beyond sizing
+   it inside .logo-card__art) and the wordmark variant (.wordmark,
+   .wordmark__name, .wordmark__sub). The third card (symbol and name) reuses
+   .lockup from page-hero-specimen.css, with two extra rules here
+   (.logo-card__art .lockup / .lockup__mark / .lockup__sub) that only apply
+   inside this grid.
+   Confirmed unique to logo-design.html (no other of the 8 original pages
+   references .logos, .logo-card, .emblem or .wordmark). */
+
+/* ----- Logos: three sample logos ----- */
+
+.logos {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 1.5rem);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 640px) and (max-width: 999.98px) {
+  .logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.logo-card {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  margin: 0;
+}
+
+/* Fixed light board, whatever the theme: it is the paper the logo is shown on */
+.logo-card__art {
+  container-type: inline-size;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: #FFFFFF;
+  color: #0F172A;
+}
+
+.logo-card__art--night {
+  background-color: #0F172A;
+  color: #F8FAFC;
+}
+
+.logo-card__art .emblem {
+  width: 54%;
+  height: auto;
+}
+
+.logo-card__cap {
+  display: grid;
+  justify-items: start;
+  gap: .4rem;
+}
+
+.logo-card__style {
+  color: var(--blue);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.logo-card__name {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.logo-card__desc {
+  max-width: 30rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* Wordmark: the name alone, with one blue mark of its own */
+.wordmark {
+  display: grid;
+  justify-items: center;
+  gap: 1.1em;
+  font-size: 4.2cqi;
+}
+
+.wordmark__name {
+  display: inline-flex;
+  align-items: flex-end;
+  font-family: var(--font-display);
+  font-size: 4.6em;
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -.05em;
+}
+
+.wordmark__name i {
+  width: .2em;
+  height: .2em;
+  margin: 0 0 .1em .06em;
+  border-radius: 50%;
+  background-color: #1D4ED8;
+}
+
+.wordmark__sub {
+  color: #475569;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+}
+
+.logo-card__art .lockup {
+  --mark-2: #FFFFFF;
+  font-size: 9cqi;
+}
+
+.logo-card__art .lockup__mark {
+  color: #1D4ED8;
+}
+
+.logo-card__art .lockup__sub {
+  color: #475569;
+}

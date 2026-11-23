@@ -1,0 +1,330 @@
+<!--
+  portfolio-by-sector.html — "Sites we have built": 24 real client sites,
+  one card each, filterable by sector (8 chips including "All sectors").
+  Genuinely page-specific (verified: .filters/.sites/.sitecard* appear only
+  in this page of the original 8 — see website-design/styles/README.md).
+  Needs shared/styles/domain-search.css for .chip (the filter pill — that
+  file's own header comment already documents this page as a second user
+  of .chip, styled by the same ".ending, .chip" rule as the domain-ending
+  pills on home/domains.html), shared/styles/utilities.css for .sr-only (the
+  aria-live filter-status text) and .icon, and this page's own
+  website-design/styles/portfolio-sites.css for .filters/.sites/.sitecard*
+  and .blue-tld (promoted to shared/styles/utilities.css — see that file's
+  header comment — since hosting.html, digital-marketing.html and email.html
+  all use it too). Needs shared/scripts/constants-and-helpers.js (for $/$$)
+  and website-design/scripts/sector-filter.js for the filter behaviour
+  itself (data-filter buttons, data-sector cards, the aria-live status text).
+-->
+    <!-- ============ Our work (real sites, by sector) ============ -->
+    <section class="section section--flush-top" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="work-title">Sites we have built.</h2>
+          <p class="section-head__intro">24 businesses and organisations, in eight sectors. Pick one, then open a site in a new tab.</p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Show sites by sector" data-reveal>
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">All sectors</button>
+            <button class="chip" type="button" data-filter="agribusiness" aria-pressed="false">Agribusiness</button>
+            <button class="chip" type="button" data-filter="finance" aria-pressed="false">Finance</button>
+            <button class="chip" type="button" data-filter="leisure" aria-pressed="false">Leisure</button>
+            <button class="chip" type="button" data-filter="organisations" aria-pressed="false">Organisations</button>
+            <button class="chip" type="button" data-filter="construction" aria-pressed="false">Construction</button>
+            <button class="chip" type="button" data-filter="professional" aria-pressed="false">Professional</button>
+            <button class="chip" type="button" data-filter="transport" aria-pressed="false">Transport</button>
+            <button class="chip" type="button" data-filter="shops" aria-pressed="false">E-shops</button>
+        </div>
+        <p class="sr-only" aria-live="polite" data-filter-status></p>
+
+        <ul class="sites" role="list">
+          <li data-sector="agribusiness">
+            <a class="sitecard" href="https://acpcultd.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">acpcultd<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">ACPCU Ltd</span>
+                  <span class="sitecard__sector">Agribusiness</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="agribusiness">
+            <a class="sitecard" href="https://rwandarocoffee.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">rwandarocoffee<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Rwandaro Coffee</span>
+                  <span class="sitecard__sector">Agribusiness</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="agribusiness">
+            <a class="sitecard" href="https://banyankolecoffee.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">banyankolecoffee<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Banyankole Coffee</span>
+                  <span class="sitecard__sector">Agribusiness</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="finance">
+            <a class="sitecard" href="https://www.kamrocapital.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">kamrocapital<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Kamro Capital</span>
+                  <span class="sitecard__sector">Finance</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="finance">
+            <a class="sitecard" href="https://fdf.co.ug/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">fdf<span class="blue-tld">.co.ug</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">FDF</span>
+                  <span class="sitecard__sector">Finance</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="finance">
+            <a class="sitecard" href="https://kwefaako.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">kwefaako<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">KDI</span>
+                  <span class="sitecard__sector">Finance</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="leisure">
+            <a class="sitecard" href="https://inspirationsspa.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">inspirationsspa<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Inspirations Spa</span>
+                  <span class="sitecard__sector">Leisure</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="leisure">
+            <a class="sitecard" href="https://fusionecoresort.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">fusionecoresort<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Fusion Eco Resort</span>
+                  <span class="sitecard__sector">Leisure</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="leisure">
+            <a class="sitecard" href="https://aloysiusmigadde.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">aloysiusmigadde<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Aloysius Migadde</span>
+                  <span class="sitecard__sector">Leisure</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="organisations">
+            <a class="sitecard" href="https://tgsalumni.org/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">tgsalumni<span class="blue-tld">.org</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">TGSA</span>
+                  <span class="sitecard__sector">Organisations</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="organisations">
+            <a class="sitecard" href="https://uwocaso.org.ug/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">uwocaso<span class="blue-tld">.org.ug</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">UWOCASO</span>
+                  <span class="sitecard__sector">Organisations</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="organisations">
+            <a class="sitecard" href="https://www.e-cavi.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">e-cavi<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">ECAVI</span>
+                  <span class="sitecard__sector">Organisations</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="construction">
+            <a class="sitecard" href="https://makmangroup.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">makmangroup<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Makman Group</span>
+                  <span class="sitecard__sector">Construction</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="construction">
+            <a class="sitecard" href="https://adsterglobal.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">adsterglobal<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Adster Global</span>
+                  <span class="sitecard__sector">Construction</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="construction">
+            <a class="sitecard" href="https://daacbuilders.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">daacbuilders<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">DAAC Builders</span>
+                  <span class="sitecard__sector">Construction</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="professional">
+            <a class="sitecard" href="https://jonathankayemba.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">jonathankayemba<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Jonathan Kayemba</span>
+                  <span class="sitecard__sector">Professional</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="professional">
+            <a class="sitecard" href="https://phulaxsustainability.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">phulaxsustainability<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Phulax Sustainability</span>
+                  <span class="sitecard__sector">Professional</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="professional">
+            <a class="sitecard" href="https://mmedrecruitment.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">mmedrecruitment<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">M.Medrecruitment</span>
+                  <span class="sitecard__sector">Professional</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="transport">
+            <a class="sitecard" href="https://teletracfleets.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">teletracfleets<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Teletrac Fleets</span>
+                  <span class="sitecard__sector">Transport</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="transport">
+            <a class="sitecard" href="https://fstransporter.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">fstransporter<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">FS Transporter</span>
+                  <span class="sitecard__sector">Transport</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="shops">
+            <a class="sitecard" href="https://lascentstore.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">lascentstore<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">La’Scent Store</span>
+                  <span class="sitecard__sector">E-shops</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="shops">
+            <a class="sitecard" href="https://organicsecrets.net/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">organicsecrets<span class="blue-tld">.net</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Organic Secrets</span>
+                  <span class="sitecard__sector">E-shops</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="shops">
+            <a class="sitecard" href="https://havenwinesupplies.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">havenwinesupplies<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Haven Wine Supplies</span>
+                  <span class="sitecard__sector">E-shops</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+          <li data-sector="shops">
+            <a class="sitecard" href="https://dydensboss.com/" target="_blank" rel="noopener">
+              <span class="sitecard__bar"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="sitecard__url">dydensboss<span class="blue-tld">.com</span></span></span>
+              <span class="sitecard__body">
+                <span>
+                  <span class="sitecard__name">Dydens Boss</span>
+                  <span class="sitecard__sector">E-shops</span>
+                </span>
+                <span class="sitecard__go"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>

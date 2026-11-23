@@ -1,0 +1,52 @@
+{
+  "slug": "email",
+  "output_file": "email.html",
+  "title": "Business email on your own domain, and Microsoft 365 \u00b7 Logos",
+  "description": "Email addresses on your own domain, with spam and virus filters, Outlook, webmail and phone access, or Microsoft 365. Set up by Logos Cloud Edge, Kampala.",
+  "active_nav": "email.html",
+  "sections": [
+    "shared/layout/header-nav.html",
+    "email/sections/page-hero-specimen.html",
+    "email/sections/addresses.html",
+    "email/sections/options.html",
+    "email/sections/faq.html",
+    "email/sections/final-cta.html",
+    "shared/layout/footer.html"
+  ],
+  "styles": [
+    "shared/styles/fonts.css",
+    "shared/styles/tokens.css",
+    "shared/styles/base.css",
+    "shared/styles/utilities.css",
+    "shared/styles/typography.css",
+    "shared/styles/buttons.css",
+    "shared/styles/header.css",
+    "shared/styles/hero.css",
+    "shared/styles/page-hero.css",
+    "shared/styles/specimen-shell.css",
+    "email/styles/two-emails-specimen.css",
+    "shared/styles/domain-search.css",
+    "shared/styles/name-field.css",
+    "shared/styles/inner-hero-text.css",
+    "shared/styles/trust-list.css",
+    "shared/styles/two-columns.css",
+    "email/styles/addresses-list.css",
+    "shared/styles/packages.css",
+    "email/styles/options-pricing.css",
+    "shared/styles/faq.css",
+    "shared/styles/final-cta.css",
+    "shared/styles/footer.css",
+    "shared/styles/motion.css",
+    "shared/styles/inner-motion.css"
+  ],
+  "scripts": [
+    "shared/scripts/constants-and-helpers.js",
+    "shared/scripts/theme-toggle.js",
+    "shared/scripts/header-nav.js",
+    "shared/scripts/pricing-currency.js",
+    "shared/scripts/business-name-domain.js",
+    "shared/scripts/scroll-reveal.js",
+    "shared/scripts/init.js"
+  ],
+  "icon_sprite": "shared/head/icon-sprite-inner.html"
+}

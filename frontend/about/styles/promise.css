@@ -1,0 +1,27 @@
+/* promise.css (about) — one rule: the "inline" variant of the shared
+   reassurance sentence (shared/styles/week.css's .assurance), used when the
+   box sits as a plain column in a two-column layout instead of as its own
+   full-width section below the process timeline (home's usage). Extracted
+   verbatim from css/styles.css's "About: the promise, set as a sentence
+   (the home page "assurance")" comment, lines ~4587-4595.
+
+   - .assurance--inline: zeroes out .assurance's own top margin/padding and
+     top border (drawn because home's version sits right below its 5-day
+     timeline, with that border acting as a divider) and forces `display:
+     block` so the box no longer tries to lay itself out as its own 2-column
+     grid — on about.html it is already one of the two columns of the
+     surrounding .split layout (shared/styles/two-columns.css), given by its
+     sibling in our-story-and-promise.html.
+     This rule's selector (one class) ties in specificity with .assurance's
+     own rule (also one class) for the properties they both set
+     (margin-top/padding-top/border-top), so it MUST load after
+     shared/styles/week.css to win the cascade — true in the original
+     stylesheet (this rule comes after .assurance's own, lines ~148-154) and
+     preserved by this file's position in about/page.manifest.json. */
+
+.assurance--inline {
+  display: block;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}

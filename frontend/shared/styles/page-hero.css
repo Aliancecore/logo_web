@@ -1,0 +1,82 @@
+/* page-hero.css — NOT used by the home page. The "title, then copy+specimen"
+   hero layout used by the 6 inner "service" pages (website-design, hosting,
+   email, logo-design, digital-marketing, about), as a .page-hero modifier
+   added next to .hero (base box/typography in shared/styles/hero.css).
+   Created now, ahead of schedule, so the agents building those 6 pages do
+   not each duplicate it; not listed in home/page.manifest.json.
+
+   - .page-hero__grid: title/copy/media 3-area layout (stacked on mobile,
+     two columns with the title spanning both from 1024px).
+   - .hero__actions: the button row under an inner page's hero copy
+     (home has no equivalent -- its "action" is the domain search form).
+
+   Added by the agent building logo-design.html: the <480px full-width
+   button rule below. It was originally filed under css/styles.css's
+   "Motion on inner pages" @media (max-width: 479.98px) block (~line 4710),
+   not next to .hero__actions's own rule, alongside unrelated mobile tweaks
+   for email.html's .mail__card and logo-design.html's .signage/.receipt
+   (those two stayed where they belonged: email.html's own CSS later, and
+   logo-design/styles/page-hero-specimen.css respectively). Since
+   .hero__actions is already shared here across all 6 inner pages, its
+   mobile rule belongs in this file too, not duplicated per page. */
+
+/* ----- Page hero: a two-line thesis across the page, then copy and specimen ----- */
+
+.page-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "title"
+    "copy"
+    "media";
+  gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+
+.page-hero__grid > .hero__title {
+  grid-area: title;
+}
+
+.page-hero__copy {
+  grid-area: copy;
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 1.5rem;
+}
+
+.page-hero__media {
+  grid-area: media;
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  min-width: 0;
+  max-width: 40rem;
+}
+
+@media (min-width: 1024px) {
+  .page-hero__grid {
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      "title title"
+      "copy media";
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    row-gap: clamp(2rem, 3vw, 2.75rem);
+  }
+
+  .page-hero__media {
+    max-width: none;
+  }
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+@media (max-width: 479.98px) {
+  .hero__actions,
+  .hero__actions .btn {
+    width: 100%;
+  }
+}

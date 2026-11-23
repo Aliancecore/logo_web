@@ -1,0 +1,32 @@
+/* inner-motion.css — NOT used by the home page. Entrance animations for
+   inner-page-only components: the page-hero actions/media
+   (shared/styles/page-hero.css), the hosting specimen's uptime bars, the
+   marketing specimen's source bars, and the email specimen's "own address"
+   card. Verified generic (keyed off selectors that do not exist on home).
+   Created now so no inner-page agent duplicates it; not listed in
+   home/page.manifest.json. */
+
+/* ----- Motion on inner pages (one moment per page, never needed to read) ----- */
+
+@keyframes bar-in {
+  from { transform: scaleY(.2); opacity: .35; }
+  to   { transform: none; opacity: 1; }
+}
+
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+  to   { transform: none; }
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__actions     { animation: fade-up .7s .12s var(--ease-out) both; }
+  .page-hero__media  { animation: fade-up .8s .18s var(--ease-out) both; }
+  .bars i            { animation: bar-in .5s calc(.55s + var(--b, 0) * 22ms) var(--ease-out) both; }
+  .source__bar i     { animation: grow-x .9s calc(.6s + var(--i, 0) * 90ms) var(--ease-out) both; }
+  .mail__card--own   { animation: card-in .7s .45s var(--ease-out) both; }
+}

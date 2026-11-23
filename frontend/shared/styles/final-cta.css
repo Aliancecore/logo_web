@@ -1,0 +1,78 @@
+/* final-cta.css — the "Let's put <domain> online" closing panel (.contact
+   section padding hook, .cta and children). Shared: the exact
+   "section contact" / .cta markup is used by all 8 pages (verified) --
+   classified "home-only" in the original zone split; promoted here after
+   verification. No page-specific residue exists: every value here is
+   content-neutral layout/typography, each page supplies its own heading
+   text and domain in its own HTML.
+
+   - --len (on :root, set by shared/scripts/business-name-domain.js) and
+     --cta-extra (not currently set anywhere, defaults to 6): both feed
+     .cta__domain's fit-to-container font-size formula, same idea as
+     .result__address in domain-search.css. */
+
+.contact {
+  --section-pad-top: 0px; /* the week section above already ends with --space */
+}
+
+.cta {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+  padding: clamp(1.75rem, .75rem + 5vw, 4.5rem);
+  border-radius: var(--radius-lg);
+}
+
+.cta__title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .2em;
+  width: 100%;
+  color: var(--heading);
+  font-family: var(--font-display);
+}
+
+.cta__pre,
+.cta__post {
+  font-size: var(--step-3);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.022em;
+  word-spacing: .03em;
+}
+
+/* --cta-extra: characters around the name (".co.ug" = 6, "hello@" + ".co.ug" = 12) */
+.cta__domain {
+  font-size: clamp(1.5rem, calc(100cqi / ((var(--len, 12) + var(--cta-extra, 6)) * .56)), 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  overflow-wrap: anywhere;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.cta__note {
+  color: var(--muted);
+}
+
+.cta__note a {
+  color: var(--heading);
+  font-weight: 600;
+  text-underline-offset: .2em;
+}
+
+/* ----- Small screens (<480px): stack the two call-to-action buttons ----- */
+
+@media (max-width: 479.98px) {
+  .cta__actions,
+  .cta__actions .btn {
+    width: 100%;
+  }
+}

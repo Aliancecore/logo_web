@@ -1,0 +1,73 @@
+<!--
+  logo-packages-pricing.html — "Logo and branding packages": the currency
+  toggle and the one-row-per-offer price list (standalone logo, startup,
+  SME), plus a footnote pointing at the 3 higher Bronze/Silver/Gold tiers.
+  Needs: shared/styles/packages.css (.packages__top/.currency*) and
+  shared/styles/price-list.css (.pricelist, incl. its >=760px two-row-per-
+  line layout) — both already shared, .pricelist used here for the first
+  confirmed time (see shared/styles/README.md). shared/styles/utilities.css
+  supplies .section-foot for the trailing paragraph.
+  No logo-design-only CSS for this section.
+-->
+
+    <!-- ============ Packages ============ -->
+    <section class="section section--alt" id="packages" aria-labelledby="packages-title">
+      <div class="wrap">
+        <div class="packages__top">
+          <header class="section-head" data-reveal>
+            <h2 class="h2" id="packages-title">Logo and branding packages.</h2>
+            <p class="section-head__intro">From a logo on its own to a complete brand. Brand identity, stationery, flyers and banners are part of what we design.</p>
+          </header>
+
+          <fieldset class="currency" data-reveal style="--d:1">
+            <legend class="currency__legend">Show prices in</legend>
+            <div class="currency__options">
+              <label>
+                <input type="radio" name="currency" value="USD" checked>
+                <span>US dollars</span>
+              </label>
+              <label>
+                <input type="radio" name="currency" value="UGX">
+                <span>Shillings</span>
+              </label>
+            </div>
+            <p class="currency__note" data-currency-note hidden>Estimated at 1&nbsp;USD = 3,650&nbsp;UGX. Prices are set in US dollars.</p>
+          </fieldset>
+        </div>
+
+        <ul class="pricelist" role="list">
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Standalone logo</h3>
+            <p class="pricelist__for">For consultants, freelancers, creative artists and designers.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="150">$150</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Logo%3A%20Standalone%20logo">Choose<span class="sr-only"> Standalone logo</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Startup</h3>
+            <p class="pricelist__for">For a new business getting ready to launch online.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="250">$250</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Logo%3A%20Startup%20package">Choose<span class="sr-only"> Startup</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">SME</h3>
+            <p class="pricelist__for">For NGOs and community organisations promoting a cause and attracting supporters.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="500">$500</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Logo%3A%20SME%20package">Choose<span class="sr-only"> SME</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <p class="section-foot" data-reveal>For a wider client base online, the Bronze (<span class="price" data-usd="750">$750</span>), Silver (<span class="price" data-usd="1000">$1,000</span>) and Gold (<span class="price" data-usd="1500">$1,500</span>) packages go further. <a href="mailto:sales@logoswebsiteservices.com?subject=Logo%3A%20Bronze%2C%20Silver%20or%20Gold%20package">Ask what each one includes</a>.</p>
+      </div>
+    </section>

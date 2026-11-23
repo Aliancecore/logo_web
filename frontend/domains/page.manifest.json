@@ -1,0 +1,47 @@
+{
+  "slug": "domains",
+  "output_file": "domains.html",
+  "title": "Register a domain in Uganda: .co.ug, .ug, .com, .org \u00b7 Logos",
+  "description": "Register .co.ug, .ug, .com or .org with 10% off every domain. Compare first-year, renewal and transfer prices, and move an existing domain to Logos Cloud Edge, Kampala.",
+  "active_nav": "domains.html",
+  "sections": [
+    "shared/layout/header-nav.html",
+    "domains/sections/hero-domain-search.html",
+    "domains/sections/domain-endings-grid.html",
+    "domains/sections/domain-transfer.html",
+    "domains/sections/faq.html",
+    "domains/sections/final-cta.html",
+    "shared/layout/footer.html"
+  ],
+  "styles": [
+    "shared/styles/fonts.css",
+    "shared/styles/tokens.css",
+    "shared/styles/base.css",
+    "shared/styles/utilities.css",
+    "shared/styles/typography.css",
+    "shared/styles/buttons.css",
+    "shared/styles/header.css",
+    "shared/styles/hero.css",
+    "shared/styles/domain-search.css",
+    "shared/styles/trust-list.css",
+    "shared/styles/inner-hero-text.css",
+    "shared/styles/packages.css",
+    "domains/styles/domain-endings-grid.css",
+    "shared/styles/final-cta.css",
+    "shared/styles/footer.css",
+    "shared/styles/motion.css",
+    "shared/styles/faq.css",
+    "shared/styles/two-columns.css",
+    "shared/styles/numbered-steps.css"
+  ],
+  "scripts": [
+    "shared/scripts/constants-and-helpers.js",
+    "shared/scripts/theme-toggle.js",
+    "shared/scripts/header-nav.js",
+    "shared/scripts/pricing-currency.js",
+    "shared/scripts/business-name-domain.js",
+    "shared/scripts/scroll-reveal.js",
+    "shared/scripts/init.js"
+  ],
+  "icon_sprite": "shared/head/icon-sprite-inner.html"
+}

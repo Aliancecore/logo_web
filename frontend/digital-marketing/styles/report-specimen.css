@@ -1,0 +1,157 @@
+/* report-specimen.css — the "monthly report" mockup shown in this page's
+   hero (.sheet.report, inside the generic .specimen/.sheet wrapper from
+   shared/styles/specimen-shell.css, which must load first).
+   Confirmed page-specific: grepped every other original *.html page for
+   .report / .report__head / .report__stats / .report__sources / .source —
+   none of the other 7 pages use them. Verbatim from css/styles.css, the
+   "----- Specimen: monthly report -----" block (original lines ~3615-3752).
+
+   - .report__stats / .report__stat: the 3-number row (visits, calls,
+     WhatsApp chats) at the top of the report.
+   - .report__delta: the small "+18% on Sept." line under each number; its
+     .icon (the up-arrow) is coloured/sized here, the arrow bounce-in itself
+     is not animated (only the source bars below are, see
+     shared/styles/inner-motion.css).
+   - .source / .source__bar / .source__val: one row per traffic source
+     ("Google search", "Facebook", ...), each a label, a horizontal bar
+     (width set per-row by --v, an inline style on the markup) and the right-
+     aligned percentage. --i (also inline, per row) staggers the bar's
+     grow-in animation in shared/styles/inner-motion.css. */
+
+/* ----- Specimen: monthly report ----- */
+
+.report {
+  overflow: hidden;
+}
+
+.report__head {
+  display: grid;
+  gap: .25rem;
+  padding: 1.15rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.report__label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .25rem 1rem;
+  color: var(--muted);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+
+.report__site {
+  min-width: 0;
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+}
+
+.report__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.report__stat {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  padding: 1rem clamp(.75rem, 2.5vw, 1.25rem);
+  min-width: 0;
+}
+
+.report__stat + .report__stat {
+  border-left: 1px solid var(--line);
+}
+
+.report__stat dt {
+  order: 2;
+  color: var(--text);
+  font-size: .875rem;
+  line-height: 1.35;
+}
+
+.report__stat dd {
+  margin: 0;
+}
+
+.report__num {
+  order: 1;
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1.05rem + 1.4vw, 2.125rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.report__delta {
+  order: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  margin-top: auto;
+  padding-top: .2rem;
+  color: var(--muted);
+  font-size: .8125rem;
+}
+
+.report__delta .icon {
+  width: .95rem;
+  height: .95rem;
+  color: var(--blue);
+  stroke-width: 2.6;
+}
+
+.report__sources {
+  display: grid;
+  gap: .7rem;
+  padding: 1.1rem 1.25rem 1.35rem;
+}
+
+.report__sources > p {
+  color: var(--muted);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+
+/* One series, one hue: a thin bar per source, its value written beside it */
+.source {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 7.5rem) minmax(0, 1fr) 2.75rem;
+  align-items: center;
+  gap: .75rem;
+  color: var(--text);
+  font-size: .875rem;
+}
+
+.source__bar {
+  height: .625rem;
+  border-radius: 4px;
+  background-color: var(--line);
+  overflow: hidden;
+}
+
+.source__bar i {
+  display: block;
+  width: var(--v);
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--blue);
+  transform-origin: left;
+}
+
+.source__val {
+  color: var(--heading);
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

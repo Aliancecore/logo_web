@@ -1,0 +1,378 @@
+/* domain-search.css — the domain search bar component: input + ending select
+   (.search, .search__*), the live result preview (.result, .result__*), the
+   ending comparison list (.endings, .ending) and the generic pill it shares
+   its styling with (.chip — used standalone by website-design.html's sector
+   filter; both are styled by the same ".ending, .chip" rule below).
+   Used verbatim by home (index.html) and domains.html.
+
+   - --addr-extra (on .result): extra character-width budget (padlock +
+     "https://") subtracted from the font-size formula; overridden to a
+     smaller value on phones (<480px), where the scheme text is hidden.
+   - --len (on :root): the typed business name's length in characters, set by
+     renderDomain() in shared/scripts/business-name-domain.js. Both .result__address
+     and .cta__domain (final-cta.css) read it to size the domain text to fit. */
+
+/* ----- Domain search (the central interaction) ----- */
+
+.search {
+  grid-area: search;
+  display: grid;
+  gap: 1.15rem;
+  padding: clamp(1rem, .5rem + 1.8vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.search__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+}
+
+.search__label {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -.015em;
+}
+
+.search__bar {
+  display: grid;
+  gap: .75rem;
+}
+
+@media (min-width: 760px) {
+  .search__bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.search__field {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  border: 2px solid var(--line-strong);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.search__field:hover {
+  border-color: var(--muted);
+}
+
+/* Focus is shown on the whole bar, so the input itself drops its outline */
+.search__field:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px var(--blue-ring);
+}
+
+.search__field.is-invalid {
+  border-color: var(--danger);
+}
+
+.search__icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search__input {
+  flex: 1;
+  min-width: 0;
+  min-height: 3.5rem;
+  padding: .5rem .75rem .5rem 3rem;
+  border: 0;
+  border-radius: var(--radius) 0 0 var(--radius);
+  background: transparent;
+  color: var(--heading);
+  font-size: 1.125rem;
+  font-weight: 500;
+  outline: none;
+}
+
+.search__input::placeholder {
+  color: var(--muted);
+  font-weight: 400;
+  opacity: 1;
+}
+
+.search__divider {
+  flex: none;
+  width: 1px;
+  margin-block: .8rem;
+  background-color: var(--line-strong);
+}
+
+.search__tld {
+  position: relative;
+  display: flex;
+  flex: none;
+}
+
+.search__select {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 3.5rem;
+  padding: 0 2.6rem 0 1rem;
+  border: 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: transparent;
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.search__select:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -6px;
+}
+
+.search__select option {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+.search__chevron {
+  position: absolute;
+  top: 50%;
+  right: .9rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--blue);
+  stroke-width: 2.4;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search__submit {
+  min-height: 3.75rem;
+  padding-inline: 1.75rem;
+}
+
+.search__error {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: -.35rem;
+  color: var(--danger);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+
+.search__error[hidden] {
+  display: none;
+}
+
+.search__out {
+  display: grid;
+  gap: 1.25rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 960px) {
+  .search__out {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 2.5rem;
+  }
+}
+
+/* The address line: the visitor's own domain, set large.
+   Its size follows the length of the name (--len, set by main.js):
+   Jakarta 800 averages ~.55em per lowercase glyph, the ending counts as 6,
+   --addr-extra is the room taken by the padlock and "https://", in em. */
+.result {
+  --addr-extra: 3.2;
+  container-type: inline-size;
+  display: grid;
+  gap: .4rem;
+  min-width: 0;
+}
+
+.result__address {
+  display: flex;
+  align-items: center;
+  gap: .3em;
+  min-width: 0;
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, calc(100cqi / ((var(--len, 12) + 6) * .56 + var(--addr-extra))), 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+
+.result__lock {
+  width: .8em;
+  height: .8em;
+  color: var(--blue);
+  stroke-width: 2.4;
+}
+
+.result__domain {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.result__scheme {
+  margin-right: .2em;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: max(.46em, .75rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: .22em;
+}
+
+.no-name .result__slug {
+  color: var(--muted);
+}
+
+.result__tld {
+  display: inline-block;
+  color: var(--blue);
+}
+
+.result__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .15rem .5rem;
+}
+
+.result__was {
+  color: var(--muted);
+  text-decoration-thickness: 1.5px;
+}
+
+.result__now {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.result__per {
+  color: var(--muted);
+  font-size: .9375rem;
+}
+
+.endings {
+  display: grid;
+  gap: .55rem;
+}
+
+.endings__label {
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.endings__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+/* .chip: the same pill, used to filter lists (sectors on the websites page) */
+.ending,
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .45rem;
+  min-height: 2.75rem;
+  padding: .5rem .85rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 999px;
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: .9375rem;
+  line-height: 1.2;
+  transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.ending:hover,
+.chip:hover {
+  border-color: var(--blue);
+}
+
+.ending[aria-pressed="true"],
+.chip[aria-pressed="true"] {
+  border-color: var(--blue);
+  background-color: var(--blue-soft);
+  box-shadow: inset 0 0 0 1px var(--blue);
+}
+
+.ending__ext {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.ending__price {
+  color: var(--muted);
+}
+
+.ending[aria-pressed="true"] .ending__price {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.search__help {
+  color: var(--muted);
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
+/* ----- Small screens (<480px): give the name field and the result line more room ----- */
+
+@media (max-width: 479.98px) {
+  /* On phones the padlock alone says "secure address": the domain gets the room */
+  .result {
+    --addr-extra: 1.3;
+  }
+
+  .result__scheme {
+    display: none;
+  }
+
+  /* The name field shares its row with the ending: every pixel goes to the name,
+     so "e.g. Joy's Salon" fits whole from 360px */
+  .search__icon {
+    left: .8rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .search__input {
+    padding-left: 2.5rem;
+    padding-right: .5rem;
+    font-size: 1.0625rem;
+  }
+
+  .search__select {
+    padding-left: .7rem;
+    padding-right: 2rem;
+    font-size: 1rem;
+  }
+
+  .search__chevron {
+    right: .6rem;
+  }
+}

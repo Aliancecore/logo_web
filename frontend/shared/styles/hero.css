@@ -1,0 +1,76 @@
+/* hero.css — the page-hero box and its typography (.hero, .hero__title,
+   .punct, .hero__line, .hero__accent), plus the "intro + trust" grid layout
+   (.hero__grid, .hero__intro) used by the home page and domains.html.
+
+   IMPORTANT, verified by reading every page: the brief that produced this
+   split assumed .hero/.hero__title/.punct/.hero__line/.hero__accent were
+   home-only. They are not — all 8 pages use them (the 6 "service" pages add
+   a .page-hero modifier class, see shared/styles/page-hero.css, instead of
+   .hero__grid). Moved here so no per-page agent duplicates them.
+
+   - .hero: the tinted background box. --on-tint (read by .hero__lead and
+     .hero .trust__item) is added in shared/styles/inner-hero-text.css, not here.
+   - .hero__grid / .hero__intro: the "intro + search + trust" 3-area layout
+     used by home and domains.html specifically (2 of 8 pages: still "shared"
+     by the project's own rule — used verbatim by 2+ pages).
+   - .punct: optical kerning fix for the comma/period that follows .hero__line. */
+
+/* ---------- 7. Hero ------------------------------------------------------ */
+
+.hero {
+  background: var(--bg-hero);
+  padding-block: clamp(2.5rem, 1.25rem + 4.5vw, 5rem) clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "intro"
+    "search"
+    "trust";
+  gap: clamp(1.75rem, 1rem + 2.4vw, 2.75rem);
+}
+
+@media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 18.5rem);
+    grid-template-areas:
+      "intro trust"
+      "search search";
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: end;
+  }
+}
+
+.hero__intro {
+  grid-area: intro;
+  display: grid;
+  gap: clamp(1rem, .75rem + .8vw, 1.5rem);
+}
+
+.hero__title {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.026em;
+  word-spacing: .05em;
+  text-wrap: balance;
+}
+
+/* Optical kerning: Jakarta's comma and period carry a wide left bearing */
+.punct {
+  margin-left: -.07em;
+}
+
+@media (min-width: 720px) {
+  .hero__line {
+    display: block;
+  }
+}
+
+.hero__accent {
+  color: var(--blue);
+}

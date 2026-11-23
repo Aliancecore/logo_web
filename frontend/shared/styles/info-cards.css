@@ -1,0 +1,38 @@
+/* info-cards.css — NOT used by the home page. A "does not link anywhere"
+   variant of the services card (.service--info: no hover lift, since there
+   is nothing to click through to), plus a 3-column grid preset
+   (.services__grid--3) for pages whose service grid has 3 cards instead of
+   home's 6. Both extend shared/styles/services.css, which must be loaded
+   first. Verified generic. Created now so no inner-page agent duplicates it;
+   not listed in home/page.manifest.json. */
+
+/* ----- Cards that inform but do not link: no lift on hover ----- */
+
+.service--info:hover {
+  border-color: var(--line);
+  box-shadow: var(--shadow-sm);
+  transform: none;
+}
+
+.service--info:hover .service__icon {
+  background-color: var(--blue-soft);
+  color: var(--blue);
+}
+
+.service--info .checklist {
+  margin-top: .35rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: .9375rem;
+}
+
+.services__grid--3 {
+  /* three cards: one row from 1000px, a single column before (two would leave one alone) */
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1000px) {
+  .services__grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

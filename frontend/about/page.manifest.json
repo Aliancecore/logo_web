@@ -1,0 +1,48 @@
+{
+  "slug": "about",
+  "output_file": "about.html",
+  "title": "About Logos Cloud Edge, a Kampala team shifting businesses online",
+  "description": "Logos Cloud Edge Limited helps Ugandan businesses of every size move online: websites, domains, hosting, email, logos and digital marketing, from one team in Kampala.",
+  "active_nav": "about.html",
+  "sections": [
+    "shared/layout/header-nav.html",
+    "about/sections/page-hero-photo.html",
+    "about/sections/our-story-and-promise.html",
+    "about/sections/team-grid.html",
+    "about/sections/clients-marketplace.html",
+    "about/sections/final-cta.html",
+    "shared/layout/footer.html"
+  ],
+  "styles": [
+    "shared/styles/fonts.css",
+    "shared/styles/tokens.css",
+    "shared/styles/base.css",
+    "shared/styles/utilities.css",
+    "shared/styles/typography.css",
+    "shared/styles/buttons.css",
+    "shared/styles/header.css",
+    "shared/styles/hero.css",
+    "shared/styles/page-hero.css",
+    "about/styles/hero-photo.css",
+    "shared/styles/inner-hero-text.css",
+    "shared/styles/two-columns.css",
+    "shared/styles/week.css",
+    "about/styles/promise.css",
+    "about/styles/team.css",
+    "shared/styles/packages.css",
+    "about/styles/clients.css",
+    "shared/styles/final-cta.css",
+    "shared/styles/footer.css",
+    "shared/styles/motion.css"
+  ],
+  "scripts": [
+    "shared/scripts/constants-and-helpers.js",
+    "shared/scripts/theme-toggle.js",
+    "shared/scripts/header-nav.js",
+    "shared/scripts/pricing-currency.js",
+    "shared/scripts/business-name-domain.js",
+    "shared/scripts/scroll-reveal.js",
+    "shared/scripts/init.js"
+  ],
+  "icon_sprite": "shared/head/icon-sprite-inner.html"
+}

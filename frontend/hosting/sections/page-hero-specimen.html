@@ -1,0 +1,65 @@
+<!--
+  page-hero-specimen.html — hosting's hero: the two-line thesis, the
+  copy + action buttons, and the hero specimen (a hosting control-panel
+  mockup showing the site online, SSL valid, backups done, 24/7 support),
+  plus the standalone "type your business name" field under it.
+  Needs: shared/styles/hero.css, shared/styles/page-hero.css (the
+  title/copy/media layout), shared/styles/domain-search.css (.search__field/
+  .search__input, reused by the name field below),
+  shared/styles/name-field.css (.namer), shared/styles/specimen-shell.css
+  (.specimen/.sheet wrapper + .blue-tld) and
+  hosting/styles/specimen-hosting-panel.css (.console and its parts).
+  shared/scripts/business-name-domain.js fills [data-slug]/[data-tld] live
+  from whatever the visitor types in the name field.
+-->
+    <!-- ============ Hero ============ -->
+    <section class="hero page-hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap page-hero__grid">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Managed hosting<span class="punct">,</span></span>
+          <span class="hero__line hero__accent">so you can focus on growth<span class="punct">.</span></span>
+        </h1>
+
+        <div class="page-hero__copy">
+          <p class="lead hero__lead">We look after everything your website needs to stay online: the server, the speed, security updates and a free SSL certificate. You pay once a year, and our team answers 24/7.</p>
+          <div class="hero__actions">
+            <a class="btn btn--action btn--lg" href="mailto:sales@logoswebsiteservices.com?subject=Managed%20hosting" data-mail-topic="managed hosting">
+              Ask about hosting
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#plans">Compare plans</a>
+          </div>
+        </div>
+
+        <div class="page-hero__media">
+          <figure class="specimen">
+            <div class="sheet console" aria-hidden="true">
+              <div class="console__top">
+                <span class="console__app"><span class="console__mark">L</span>Hosting panel</span>
+                <span class="status">Online</span>
+              </div>
+              <p class="console__site"><svg class="icon"><use href="#i-lock"/></svg><span><span data-slug>yourbusiness</span><span class="blue-tld" data-tld>.co.ug</span></span></p>
+              <div class="console__uptime">
+                <p class="console__label">Up every day for the last 30 days</p>
+                <div class="bars"><i style="--b:0"></i><i style="--b:1"></i><i style="--b:2"></i><i style="--b:3"></i><i style="--b:4"></i><i style="--b:5"></i><i style="--b:6"></i><i style="--b:7"></i><i style="--b:8"></i><i style="--b:9"></i><i style="--b:10"></i><i style="--b:11"></i><i style="--b:12"></i><i style="--b:13"></i><i style="--b:14"></i><i style="--b:15"></i><i style="--b:16"></i><i style="--b:17"></i><i style="--b:18"></i><i style="--b:19"></i><i style="--b:20"></i><i style="--b:21"></i><i style="--b:22"></i><i style="--b:23"></i><i style="--b:24"></i><i style="--b:25"></i><i style="--b:26"></i><i style="--b:27"></i><i style="--b:28"></i><i style="--b:29"></i></div>
+                <p class="console__scale"><span>30 days ago</span><span>Today</span></p>
+              </div>
+              <dl class="console__rows">
+                <div class="console__row"><dt>SSL certificate</dt><dd><svg class="icon"><use href="#i-check"/></svg>Valid, renews by itself</dd></div>
+                <div class="console__row"><dt>Last backup</dt><dd><svg class="icon"><use href="#i-check"/></svg>Today, 02:00</dd></div>
+                <div class="console__row"><dt>Software</dt><dd><svg class="icon"><use href="#i-check"/></svg>Up to date</dd></div>
+                <div class="console__row"><dt>Support</dt><dd>24/7, weekends included</dd></div>
+              </dl>
+            </div>
+            <figcaption class="sr-only">Example of your hosting panel: your site online every day for the last 30 days, SSL certificate valid, backed up today, software up to date.</figcaption>
+          </figure>
+          <div class="namer">
+            <label class="namer__label" for="namer-input">See it with your business name</label>
+            <div class="search__field">
+              <svg class="icon search__icon" aria-hidden="true"><use href="#i-edit"/></svg>
+              <input class="search__input" id="namer-input" type="text" placeholder="e.g. Joy's Salon" maxlength="48" autocomplete="organization" spellcheck="false" data-name-input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

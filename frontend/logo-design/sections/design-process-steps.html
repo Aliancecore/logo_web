@@ -1,0 +1,46 @@
+<!--
+  design-process-steps.html — "One week, from first idea to final files":
+  the 4-day design process timeline.
+  Needs: shared/styles/week.css (.days/.day, incl. the .days--4 column-count
+  modifier and .day--live/.day__node--live "ready" styling — all already
+  shared with home.html, website-design.html and digital-marketing.html).
+  No logo-design-only CSS: unlike home's 5-day week, this page adds no extra
+  photos or callouts, so nothing was created under logo-design/styles/ for
+  this section (see styles/README.md).
+-->
+
+    <!-- ============ Process ============ -->
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <header class="section-head section-head--wide" data-reveal>
+          <h2 class="h2" id="process-title">One week, from first idea to final files.</h2>
+        </header>
+
+        <ol class="days days--4" role="list">
+          <li class="day" data-reveal style="--d:0">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Day 1</p>
+            <h3 class="day__title">We talk</h3>
+            <p class="day__text">Your business, your customers, the colours you like and the ones you don’t.</p>
+          </li>
+          <li class="day" data-reveal style="--d:1">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Day 3</p>
+            <h3 class="day__title">First ideas</h3>
+            <p class="day__text">Three directions, each shown on a sign and on a phone screen.</p>
+          </li>
+          <li class="day" data-reveal style="--d:2">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Day 5</p>
+            <h3 class="day__title">Your changes</h3>
+            <p class="day__text">Two rounds of changes on the direction you choose.</p>
+          </li>
+          <li class="day day--live" data-reveal style="--d:3">
+            <span class="day__node day__node--live" aria-hidden="true">Ready</span>
+            <p class="day__name">Day 7</p>
+            <h3 class="day__title">Final files</h3>
+            <p class="day__text">Every file in the list above, and a one-page brand sheet.</p>
+          </li>
+        </ol>
+      </div>
+    </section>

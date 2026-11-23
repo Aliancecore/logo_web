@@ -1,0 +1,35 @@
+<!--
+  final-cta.html — "Let's put <your-domain> online this week": the closing
+  call-to-action panel (call / email buttons), same role and markup shape as
+  home/sections/final-cta.html but with about's own note text ("Other
+  lines: ..." instead of home's "Not your business name? ..."), so this stays
+  a page-local file rather than a shared one (page content differs).
+  Needs: shared/styles/final-cta.css. <span data-slug>/<span data-tld> are
+  filled live by shared/scripts/business-name-domain.js from whatever the
+  visitor typed in another page's domain search, carried over via
+  sessionStorage (about.html itself has no search form).
+-->
+    <!-- ============ Final call to action ============ -->
+    <section class="section contact" id="contact" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta on-blue" data-reveal>
+          <h2 class="cta__title" id="cta-title">
+            <span class="cta__pre">Let's put</span>
+            <span class="cta__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span>
+            <span class="cta__post">online this week.</span>
+          </h2>
+
+          <div class="cta__actions">
+            <a class="btn btn--action btn--lg" href="tel:+256709781426">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              Call +256 709 781426
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:sales@logoswebsiteservices.com" data-mail-topic="">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email sales
+            </a>
+          </div>
+          <p class="cta__note">Other lines: <a href="tel:+256790001606">+256 790 001606</a> and <a href="tel:+256312531639">+256 312 531639</a>.</p>
+        </div>
+      </div>
+    </section>

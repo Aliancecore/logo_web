@@ -1,0 +1,70 @@
+/* team.css (about) — the "Professional, with exceptional service." team
+   grid: a responsive card per person, each showing initials, name and role.
+   Confirmed unique to about.html: no other of the 8 pages references
+   .team, .person or any .person__* class (extracted verbatim from
+   css/styles.css's "About: the team" comment, lines ~4534-4586).
+
+   - .team: the grid itself. auto-fill with a 12.5rem minimum card width, so
+     the 5 cards reflow from 1 column on a phone up to several per row on a
+     wide screen without a breakpoint.
+   - .person: one card — border, radius, surface colour and shadow match the
+     site's other cards (shared tokens from shared/styles/tokens.css), laid
+     out top-aligned so a longer role line never stretches the initials away
+     from the name above it.
+   - .person__initials: the round avatar placeholder (two letters, no
+     photo), coloured with the same blue/blue-soft pair used for other
+     accent chips across the site.
+   - .person__name / .person__role: the heading and the muted role line
+     under it, used only inside .person (team-grid.html, this page's only
+     caller). */
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr));
+  gap: 1rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* Initials above the name: five cards share one row on wide screens */
+.person {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: .3rem;
+  height: 100%;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.person__initials {
+  display: grid;
+  place-items: center;
+  margin-bottom: .6rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background-color: var(--blue-soft);
+  color: var(--blue);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.person__name {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.015em;
+}
+
+.person__role {
+  color: var(--muted);
+  font-size: .9375rem;
+  line-height: 1.4;
+}

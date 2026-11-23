@@ -26,8 +26,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Build static pages from frontend/shared + frontend/<page>
+        run: python3 frontend/build/assemble.py
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./frontend
+          path: ./frontend/public
       - id: deployment
         uses: actions/deploy-pages@v4

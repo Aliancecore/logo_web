@@ -1,0 +1,29 @@
+/* print-pattern.css — the base "wax print" swatch (.print) and its rings
+   variant (.print--rings): a solid blue block, optionally patterned with
+   concentric rings, used as a stand-in for fabric/print photos.
+   Shared: confirmed used by index.html (home's "Examples" showcase,
+   shop__item/shop__hero/shop__swatches fabric swatches, which use .print
+   and all 4 variants) AND logo-design.html (the hero specimen's
+   .profile__cover avatar background, which uses only .print and
+   .print--rings). Classified "home-only" in the original zone split
+   (it sits in the same part of css/styles.css as home's showcase, lines
+   ~2121-2150); verification against logo-design.html showed otherwise for
+   these two rules.
+
+   Only the base .print rule and the .print--rings variant are here --
+   logo-design.html needs no other variant. .print--zigzag/--diamonds/
+   --dots and the .shop__item/.shop__swatches wrapper overrides stay
+   home-only, in home/styles/examples-showcase.css, which loads this file
+   first (see home/page.manifest.json) and no longer carries its own copy
+   of .print/.print--rings. */
+
+/* Wax prints, in the site's blues */
+.print {
+  display: block;
+  background-color: #1D4ED8;
+}
+
+.print--rings {
+  background:
+    radial-gradient(circle, #F8FAFC 0 17%, #0F172A 18% 30%, #7799F8 31% 42%, #1D4ED8 43%) 0 0 / 2.1em 2.1em;
+}

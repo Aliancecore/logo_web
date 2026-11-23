@@ -1,0 +1,178 @@
+/* specimen-hosting-panel.css (hosting) — the hero specimen: a hosting
+   control-panel mockup (.console) showing the site's status card ("L  ·
+   Hosting panel", a live "Online" pill), the domain name, a 30-bar uptime
+   chart and a 4-row checklist (SSL certificate, last backup, software,
+   support). Confirmed unique to hosting.html: grepping class="console,
+   console__*, status, bars" across the other 7 original pages
+   (domains, website-design, email, logo-design, digital-marketing, about,
+   index) finds nothing.
+
+   The domain text inside this panel (.console__site) uses .blue-tld to
+   colour the ending blue -- that one rule was found, while building this
+   file, to also be used by website-design.html's sitecard, email.html's
+   own-address card and digital-marketing.html's report specimen, so it is
+   NOT here: it has been promoted to shared/styles/specimen-shell.css (see
+   that file's own header comment for the grep evidence).
+
+   Needs: shared/styles/specimen-shell.css loaded first (.specimen/.sheet
+   wrap this panel, see hosting/sections/page-hero-specimen.html) and
+   shared/styles/inner-motion.css to animate the uptime bars
+   (".bars i { animation: bar-in ... var(--b, 0) ... }"). */
+
+/* ----- Specimen: hosting panel ----- */
+
+.console {
+  overflow: hidden;
+}
+
+.console__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.console__app {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.console__mark {
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 6px;
+  background-color: var(--c-blue);
+  color: var(--c-white);
+  font-family: var(--font-display);
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+  background-color: var(--blue-soft);
+  color: var(--blue);
+  font-size: .8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status::before {
+  content: "";
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 0 .22rem var(--blue-ring);
+}
+
+.console__site {
+  display: flex;
+  align-items: center;
+  gap: .4em;
+  min-width: 0;
+  padding: 1.25rem 1.25rem 0;
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+
+.console__site > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.console__site .icon {
+  width: .8em;
+  height: .8em;
+  color: var(--blue);
+  stroke-width: 2.4;
+}
+
+.console__uptime {
+  display: grid;
+  gap: .6rem;
+  padding: 1.15rem 1.25rem 1.25rem;
+}
+
+.console__label {
+  color: var(--muted);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+
+/* Thirty days, one bar each: all up */
+.bars {
+  display: flex;
+  gap: 3px;
+  height: 2.25rem;
+}
+
+.bars i {
+  flex: 1;
+  border-radius: 3px;
+  background-color: var(--blue);
+  transform-origin: bottom;
+}
+
+.console__scale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.console__rows {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.console__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .15rem 1rem;
+  padding: .8rem 1.25rem;
+}
+
+.console__row + .console__row {
+  border-top: 1px solid var(--line);
+}
+
+.console__row dt {
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.console__row dd {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin: 0;
+  color: var(--heading);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+
+.console__row dd .icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--blue);
+  stroke-width: 2.6;
+}

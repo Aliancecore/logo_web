@@ -1,0 +1,136 @@
+<!--
+  domain-endings-grid.html — "Four endings, one price list": the currency
+  toggle + one plan card per domain ending (.co.ug, .ug, .com, .org).
+  The card grid and currency toggle are the shared packages component
+  (shared/styles/packages.css, same .packages__top/.currency/.plans/.plan
+  markup as the home page's 3 yearly plans), but the 4-column layout and
+  two modifier classes are domains-only: .plans--4 (grid lays out 4 cards
+  instead of 3), .plan__name--ext (bigger heading size for a bare ending
+  like ".co.ug") and .plan__was (the struck-through "was" price). Verified
+  domains-only: grepped all 8 original pages, these 3 classes appear only
+  in domains.html. Their rules live in domains/styles/domain-endings-grid.css.
+  Needs: shared/styles/packages.css, domains/styles/domain-endings-grid.css;
+  shared/scripts/pricing-currency.js (currency toggle),
+  shared/scripts/business-name-domain.js (the .co.ug/.ug "Search" buttons
+  and the inline <span data-slug> ".ug" feature line read the name typed
+  in the hero's search field above).
+-->
+    <!-- ============ The four endings ============ -->
+    <section class="section section--after-hero" id="endings" aria-labelledby="endings-title">
+      <div class="wrap">
+        <div class="packages__top">
+          <header class="section-head" data-reveal>
+            <h2 class="h2" id="endings-title">Four endings, one price list.</h2>
+            <p class="section-head__intro">First-year prices include the 10% discount. Renewals and transfers are priced per year.</p>
+          </header>
+
+          <fieldset class="currency" data-reveal style="--d:1">
+            <legend class="currency__legend">Show prices in</legend>
+            <div class="currency__options">
+              <label>
+                <input type="radio" name="currency" value="USD" checked>
+                <span>US dollars</span>
+              </label>
+              <label>
+                <input type="radio" name="currency" value="UGX">
+                <span>Shillings</span>
+              </label>
+            </div>
+            <p class="currency__note" data-currency-note hidden>Estimated at 1&nbsp;USD = 3,650&nbsp;UGX. Prices are set in US dollars.</p>
+          </fieldset>
+        </div>
+
+        <ul class="plans plans--4" role="list">
+          <li class="plans__item" data-reveal style="--d:0">
+            <article class="plan" aria-labelledby="ext-coug">
+              <div class="plan__head">
+                <h3 class="plan__name plan__name--ext" id="ext-coug">.co.ug</h3>
+                <p class="plan__for">For companies and shops trading in Uganda.</p>
+              </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="27" data-price-split data-price-of="co.ug"><span class="price__cur">$</span>27</span>
+                <span class="plan__per">first year</span>
+                <span class="sr-only">, usually</span>
+                <s class="plan__was price" data-usd="30" data-list-of="co.ug">$30</s>
+              </p>
+              <button class="btn btn--outline btn--block" type="button" data-pick-ending="co.ug">
+                Search .co.ug
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+              </button>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A Ugandan address customers recognise</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Renewal and transfer prices on request</span></li>
+              </ul>
+            </article>
+          </li>
+          <li class="plans__item" data-reveal style="--d:1">
+            <article class="plan" aria-labelledby="ext-ug">
+              <div class="plan__head">
+                <h3 class="plan__name plan__name--ext" id="ext-ug">.ug</h3>
+                <p class="plan__for">The shortest Ugandan address.</p>
+              </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="27" data-price-split data-price-of="ug"><span class="price__cur">$</span>27</span>
+                <span class="plan__per">first year</span>
+                <span class="sr-only">, usually</span>
+                <s class="plan__was price" data-usd="30" data-list-of="ug">$30</s>
+              </p>
+              <button class="btn btn--outline btn--block" type="button" data-pick-ending="ug">
+                Search .ug
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+              </button>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Short and national: <span data-slug>yourbusiness</span>.ug</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Renewal and transfer prices on request</span></li>
+              </ul>
+            </article>
+          </li>
+          <li class="plans__item" data-reveal style="--d:2">
+            <article class="plan" aria-labelledby="ext-com">
+              <div class="plan__head">
+                <h3 class="plan__name plan__name--ext" id="ext-com">.com</h3>
+                <p class="plan__for">For businesses that sell beyond Uganda.</p>
+              </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="11.7" data-price-split data-price-of="com"><span class="price__cur">$</span>11.70</span>
+                <span class="plan__per">first year</span>
+                <span class="sr-only">, usually</span>
+                <s class="plan__was price" data-usd="13" data-list-of="com">$13</s>
+              </p>
+              <button class="btn btn--outline btn--block" type="button" data-pick-ending="com">
+                Search .com
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+              </button>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Renews at <span class="price" data-usd="12">$12</span> a year</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Transfer in for <span class="price" data-usd="14">$14</span>, with a year added</span></li>
+              </ul>
+            </article>
+          </li>
+          <li class="plans__item" data-reveal style="--d:3">
+            <article class="plan" aria-labelledby="ext-org">
+              <div class="plan__head">
+                <h3 class="plan__name plan__name--ext" id="ext-org">.org</h3>
+                <p class="plan__for">For NGOs, associations and churches.</p>
+              </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="13.5" data-price-split data-price-of="org"><span class="price__cur">$</span>13.50</span>
+                <span class="plan__per">first year</span>
+                <span class="sr-only">, usually</span>
+                <s class="plan__was price" data-usd="15" data-list-of="org">$15</s>
+              </p>
+              <button class="btn btn--outline btn--block" type="button" data-pick-ending="org">
+                Search .org
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+              </button>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Renews at <span class="price" data-usd="13">$13</span> a year</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Transfer in for <span class="price" data-usd="15">$15</span>, with a year added</span></li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+
+        <p class="section-foot" data-reveal>Need .biz, .info or another ending? <a href="mailto:sales@logoswebsiteservices.com?subject=Domain%3A%20another%20ending">Ask sales</a>: we register those too.</p>
+      </div>
+    </section>

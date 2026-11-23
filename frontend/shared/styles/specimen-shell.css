@@ -1,0 +1,323 @@
+/* specimen-shell.css — the reusable "drawn mock website" chrome: a browser
+   window (.browser) with a phone standing in front of it (.phone), and the
+   generic site-drawing vocabulary inside both (.site, .site__nav, .site__btn,
+   .site__line, .site__cols, .site__card, etc.) built from <i>/<span> rather
+   than screenshots.
+   Verified cross-page: home's "Examples" section (3 sample sites) AND
+   website-design.html hero specimen (figure.specimen, "your business"
+   drawn under the visitor's own name) both use this exact markup/CSS -- this
+   was classified "home-only" in the original zone split; verification against
+   website-design.html showed otherwise, so it was promoted here.
+   Colour variants (.site--coffee, .site--shop, ...) and content-specific
+   drawings (coffee hills, salon chairs, shop grid, "your business" photo) are
+   NOT here -- they stay with whichever page draws them
+   (home/styles/examples-showcase.css for home's three examples).
+
+   - --s-bg / --s-ink / --s-bar / --s-soft / --s-btn / --s-btn-ink (on .site):
+     the drawing's own fixed palette, overridden per sample by a
+     ".site--xxx" colour-variant rule (defined by the page that draws it).
+   Also includes the generic specimen wrapper (.specimen, .sheet, .tag--plain)
+   used by every inner page's hero/service specimen, and reused verbatim.
+
+   .blue-tld (colours a domain's TLD span inside a specimen's text) was
+   briefly duplicated here too, by a second agent working concurrently on
+   the same discovery -- it lives in shared/styles/utilities.css only now
+   (see that file's header for the evidence: hosting.html, email.html,
+   website-design.html, digital-marketing.html). Load utilities.css, not
+   this file, for .blue-tld. */
+
+/* ----- Browser window ----- */
+
+.browser {
+  container-type: inline-size;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 88%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.browser__bar {
+  display: flex;
+  align-items: center;
+  gap: 1.3em;
+  padding: .85em 1.1em;
+  border-bottom: 1px solid var(--line);
+  font-size: 2.5cqi;
+}
+
+.browser__dots {
+  display: flex;
+  flex: none;
+  gap: .45em;
+}
+
+.browser__dots i {
+  width: .72em;
+  height: .72em;
+  border-radius: 50%;
+  background-color: var(--line-strong);
+}
+
+.browser__url {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: .45em;
+  min-width: 0;
+  max-width: 26em;
+  padding: .45em .85em;
+  border-radius: 999px;
+  background-color: var(--bg);
+  color: var(--heading);
+  font-size: 1.05em;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.browser__url .icon {
+  width: 1em;
+  height: 1em;
+  color: var(--muted);
+  stroke-width: 2.4;
+}
+
+.browser__tld {
+  color: var(--blue);
+}
+
+.browser__view {
+  aspect-ratio: 16 / 10;
+  font-size: 2.6cqi;
+}
+
+/* ----- Phone ----- */
+
+.phone {
+  container-type: inline-size;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 28%;
+  transform: translate3d(0, calc(var(--sy, 0) * -6%), 12cqi);
+  transition: transform .9s var(--ease-out);
+}
+
+.phone__frame {
+  position: relative;
+  padding: 3.6cqi;
+  border-radius: 17cqi;
+  background-color: var(--bezel);
+  box-shadow: 0 0 0 1px var(--bezel-ring), var(--shadow-phone);
+}
+
+/* Camera */
+.phone__frame::before {
+  content: "";
+  position: absolute;
+  top: 6.6cqi;
+  left: 50%;
+  z-index: 1;
+  width: 26cqi;
+  height: 6cqi;
+  border-radius: 99px;
+  background-color: var(--bezel);
+  transform: translateX(-50%);
+}
+
+.phone__screen {
+  aspect-ratio: 9 / 18.5;
+  border-radius: 13cqi;
+  font-size: 7cqi;
+}
+
+/* ----- The sample sites: fixed colours, whatever the theme ----- */
+
+.site {
+  --s-bg: #F8FAFC;
+  --s-ink: #0F172A;
+  --s-bar: #CBD5E1;
+  --s-soft: #E2E8F0;
+  --s-btn: #1D4ED8;
+  --s-btn-ink: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--s-bg);
+  color: var(--s-ink);
+  font-family: var(--font-body);
+  line-height: 1.2;
+}
+
+.site__nav {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 1.3em;
+  min-height: 2.9em;
+  padding-inline: 1.6em;
+}
+
+.phone .site__nav {
+  gap: .7em;
+  min-height: 0;
+  padding: 1.8em 1.1em .9em;
+}
+
+.site__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  font-family: var(--font-display);
+  font-size: .95em;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.site__links {
+  display: flex;
+  gap: .9em;
+  margin-left: auto;
+}
+
+.site__links i {
+  width: 2.1em;
+  height: .34em;
+  border-radius: 1em;
+  background-color: var(--s-bar);
+}
+
+.site__burger {
+  width: 1.15em;
+  height: .8em;
+  margin-left: auto;
+  background:
+    linear-gradient(currentColor, currentColor) 0 0 / 100% .15em no-repeat,
+    linear-gradient(currentColor, currentColor) 0 50% / 100% .15em no-repeat,
+    linear-gradient(currentColor, currentColor) 0 100% / 100% .15em no-repeat;
+}
+
+.site__back {
+  width: .5em;
+  height: .5em;
+  margin-right: .1em;
+  border-bottom: .15em solid currentColor;
+  border-left: .15em solid currentColor;
+  transform: rotate(45deg);
+}
+
+.site__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .6em 1.1em;
+  border-radius: 999px;
+  background-color: var(--s-btn);
+  color: var(--s-btn-ink);
+  font-family: var(--font-display);
+  font-size: .7em;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.site__btn--ghost {
+  background-color: transparent;
+  color: var(--s-ink);
+  box-shadow: inset 0 0 0 .12em var(--s-bar);
+}
+
+.site__btn--block {
+  align-self: stretch;
+  padding-block: .95em;
+  font-size: .78em;
+}
+
+.site__title {
+  font-family: var(--font-display);
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+
+.site__line {
+  display: block;
+  width: var(--w, 100%);
+  height: .4em;
+  border-radius: 1em;
+  background-color: var(--s-bar);
+}
+
+.site__line--soft {
+  background-color: var(--s-soft);
+}
+
+.site__line--accent {
+  height: .32em;
+  background-color: #1D4ED8;
+}
+
+.site__actions {
+  display: flex;
+  gap: .5em;
+  margin-top: .35em;
+}
+
+.site__cols {
+  display: grid;
+  flex: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1em;
+  padding: 1.2em 1.6em 1.4em;
+}
+
+.phone .site__cols {
+  grid-template-columns: minmax(0, 1fr);
+  padding: 1.1em;
+}
+
+.site__card {
+  display: grid;
+  align-content: start;
+  gap: .45em;
+}
+
+.site__card::before {
+  content: "";
+  width: 1.3em;
+  height: 1.3em;
+  margin-bottom: .25em;
+  border-radius: .4em;
+  box-shadow: inset 0 0 0 .12em #7799F8;
+}
+
+/* ----- Specimens: shared surface (the figure wrapper and its sheet/pill helpers) ----- */
+
+/* ----- Specimens: shared surface ----- */
+
+.specimen {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+.sheet {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.tag--plain {
+  background-color: rgba(148, 163, 184, .16);
+  color: var(--text);
+}

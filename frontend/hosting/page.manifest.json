@@ -1,0 +1,51 @@
+{
+  "slug": "hosting",
+  "output_file": "hosting.html",
+  "title": "Managed hosting with free SSL and 24/7 support \u00b7 Logos",
+  "description": "Managed cloud hosting on DigitalOcean, Linode, Vultr, Google Cloud or AWS, with a free SSL certificate, free migration and 24/7 support. No contract. Logos Cloud Edge, Kampala.",
+  "active_nav": "hosting.html",
+  "sections": [
+    "shared/layout/header-nav.html",
+    "hosting/sections/page-hero-specimen.html",
+    "hosting/sections/whats-looked-after.html",
+    "hosting/sections/hosting-plans-pricing.html",
+    "hosting/sections/faq.html",
+    "hosting/sections/final-cta.html",
+    "shared/layout/footer.html"
+  ],
+  "styles": [
+    "shared/styles/fonts.css",
+    "shared/styles/tokens.css",
+    "shared/styles/base.css",
+    "shared/styles/utilities.css",
+    "shared/styles/typography.css",
+    "shared/styles/buttons.css",
+    "shared/styles/header.css",
+    "shared/styles/hero.css",
+    "shared/styles/domain-search.css",
+    "shared/styles/inner-hero-text.css",
+    "shared/styles/page-hero.css",
+    "shared/styles/name-field.css",
+    "shared/styles/specimen-shell.css",
+    "hosting/styles/specimen-hosting-panel.css",
+    "shared/styles/services.css",
+    "shared/styles/info-cards.css",
+    "shared/styles/packages.css",
+    "shared/styles/price-list.css",
+    "shared/styles/faq.css",
+    "shared/styles/final-cta.css",
+    "shared/styles/footer.css",
+    "shared/styles/motion.css",
+    "shared/styles/inner-motion.css"
+  ],
+  "scripts": [
+    "shared/scripts/constants-and-helpers.js",
+    "shared/scripts/theme-toggle.js",
+    "shared/scripts/header-nav.js",
+    "shared/scripts/pricing-currency.js",
+    "shared/scripts/business-name-domain.js",
+    "shared/scripts/scroll-reveal.js",
+    "shared/scripts/init.js"
+  ],
+  "icon_sprite": "shared/head/icon-sprite-inner.html"
+}

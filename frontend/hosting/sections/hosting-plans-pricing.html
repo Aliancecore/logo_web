@@ -1,0 +1,97 @@
+<!--
+  hosting-plans-pricing.html — "Choose the cloud your site runs on": the
+  USD/UGX currency toggle (shared with home's yearly packages) above a
+  one-row-per-provider price list (DigitalOcean, Linode, Vultr, Google
+  Cloud, AWS) rather than plan cards, since every provider gets the same
+  care and only the monthly price changes.
+  Needs: shared/styles/packages.css (.packages__top, .currency toggle) +
+  shared/styles/price-list.css (.pricelist). The currency toggle's
+  behaviour is shared/scripts/pricing-currency.js; the dollar amounts are
+  written by that same script from each [data-usd] attribute below.
+-->
+    <!-- ============ Plans ============ -->
+    <section class="section section--alt" id="plans" aria-labelledby="plans-title">
+      <div class="wrap">
+        <div class="packages__top">
+          <header class="section-head" data-reveal>
+            <h2 class="h2" id="plans-title">Choose the cloud your site runs on.</h2>
+            <p class="section-head__intro">Managed through Cloudways, on the provider you choose. Priced by the month, paid once a year.</p>
+          </header>
+
+          <fieldset class="currency" data-reveal style="--d:1">
+            <legend class="currency__legend">Show prices in</legend>
+            <div class="currency__options">
+              <label>
+                <input type="radio" name="currency" value="USD" checked>
+                <span>US dollars</span>
+              </label>
+              <label>
+                <input type="radio" name="currency" value="UGX">
+                <span>Shillings</span>
+              </label>
+            </div>
+            <p class="currency__note" data-currency-note hidden>Estimated at 1&nbsp;USD = 3,650&nbsp;UGX. Prices are set in US dollars.</p>
+          </fieldset>
+        </div>
+
+        <ul class="pricelist" role="list">
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">DigitalOcean</h3>
+            <p class="pricelist__for">Simple cloud servers, a common choice for business websites.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="14">$14</span>
+              <span class="pricelist__per">a month, <span class="price" data-usd="168">$168</span> a year</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Hosting%3A%20DigitalOcean">Choose<span class="sr-only"> DigitalOcean</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Linode</h3>
+            <p class="pricelist__for">Cloud servers on Akamai’s network.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="14">$14</span>
+              <span class="pricelist__per">a month, <span class="price" data-usd="168">$168</span> a year</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Hosting%3A%20Linode">Choose<span class="sr-only"> Linode</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Vultr</h3>
+            <p class="pricelist__for">Cloud servers in many regions of the world.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="15">$15</span>
+              <span class="pricelist__per">a month, <span class="price" data-usd="180">$180</span> a year</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Hosting%3A%20Vultr">Choose<span class="sr-only"> Vultr</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Google Cloud</h3>
+            <p class="pricelist__for">Google’s own infrastructure.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="35.18">$35.18</span>
+              <span class="pricelist__per">a month, <span class="price" data-usd="422.16">$422.16</span> a year</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Hosting%3A%20Google%20Cloud">Choose<span class="sr-only"> Google Cloud</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">AWS</h3>
+            <p class="pricelist__for">Amazon Web Services, for sites that need room to grow.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="38.51">$38.51</span>
+              <span class="pricelist__per">a month, <span class="price" data-usd="462.12">$462.12</span> a year</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Hosting%3A%20AWS">Choose<span class="sr-only"> AWS</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <p class="section-foot" data-reveal>Every plan includes a free SSL certificate, unlimited applications, 24/7 support and no contract. Moving from another host? Your first website moves for free.</p>
+      </div>
+    </section>

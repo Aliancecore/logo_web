@@ -1,0 +1,125 @@
+/* buttons.css — .btn and its variants (action/outline/ghost/sizes), plus the
+   square .icon-btn (theme toggle, nav toggle). Shared by every page.
+   --_bg / --_fg / --_bd are local custom properties scoped to .btn: each
+   variant (.btn--action, .btn--outline, .btn--ghost) only overrides these
+   three, so the base .btn rule does not need to be repeated. */
+
+/* ---------- 5. Buttons & controls --------------------------------------- */
+
+.btn {
+  --_bg: transparent;
+  --_fg: var(--text);
+  --_bd: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55em;
+  min-height: 3rem;
+  padding: .75rem 1.25rem;
+  border: 2px solid var(--_bd);
+  border-radius: var(--radius-sm);
+  background-color: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.005em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s var(--ease-out), color .2s var(--ease-out), border-color .2s var(--ease-out), box-shadow .2s var(--ease-out), transform .15s var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn .icon {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.btn .icon--arrow {
+  transition: transform .3s var(--ease-out);
+}
+
+.btn:hover .icon--arrow {
+  transform: translateX(4px);
+}
+
+/* Orange: actions only. Night-blue text keeps 6.4:1 (white would be 2.8:1). */
+.btn--action {
+  --_bg: var(--c-orange);
+  --_fg: var(--c-night);
+  --_bd: var(--c-orange);
+  box-shadow: 0 8px 18px -10px rgba(249, 115, 22, .7);
+}
+
+.btn--action:hover {
+  --_bg: var(--c-orange-deep);
+  --_bd: var(--c-orange-deep);
+}
+
+.btn--outline {
+  --_fg: var(--blue);
+  --_bd: var(--blue);
+}
+
+.btn--outline:hover {
+  --_bg: var(--blue);
+  --_fg: var(--on-blue);
+}
+
+.btn--ghost {
+  --_fg: var(--text);
+  --_bd: var(--line-strong);
+}
+
+.btn--ghost:hover {
+  --_bg: var(--text);
+  --_fg: var(--c-night);
+  --_bd: var(--text);
+}
+
+.btn--small {
+  min-height: 2.75rem;
+  padding: .45rem .9rem;
+  font-size: .9375rem;
+}
+
+.btn--lg {
+  min-height: 3.5rem;
+  padding: .9rem 1.5rem;
+  font-size: 1.0625rem;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+.icon-btn:hover {
+  border-color: var(--line-strong);
+  background-color: rgba(148, 163, 184, .1);
+}
+
+.icon-btn .icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.theme-toggle .icon--sun { display: var(--sun-d); }
+.theme-toggle .icon--moon { display: var(--moon-d); }
+

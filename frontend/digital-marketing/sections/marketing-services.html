@@ -1,0 +1,59 @@
+<!--
+  marketing-services.html — "Three ways we bring customers to you": the
+  3-card grid (content, SEO, social media), each card a non-linking
+  checklist card (there is nothing to click through to, unlike the home
+  page's services grid).
+  Needs: shared/styles/services.css (base .services__grid/.service card,
+  verified reused from home) + shared/styles/info-cards.css (.service--info
+  no-hover-lift variant, .services__grid--3 three-column preset — both
+  extend services.css, which must load first) + shared/styles/packages.css
+  (.checklist, the ticked list inside each card).
+-->
+    <!-- ============ Services ============ -->
+    <section class="section section--after-hero" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="services-title">Three ways we bring customers to you.</h2>
+          <p class="section-head__intro">Use one, or let them work together. All three feed the same report.</p>
+        </header>
+
+        <ul class="services__grid services__grid--3" role="list">
+          <li class="services__item" data-reveal style="--d:0">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span>
+              <h3 class="service__name">Content that hooks</h3>
+              <p class="service__desc">Text, images and artwork with short, memorable messages that draw people in and help you rank higher.</p>
+              <ul class="checklist" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Posts and captions</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Images and artwork</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Website text that ranks</span></li>
+              </ul>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:1">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg></span>
+              <h3 class="service__name">Search (SEO)</h3>
+              <p class="service__desc">We optimise your site for search engines, track how you perform online and apply quick fixes when something slips.</p>
+              <ul class="checklist" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Search engine optimisation</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Performance dashboards</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Regular checks of what works</span></li>
+              </ul>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:2">
+            <article class="service service--info">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-megaphone"/></svg></span>
+              <h3 class="service__name">Social media</h3>
+              <p class="service__desc">We plan, run and monitor your campaigns, and set up and manage your social media ads.</p>
+              <ul class="checklist" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Campaign planning</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Ads set up and managed</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Results monitored</span></li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>

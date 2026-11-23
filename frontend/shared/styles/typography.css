@@ -1,0 +1,72 @@
+/* typography.css — shared headings, lead paragraphs, section headers, and the
+   two informational pill styles (.tag / .badge). Shared by every page.
+   .badge is the one approved non-button use of --c-orange (see tokens.css). */
+
+/* ---------- 4. Type ------------------------------------------------------ */
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.022em;
+  word-spacing: .03em;
+  color: var(--heading);
+  text-wrap: balance;
+}
+
+.lead {
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: var(--step-1);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.section-head {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+}
+
+.section-head--wide {
+  max-width: 52rem;
+}
+
+.section-head__intro {
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: var(--step-1);
+  text-wrap: pretty;
+}
+
+/* Information chip (never orange: it is not an action) */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .65rem;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: var(--step--1);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* The one non-button use of orange, as the brief asks */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .38rem .85rem;
+  border-radius: 999px;
+  background: var(--c-orange);
+  color: var(--c-night);
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+

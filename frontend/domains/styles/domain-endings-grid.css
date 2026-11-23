@@ -1,0 +1,54 @@
+/* domain-endings-grid.css — the 4-column variant of the shared plan card
+   (shared/styles/packages.css), plus two text-size/colour modifiers, used
+   by "Four endings, one price list" (domains/sections/domain-endings-grid.html).
+
+   Verified domains-only: grepped all 8 original pages for .plans--4,
+   .plan__name--ext and .plan__was — each appears only in domains.html.
+   (.plans--2, extracted from the same original "Domains: one card per
+   ending" comment block in css/styles.css lines 4169-4215, is NOT included
+   here: it is used by email.html, not domains.html — left untouched in
+   css/styles.css for whoever builds that page.)
+
+   Load order: must come after shared/styles/packages.css. .plan__name--ext
+   and .plans--4 both share equal specificity (one class each) with rules
+   already declared on .plan__name and .plans in packages.css (font-size on
+   .plan__name/.plan__name--ext; grid-template-columns on .plans/.plans--4
+   at the 900px breakpoint). CSS resolves an equal-specificity tie in favour
+   of whichever rule is later in the cascade, so this file must load after
+   packages.css for the plan cards to render 4-per-row with the bigger
+   ending heading, matching the original stylesheet (where this block sits
+   physically after the packages zone). */
+
+.plans--4 {
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .plans--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .plans--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Tablet rule of the plan card (side by side) does not suit four short cards */
+@media (min-width: 640px) and (max-width: 899.98px) {
+  .plans--4 .plan {
+    display: flex;
+  }
+}
+
+.plan__name--ext {
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+  letter-spacing: -.03em;
+}
+
+.plan__was {
+  color: var(--muted);
+  font-size: .9375rem;
+  text-decoration-thickness: 1.5px;
+}

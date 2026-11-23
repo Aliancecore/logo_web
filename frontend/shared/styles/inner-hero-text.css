@@ -1,0 +1,27 @@
+/* inner-hero-text.css — readable text colour on the tinted .hero background.
+   --on-tint is a colour mixed from --text and --bg (not --muted, which drops
+   below 4.5:1 contrast on the hero's blue tint).
+   Despite living in the "15. Inner pages" zone of the original stylesheet,
+   the source comment says "all pages, home included", and .hero__lead /
+   .hero .trust__item are used on the home page itself — this file IS loaded
+   by home/page.manifest.json. .namer__label, .signage__cap and
+   .hero-photo figcaption belong to inner-page-only components (name field,
+   logo signage, about's hero photo) and simply do not match anything on the
+   home page; they are kept in this one rule to stay byte-identical with the
+   source. */
+
+/* ----- Text set straight on the tinted hero (all pages, home included) -----
+   The slate grey drops to 4.1:1 on the hero's blue tint, so this text is
+   mixed from the text colour instead: 4.9:1 in light, 6.8:1 in dark. */
+
+.hero {
+  --on-tint: color-mix(in srgb, var(--text) 70%, var(--bg));
+}
+
+.hero__lead,
+.hero .trust__item,
+.namer__label,
+.signage__cap,
+.hero-photo figcaption {
+  color: var(--on-tint);
+}

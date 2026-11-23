@@ -1,0 +1,52 @@
+{
+  "slug": "index",
+  "output_file": "index.html",
+  "title": "Logos · Domains, websites and hosting for Ugandan businesses",
+  "description": "Register a .ug, .co.ug or .com domain, get a professional website in under 5 working days, plus managed hosting, business email, logos and digital marketing. Logos Cloud Edge, Kampala.",
+  "active_nav": "index.html",
+  "sections": [
+    "shared/layout/header-nav.html",
+    "home/sections/hero-domain-search.html",
+    "home/sections/services-overview.html",
+    "home/sections/product-examples-showcase.html",
+    "home/sections/pricing-packages.html",
+    "home/sections/how-it-works-week.html",
+    "home/sections/final-cta.html",
+    "shared/layout/footer.html"
+  ],
+  "styles": [
+    "shared/styles/fonts.css",
+    "shared/styles/tokens.css",
+    "shared/styles/base.css",
+    "shared/styles/utilities.css",
+    "shared/styles/typography.css",
+    "shared/styles/buttons.css",
+    "shared/styles/header.css",
+    "shared/styles/hero.css",
+    "shared/styles/domain-search.css",
+    "shared/styles/trust-list.css",
+    "shared/styles/inner-hero-text.css",
+    "home/styles/services.css",
+    "shared/styles/services.css",
+    "shared/styles/tilt-3d-stage.css",
+    "shared/styles/specimen-shell.css",
+    "shared/styles/print-pattern.css",
+    "home/styles/examples-showcase.css",
+    "shared/styles/packages.css",
+    "shared/styles/week.css",
+    "home/styles/week-photos.css",
+    "shared/styles/final-cta.css",
+    "shared/styles/footer.css",
+    "shared/styles/motion.css"
+  ],
+  "scripts": [
+    "shared/scripts/constants-and-helpers.js",
+    "shared/scripts/theme-toggle.js",
+    "shared/scripts/header-nav.js",
+    "shared/scripts/pricing-currency.js",
+    "shared/scripts/business-name-domain.js",
+    "shared/scripts/scroll-reveal.js",
+    "shared/scripts/tilt-3d.js",
+    "shared/scripts/init.js"
+  ]
+}

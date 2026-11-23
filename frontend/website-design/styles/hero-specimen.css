@@ -1,0 +1,94 @@
+/* hero-specimen.css — the hero's "your website, drawn like the examples on
+   the home page" specimen: "your business"'s own colour variant
+   (.site--yours) and content (.yours__hero/__copy/__photo/__title), drawn
+   with the shared browser/phone/site chrome from
+   shared/styles/specimen-shell.css inside the shared tilt engine from
+   shared/styles/tilt-3d-stage.css (both must load before this file -- see
+   their own header comments; they document this exact dependency already).
+   Confirmed unique to website-design.html: no other of the 8 original pages
+   references .site--yours, .site__mark, .yours__hero, .yours__copy,
+   .yours__photo or .yours__title.
+
+   Extracted verbatim from css/styles.css's "15. Inner pages" zone (original
+   lines ~3753-3826, "Specimen: your website, drawn like the examples on the
+   home page"). Unlike home's three fixed sample sites (home/styles/
+   examples-showcase.css: coffee cooperative, beauty salon, fabric shop),
+   this is the ONE specimen that stands in for the visitor's own business:
+   its logo mark (.site__mark) is a plain generic square, not a drawn
+   company logo, and its photo re-uses the same Mount Elgon artwork
+   (#art-elgon, already in shared/head/icon-sprite.html) as home's coffee
+   example -- a deliberate placeholder, not a mistake. */
+
+/* ----- Specimen: your website, drawn like the examples on the home page ----- */
+
+.site--yours .site__logo > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 13em;
+}
+
+.site__mark {
+  width: .9em;
+  height: .9em;
+  border-radius: .25em;
+  background-color: #1D4ED8;
+}
+
+.yours__hero {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: 1.4em;
+  min-height: 0;
+  padding: .4em 17% 0 1.6em;
+}
+
+.yours__copy {
+  display: grid;
+  justify-items: start;
+  gap: .7em;
+}
+
+.yours__copy .site__title,
+.phone .yours__title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
+}
+
+.yours__photo {
+  position: relative;
+  align-self: stretch;
+  margin-block: .6em;
+  overflow: hidden;
+  border-radius: .7em;
+  background: linear-gradient(180deg, #0F172A 0%, #1E40AF 165%);
+}
+
+.yours__photo svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.phone .yours__photo {
+  flex: none;
+  height: 9.5em;
+  margin: 0 1.1em;
+}
+
+.phone .yours__copy {
+  padding: 1em 1.1em .4em;
+}
+
+.phone .yours__title {
+  font-family: var(--font-display);
+  font-size: 1.35em;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+}

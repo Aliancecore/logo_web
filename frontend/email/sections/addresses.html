@@ -1,0 +1,56 @@
+<!--
+  addresses.html — "One domain, an address for every desk": the list of
+  possible addresses on the visitor's domain, a reminder that the mailbox
+  works in Outlook/webmail/on the phone (the shared .trust list, nested in
+  this two-column layout), and the "also included" feature checklist.
+  Needs: shared/styles/two-columns.css (.split/.split__body/.split__title,
+  .checklist--cols), email/styles/addresses-list.css (.addresses/.address/
+  .address__domain — page-specific, see that file's header),
+  shared/styles/trust-list.css (.trust, incl. its "nested inside .split"
+  variant — already covers the .split .trust override this section needs,
+  see trust-list.css's own header), shared/styles/packages.css (.checklist
+  base rule, shared with .plan__features).
+  <span data-slug>/<span data-tld> are filled live by
+  shared/scripts/business-name-domain.js from the hero's .namer field.
+-->
+    <!-- ============ Addresses ============ -->
+    <section class="section section--after-hero" id="addresses" aria-labelledby="addresses-title">
+      <div class="wrap split">
+        <div class="split__body" data-reveal>
+          <h2 class="h2" id="addresses-title">One domain, an address for every desk.</h2>
+          <p class="section-head__intro">Give each person or department its own address, all on your name. Messages arrive instantly, without the delays of overloaded free services.</p>
+          <ul class="addresses" role="list">
+            <li class="address">hello@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+            <li class="address">sales@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+            <li class="address">accounts@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+            <li class="address">support@<span class="address__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span></li>
+          </ul>
+        </div>
+
+        <div class="split__body" data-reveal style="--d:1">
+          <h3 class="split__title">Works where you work</h3>
+          <ul class="trust" role="list">
+            <li class="trust__item">
+              <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+              <span><strong>Outlook</strong>, on your computer</span>
+            </li>
+            <li class="trust__item">
+              <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-browser"/></svg></span>
+              <span><strong>Webmail</strong>, in any browser</span>
+            </li>
+            <li class="trust__item">
+              <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span>
+              <span><strong>Your phone</strong>, Android or iPhone</span>
+            </li>
+          </ul>
+          <h3 class="split__title">Also included</h3>
+          <ul class="checklist checklist--cols" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Spam and virus filters</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Instant messaging</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Shared calendars</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Shared contacts</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>24/7 technical support</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>

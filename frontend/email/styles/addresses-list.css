@@ -1,0 +1,41 @@
+/* addresses-list.css — the "hello@/sales@/accounts@/support@<domain>" pill
+   list in the "Addresses" section. Verified page-specific: grep across
+   every *.html for class="address" shows only email.html using it.
+   The nested-inside-.split layout tweak for the neighbouring .trust list
+   (originally the same "Email: one domain, many addresses" comment block
+   in css/styles.css) is NOT duplicated here: it is already generic and
+   lives in shared/styles/trust-list.css as the documented ".trust nested
+   inside a two-column .split (email.html)" rule, loaded via that file.
+
+   - .addresses: wraps the pills, lets them flow onto multiple lines.
+   - .address: one pill per address; a plain <li>, not a link (these are
+     examples, not mailto targets).
+   - .address__domain: the "<slug><tld>" part of each pill, tinted blue to
+     separate it visually from the fixed "hello@" etc. prefix. <span
+     data-slug>/<span data-tld> inside it are filled live by
+     shared/scripts/business-name-domain.js. */
+
+.addresses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.address {
+  display: inline-flex;
+  align-items: baseline;
+  max-width: 100%;
+  padding: .55rem .95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background-color: var(--surface);
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: .9375rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.address__domain {
+  color: var(--blue);
+}

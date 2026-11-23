@@ -1,0 +1,45 @@
+<!--
+  page-hero-photo.html — about's hero: the "Shifting businesses online, from
+  Kampala." thesis, intro copy with two actions (email sales / jump to
+  #team), and a photo of Kampala (not a product mockup, unlike the other
+  inner pages' specimens) with its credit caption.
+  Needs: shared/styles/hero.css (base .hero box), shared/styles/page-hero.css
+  (.page-hero__grid title/copy/media layout, .hero__actions), about's own
+  about/styles/hero-photo.css (.hero-photo sizing), and
+  shared/styles/inner-hero-text.css (readable colour for the hero__lead and
+  the hero-photo figcaption on the tinted background — must load AFTER
+  about/styles/hero-photo.css, see that file's header comment).
+-->
+    <!-- ============ Hero ============ -->
+    <section class="hero page-hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap page-hero__grid">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Shifting businesses online<span class="punct">,</span></span>
+          <span class="hero__line hero__accent">from Kampala<span class="punct">.</span></span>
+        </h1>
+
+        <div class="page-hero__copy">
+          <p class="lead hero__lead">We help businesses of every size turn manual, paper-based work into web-based products and services. One team takes you from the idea to online revenue.</p>
+          <div class="hero__actions">
+            <a class="btn btn--action btn--lg" href="mailto:sales@logoswebsiteservices.com" data-mail-topic="">
+              Email sales
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#team">Meet the team</a>
+          </div>
+        </div>
+
+        <div class="page-hero__media">
+          <!-- Stock photo of Kampala (Unsplash License, credit below and in assets/img/CREDITS.txt).
+               It shows the city, not our team or our office. -->
+          <figure class="hero-photo">
+            <img src="assets/img/kampala-skyline-640.webp"
+                 srcset="assets/img/kampala-skyline-640.webp 640w, assets/img/kampala-skyline-1200.webp 1200w"
+                 sizes="(min-width: 1240px) 700px, (min-width: 1024px) 56vw, (min-width: 720px) 640px, 90vw"
+                 width="1200" height="800" decoding="async"
+                 alt="Kampala on a sunny afternoon: green hills, red-roofed houses and new office towers.">
+            <figcaption>Kampala, where we work. Photo: Keith Kasaija, Unsplash.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,35 @@
+<!--
+  our-story-and-promise.html — "From ideas to revenue.": one <section>, two
+  columns. Left: the page's own story copy (.split__body). Right: the
+  reassurance sentence box reused verbatim from the home page, as
+  ".assurance.assurance--inline" (no photos on this page, unlike home's
+  version — see shared/README.md's "Important finding" and
+  shared/styles/week.css's header comment, which both confirm .assurance is
+  shared between home and about).
+  Needs: shared/styles/two-columns.css (.split, .split__body — the left/right
+  layout), shared/styles/week.css (.assurance and children — the box itself),
+  about's own about/styles/promise.css (.assurance--inline — the one-rule
+  tweak that drops the box's top border/margin/padding since this page has
+  no photos sitting above it; must load AFTER shared/styles/week.css, see
+  that file's header comment).
+-->
+    <!-- ============ What we do ============ -->
+    <section class="section section--after-hero" id="story" aria-labelledby="story-title">
+      <div class="wrap split">
+        <div class="split__body" data-reveal>
+          <h2 class="h2" id="story-title">From ideas to revenue.</h2>
+          <p class="section-head__intro">We are an all-in-one partner for businesses that want online impact and profit: the website, the name it lives on, the hosting behind it, the email, the logo and the marketing that brings customers.</p>
+          <p class="section-head__intro">We started by building websites for Kampala businesses, then added what our clients asked for next, until one team could do the whole job.</p>
+        </div>
+
+        <div class="assurance assurance--inline" data-reveal style="--d:1">
+          <div class="assurance__body">
+            <p class="assurance__label">What we promise</p>
+            <p class="assurance__text">
+              The most <mark>secure</mark>, <mark>affordable</mark> and <mark>reliable</mark> web services we can build,
+              and a team that answers <mark>24/7, weekends included</mark>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>

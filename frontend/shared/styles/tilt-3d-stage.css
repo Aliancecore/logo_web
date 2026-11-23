@@ -1,0 +1,68 @@
+/* tilt-3d-stage.css — the 3D perspective "stage/rig" engine: a shallow
+   perspective box (.case__stage) whose contents (.case__rig) lean by default
+   and turn to face the pointer on hover. The geometry lives here; main.js
+   (shared/scripts/tilt-3d.js) only ever sets --tx, --ty and --sy.
+   Shared by the home page's "Examples" showcase (home/styles/examples-showcase.css
+   draws the browser/phone inside it) AND by website-design.html hero
+   specimen (figure.specimen wraps the same .case__stage/.case__rig markup).
+
+   - --rx / --ry (on .case__rig): default lean angles. The 3-across desktop
+     layout in home/styles/examples-showcase.css overrides these per position
+     with :nth-child -- that override is home-specific and stays there.
+   - --tx / --ty (on .case__rig, via inline style set by tilt-3d.js): pointer
+     offset within the stage, -0.5..0.5, turned into extra rotation.
+   - --sy (on .case__stage, via inline style set by tilt-3d.js): scroll
+     parallax position, -1..1.
+   - .is-tilting (class toggled by tilt-3d.js): applied to .case__stage while
+     a mouse/pen is over it; flattens the lean so the drawing faces the
+     pointer. Written once for both contexts it appears in (".cases .case__stage"
+     for home, ".specimen .case__stage" for website-design.html).
+   Reduced motion: .case__rig and .phone (the sibling element -- see
+   specimen-shell.css) both drop their transform; that rule lives in
+   shared/styles/motion.css prefers-reduced-motion block, not here, to avoid
+   a second copy of that media query. */
+
+/* ----- The stage ----- */
+
+.case__stage {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 100 / 76;
+  perspective: 1100px;
+  perspective-origin: 50% 35%;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.case__rig {
+  --rx: 6deg;   /* default lean, the same everywhere below 1080px */
+  --ry: -12deg;
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform:
+    rotateX(calc(var(--rx) + var(--sy, 0) * 5deg - var(--ty, 0) * 14deg))
+    rotateY(calc(var(--ry) + var(--tx, 0) * 18deg));
+  transition: transform .9s var(--ease-out);
+}
+
+/* Phones held sideways and small tablets: the stage does not need the full width.
+   Selector is bare ".case__stage" (not scoped to the home grid), so it also
+   applies wherever else the stage is used. */
+
+@media (min-width: 480px) and (max-width: 679.98px) {
+  .case__stage {
+    width: min(100%, 30rem);
+  }
+}
+
+/* Under the mouse (class set by tilt-3d.js), the site turns to face you.
+   Written for both the home grid (.cases) and website-design.html specimen
+   (.specimen) in the same rule. */
+
+.cases .case__stage.is-tilting .case__rig,
+.specimen .case__stage.is-tilting .case__rig {
+  --rx: 0deg;
+  --ry: 0deg;
+  transition-duration: .35s;
+}

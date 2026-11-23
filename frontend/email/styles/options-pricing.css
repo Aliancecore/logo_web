@@ -1,0 +1,27 @@
+/* options-pricing.css — the 2-card width variant of the shared .plans grid
+   (shared/styles/packages.css), used by the "Two ways to run your email"
+   comparison (Business email vs. Microsoft 365). Verified page-specific:
+   grep across every *.html for class="plans" shows domains.html uses the
+   4-card ".plans--4" variant and home uses the plain 3-card ".plans" with
+   no modifier; only email.html uses ".plans--2". Lived in the original
+   css/styles.css right next to ".plans--4"/".plan__name--ext"/".plan__was"
+   under one "Domains: one card per ending" comment, but those three rules
+   are domains.html-only (left untouched in css/styles.css for the agent
+   building that page, per shared/README.md's "Unresolved from the
+   original brief" note) — this ".plans--2" rule is the only one of that
+   group that belongs to email.
+
+   - .plans--2: tighter gap than the base 3-card .plans, and caps the grid's
+     width at 2 cards wide from 900px up so the two cards do not stretch
+     edge-to-edge on a wide screen. */
+
+.plans--2 {
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .plans--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 62rem;
+  }
+}

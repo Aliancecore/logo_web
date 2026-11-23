@@ -1,0 +1,102 @@
+<!--
+  design-pricing.html — "Design prices": the currency toggle (shared with
+  the yearly packages on other pages), then one row per design package
+  (Personal webpage through Custom design), and a closing line pointing at
+  the yearly packages on the home page.
+  Needs shared/styles/packages.css (.packages__top, .currency*) and
+  shared/styles/price-list.css (.pricelist* — a generic one-row-per-offer
+  list, not used by home) and shared/styles/utilities.css (.section-foot,
+  .price). Needs shared/scripts/pricing-currency.js to switch the
+  [data-usd] amounts between USD and UGX.
+-->
+    <!-- ============ Design prices ============ -->
+    <section class="section section--alt" id="prices" aria-labelledby="prices-title">
+      <div class="wrap">
+        <div class="packages__top">
+          <header class="section-head" data-reveal>
+            <h2 class="h2" id="prices-title">Design prices.</h2>
+            <p class="section-head__intro">Pick the package closest to your business. Not sure which one fits? Call us and we will tell you.</p>
+          </header>
+
+          <fieldset class="currency" data-reveal style="--d:1">
+            <legend class="currency__legend">Show prices in</legend>
+            <div class="currency__options">
+              <label>
+                <input type="radio" name="currency" value="USD" checked>
+                <span>US dollars</span>
+              </label>
+              <label>
+                <input type="radio" name="currency" value="UGX">
+                <span>Shillings</span>
+              </label>
+            </div>
+            <p class="currency__note" data-currency-note hidden>Estimated at 1&nbsp;USD = 3,650&nbsp;UGX. Prices are set in US dollars.</p>
+          </fieldset>
+        </div>
+
+        <ul class="pricelist" role="list">
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Personal webpage</h3>
+            <p class="pricelist__for">For consultants, freelancers, creative artists and designers.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="120">$120</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Website%20design%3A%20Personal%20webpage">Choose<span class="sr-only"> Personal webpage</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Charitable causes</h3>
+            <p class="pricelist__for">For NGOs and community organisations sharing their cause.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="150">$150</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Website%20design%3A%20Charitable%20causes">Choose<span class="sr-only"> Charitable causes</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Startup</h3>
+            <p class="pricelist__for">For a new business launching its idea online.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="170">$170</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Website%20design%3A%20Startup">Choose<span class="sr-only"> Startup</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">SME</h3>
+            <p class="pricelist__for">For small and medium businesses that want more sales.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="250">$250</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Website%20design%3A%20SME">Choose<span class="sr-only"> SME</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Express design</h3>
+            <p class="pricelist__for">When you need to be online in 24 to 48 hours.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="350">$350</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Website%20design%3A%20Express">Choose<span class="sr-only"> Express design</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+          <li class="pricelist__row" data-reveal>
+            <h3 class="pricelist__name">Custom design</h3>
+            <p class="pricelist__for">A unique concept, designed from scratch.</p>
+            <p class="pricelist__price">
+              <span class="pricelist__amount price" data-usd="550">$550</span>
+            </p>
+            <a class="btn btn--outline btn--small pricelist__go" href="mailto:sales@logoswebsiteservices.com?subject=Website%20design%3A%20Custom">Choose<span class="sr-only"> Custom design</span>
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <p class="section-foot" data-reveal>Want domain, hosting, design and support in one yearly price? See our <a href="index.html#packages">yearly packages</a>, from <span class="price" data-usd="500">$500</span> a year.</p>
+      </div>
+    </section>

@@ -1,0 +1,44 @@
+<!--
+  domain-transfer.html — "Already have a domain? Move it to us.": a
+  two-column layout (intro text + CTA on the left, a 4-step numbered list
+  on the right) explaining how a domain transfer works. Both the layout and
+  the step list are already shared, used as-is with no domains-only CSS:
+  the .split/.split__body column layout is shared/styles/two-columns.css
+  (confirmed generic: email.html uses the same .split/.split__body, see
+  shared/styles/trust-list.css's header comment) and the .steps/.step
+  numbered list is shared/styles/numbered-steps.css. Nothing to add here.
+  Needs: shared/styles/two-columns.css, shared/styles/numbered-steps.css.
+-->
+    <!-- ============ Transfer ============ -->
+    <section class="section section--alt" id="transfer" aria-labelledby="transfer-title">
+      <div class="wrap split">
+        <div class="split__body" data-reveal>
+          <h2 class="h2" id="transfer-title">Already have a domain? Move it to us.</h2>
+          <p class="section-head__intro">A transfer keeps your name and adds one year to it. Your domain, website and email then sit with one team.</p>
+          <p class="section-foot">Some endings, and domains renewed very recently, cannot move straight away. Send us the name and we will tell you.</p>
+          <a class="btn btn--action" href="mailto:sales@logoswebsiteservices.com?subject=A%20domain%20transfer" data-mail-topic="a domain transfer">
+            Ask for a transfer
+            <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+        </div>
+
+        <ol class="steps" data-reveal style="--d:1">
+          <li class="step">
+            <h3 class="step__title">Unlock the domain</h3>
+            <p class="step__text">At the company that holds it today, switch off the transfer lock.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Get the transfer code</h3>
+            <p class="step__text">They give you an authorisation code, sometimes called an EPP code. Send it to us.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Approve the move</h3>
+            <p class="step__text">An email asks you to confirm the transfer. One click and it starts.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Your domain arrives, a year longer</h3>
+            <p class="step__text">We keep it pointed at your website and email, so customers notice nothing.</p>
+          </li>
+        </ol>
+      </div>
+    </section>

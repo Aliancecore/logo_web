@@ -1,0 +1,30 @@
+/* clients.css (about) — the "Businesses that trust us." client-name chip
+   list. Confirmed unique to about.html: no other of the 8 pages references
+   .clients (extracted from css/styles.css, lines ~4619-4634 — physically
+   grouped under the "About: hero photo with its credit" comment in the
+   source even though it is a different, unrelated component; split out here
+   by actual role rather than by that comment grouping. See
+   about/styles/hero-photo.css for the photo rules the source grouped it
+   with).
+
+   - .clients: the wrapping list — a simple flex-wrap row of pill chips.
+   - .clients li: one client name, styled as a pill (border, radius, surface
+     background) rather than a bullet point; purely decorative text, no
+     links. */
+
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+
+.clients li {
+  padding: .5rem .9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background-color: var(--surface);
+  color: var(--heading);
+  font-size: .9375rem;
+  font-weight: 600;
+}

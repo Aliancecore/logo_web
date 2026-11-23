@@ -1,0 +1,39 @@
+<!--
+  marketing-method-steps.html — "Systematic, consistent and profitable":
+  the 3-step Plan/Run/Monitor process timeline.
+  Needs: shared/styles/week.css — this reuses the SAME .days/.day component
+  as the home page's 5-day week (just the 3-column .days--3 modifier, which
+  already lives in that file, not a separate "numbered steps" component:
+  verified the markup is <ol class="days days--3">, not <ol class="steps">,
+  so shared/styles/numbered-steps.css does NOT apply here).
+-->
+    <!-- ============ Method ============ -->
+    <section class="section section--alt" id="method" aria-labelledby="method-title">
+      <div class="wrap">
+        <header class="section-head section-head--wide" data-reveal>
+          <h2 class="h2" id="method-title">Systematic, consistent and profitable.</h2>
+          <p class="section-head__intro">Every campaign follows the same three steps, month after month.</p>
+        </header>
+
+        <ol class="days days--3" role="list">
+          <li class="day" data-reveal style="--d:0">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Step 1</p>
+            <h3 class="day__title">Plan</h3>
+            <p class="day__text">We agree on who you want to reach, what to tell them and where they spend time online.</p>
+          </li>
+          <li class="day" data-reveal style="--d:1">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Step 2</p>
+            <h3 class="day__title">Run</h3>
+            <p class="day__text">We publish the content and run the ads, as planned.</p>
+          </li>
+          <li class="day" data-reveal style="--d:2">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Step 3</p>
+            <h3 class="day__title">Monitor</h3>
+            <p class="day__text">We track the results, fix what does not work and show you the numbers.</p>
+          </li>
+        </ol>
+      </div>
+    </section>

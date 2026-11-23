@@ -1,0 +1,227 @@
+/* week.css — the step-by-step process timeline (.days, .day and children)
+   and the "reassurance sentence" (.assurance, text-only part: label + big
+   sentence + highlighted <mark> words). Shared: .days/.day are used by home,
+   website-design.html, logo-design.html and digital-marketing.html;
+   .assurance is used by home AND about.html (as ".assurance.assurance--inline",
+   a one-page modifier that stays with about.html's own CSS) -- both were
+   classified "home-only" in the original zone split; promoted here after
+   verification.
+   The two photos that sit beside home's assurance sentence
+   (.assurance__photos, .photo, .photo--city, .photo--shop) are NOT shared --
+   about.html's version of this sentence has no photos -- see
+   home/styles/week-photos.css.
+
+   - .days: the default (no modifier) lays out 5 columns from 900px, for
+     home's 5-day week. Inner pages add .days--3 / .days--4 (defined in the
+     "15. Inner pages" zone, left to each page's own agent) to override the
+     column count; same specificity, so the modifier must be loaded after
+     this file to win -- true by construction, since page styles always load
+     after shared styles.
+   - .day__from: a small "what we need from you" callout some inner pages add
+     per step; harmless on pages (like home) that never add it. Kept here,
+     next to .days--3/.days--4, since the source comment that introduces it
+     ("Step lists with three or four steps") explicitly calls out "the home
+     page week has five" -- it is clearly part of this same shared component. */
+
+.days {
+  display: grid;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.day {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: .45rem;
+  padding: 0 0 2.25rem 2rem;
+  border-left: 2px solid var(--line);
+}
+
+.day:last-child {
+  padding-bottom: 0;
+}
+
+/* Progress line, drawn day by day */
+.day::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 2px;
+  height: 100%;
+  background-color: var(--blue);
+  transform-origin: top;
+}
+
+.day__node {
+  position: absolute;
+  top: .3rem;
+  left: -9px;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--blue);
+  border-radius: 50%;
+  background-color: var(--blue);
+}
+
+.day__node--live {
+  top: 0;
+  left: -12px;
+  width: auto;
+  height: auto;
+  padding: .3rem .55rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--blue);
+  color: var(--on-blue);
+  font-family: var(--font-display);
+  font-size: .75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transform-origin: left center;
+}
+
+.day--live .day__name {
+  padding-top: 1.6rem;
+}
+
+.day__name {
+  color: var(--blue);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.day__title {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.day__text {
+  max-width: 30rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+@media (min-width: 900px) {
+  .days {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .day {
+    padding: 2.25rem 1.5rem 0 0;
+    border-left: 0;
+    border-top: 2px solid var(--line);
+  }
+
+  .day::after {
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform-origin: left;
+  }
+
+  .day__node {
+    top: -9px;
+    left: 0;
+  }
+
+  .day__node--live {
+    top: -.75rem;
+    left: 0;
+  }
+
+  .day--live .day__name {
+    padding-top: 0;
+  }
+}
+
+.assurance {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 3.5rem);
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  border-top: 1px solid var(--line);
+}
+
+.assurance__body {
+  display: grid;
+  gap: 1rem;
+  max-width: 62rem;
+}
+
+@media (min-width: 680px) {
+  .assurance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    column-gap: clamp(2rem, 6vw, 5.5rem);
+  }
+}
+
+@media (min-width: 1080px) {
+  .assurance {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  }
+}
+
+.assurance__label {
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.assurance__text {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1rem + 1.4vw, 2.125rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  text-wrap: pretty;
+}
+
+@media (min-width: 680px) {
+  .assurance__text {
+    font-size: clamp(1.3125rem, .4rem + 1.5vw, 1.875rem); /* shares the row with the photos */
+  }
+}
+
+.assurance mark {
+  padding-inline: .06em;
+  color: inherit;
+  background: linear-gradient(var(--blue-mark), var(--blue-mark)) no-repeat 0 90% / 100% .42em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* ----- Step lists with three or four steps (inner pages only; home keeps the default 5) ----- */
+
+@media (min-width: 900px) {
+  .days--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .days--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.day__from {
+  margin-top: .35rem;
+  padding: .6rem .8rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--blue-soft);
+  color: var(--text);
+  font-size: .875rem;
+  line-height: 1.45;
+  max-width: 30rem;
+}
+
+.day__from strong {
+  color: var(--heading);
+  font-weight: 600;
+}

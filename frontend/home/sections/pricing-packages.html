@@ -1,0 +1,116 @@
+<!--
+  pricing-packages.html — "Pick a package, pay once a year": the USD/UGX
+  currency toggle and the 3 yearly plan cards (Startup, SME, Online Shop).
+  Needs: shared/styles/packages.css. The currency toggle's behaviour is
+  shared/scripts/pricing-currency.js; the dollar amounts are written by that
+  same script from each [data-usd] attribute below.
+-->
+    <!-- ============ Packages ============ -->
+    <section class="section section--alt packages" id="packages" aria-labelledby="packages-title">
+      <div class="wrap">
+        <div class="packages__top">
+          <header class="section-head" data-reveal>
+            <h2 class="h2" id="packages-title">Pick a package, pay once a year.</h2>
+            <p class="section-head__intro">Sign up online and get started straight away. Domain, hosting, design, SSL and 24/7 support come with every package.</p>
+          </header>
+
+          <fieldset class="currency" data-reveal style="--d:1">
+            <legend class="currency__legend">Show prices in</legend>
+            <div class="currency__options">
+              <label>
+                <input type="radio" name="currency" value="USD" checked>
+                <span>US dollars</span>
+              </label>
+              <label>
+                <input type="radio" name="currency" value="UGX">
+                <span>Shillings</span>
+              </label>
+            </div>
+            <p class="currency__note" data-currency-note hidden>Estimated at 1&nbsp;USD = 3,650&nbsp;UGX. Prices are set in US dollars.</p>
+          </fieldset>
+        </div>
+
+        <ul class="plans" role="list">
+          <li class="plans__item" data-reveal style="--d:0">
+            <article class="plan" aria-labelledby="plan-startup">
+              <div class="plan__head">
+                <h3 class="plan__name" id="plan-startup">Startup</h3>
+                <p class="plan__for">A first website for a new business.</p>
+              </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="500" data-price-split><span class="price__cur">$</span>500</span>
+                <span class="plan__per">per year</span>
+              </p>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20Startup">
+                Choose Startup
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Secure domain</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reliable hosting</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Website design</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>SSL certificate</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Basic SEO</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Content creation</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>24/7 support</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="plans__item" data-reveal style="--d:1">
+            <article class="plan plan--popular" aria-labelledby="plan-sme plan-sme-badge">
+              <p class="badge plan__badge" id="plan-sme-badge">Popular</p>
+              <div class="plan__head">
+                <h3 class="plan__name" id="plan-sme">SME</h3>
+                <p class="plan__for">For an established business that wants to be found online.</p>
+              </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="1000" data-price-split><span class="price__cur">$</span>1,000</span>
+                <span class="plan__per">per year</span>
+              </p>
+              <a class="btn btn--action btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20SME">
+                Choose SME
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Secure domain</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reliable hosting</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Website design</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>SSL certificate</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Basic SEO</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Content creation</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>24/7 support</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="plans__item" data-reveal style="--d:2">
+            <article class="plan" aria-labelledby="plan-shop">
+              <div class="plan__head">
+                <h3 class="plan__name" id="plan-shop">Online Shop</h3>
+                <p class="plan__for">Sell your products online and take payments.</p>
+              </div>
+              <p class="plan__price">
+                <span class="plan__amount price" data-usd="1500" data-price-split><span class="price__cur">$</span>1,500</span>
+                <span class="plan__per">per year</span>
+              </p>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Package%3A%20Online%20Shop">
+                Choose Online Shop
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <ul class="plan__features" role="list">
+                <li class="plan__extra"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Store inventory</li>
+                <li class="plan__extra"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Online payments</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Secure domain</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reliable hosting</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Website design</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>SSL certificate</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Basic SEO</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Content creation</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>24/7 support</li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>

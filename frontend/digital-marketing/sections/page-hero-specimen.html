@@ -1,0 +1,67 @@
+<!--
+  page-hero-specimen.html — this page's hero: the "rank higher, monitor and
+  grow online" headline, lead paragraph and CTA buttons, plus the monthly
+  report mockup (figure.specimen > .sheet.report) and the "see it with your
+  business name" field underneath it.
+  Needs: shared/styles/hero.css (box/typography), shared/styles/page-hero.css
+  (.page-hero__grid 3-area layout, .hero__actions button row),
+  shared/styles/inner-hero-text.css (readable text on the tinted hero),
+  shared/styles/domain-search.css + shared/styles/name-field.css (.namer,
+  reuses .search__field/.search__input), shared/styles/specimen-shell.css
+  (.specimen, .sheet) and digital-marketing/styles/report-specimen.css
+  (.report, .report__*, .source* — the only CSS specific to this page).
+  <span data-slug>/<span data-tld> and the namer <input data-name-input>
+  are wired live by shared/scripts/business-name-domain.js from whatever the
+  visitor types in #namer-input.
+-->
+    <!-- ============ Hero ============ -->
+    <section class="hero page-hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap page-hero__grid">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Rank higher, monitor</span>
+          <span class="hero__line hero__accent">and grow online<span class="punct">.</span></span>
+        </h1>
+
+        <div class="page-hero__copy">
+          <p class="lead hero__lead">We create your content, run your social media campaigns and ads, and improve how you rank on search. A report each month shows what every step brings in.</p>
+          <div class="hero__actions">
+            <a class="btn btn--action btn--lg" href="mailto:sales@logoswebsiteservices.com?subject=Digital%20marketing" data-mail-topic="digital marketing">
+              Ask for a quote
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#services">See services</a>
+          </div>
+        </div>
+
+        <div class="page-hero__media">
+          <figure class="specimen">
+            <div class="sheet report" aria-hidden="true">
+              <div class="report__head">
+                <p class="report__label"><span>Monthly report</span><span>October 2026</span></p>
+                <p class="report__site"><span data-slug>yourbusiness</span><span class="blue-tld" data-tld>.co.ug</span></p>
+              </div>
+              <dl class="report__stats">
+                <div class="report__stat"><dt>Website visits</dt><dd class="report__num">1,284</dd><dd class="report__delta"><svg class="icon"><use href="#i-arrow-up"/></svg>18% on Sept.</dd></div>
+                <div class="report__stat"><dt>Calls from Google</dt><dd class="report__num">46</dd><dd class="report__delta"><svg class="icon"><use href="#i-arrow-up"/></svg>9 more</dd></div>
+                <div class="report__stat"><dt>WhatsApp chats</dt><dd class="report__num">31</dd><dd class="report__delta"><svg class="icon"><use href="#i-arrow-up"/></svg>12 more</dd></div>
+              </dl>
+              <div class="report__sources">
+                <p>Where visitors came from</p>
+                <div class="source"><span>Google search</span><span class="source__bar"><i style="--v:52%; --i:0"></i></span><span class="source__val">52%</span></div>
+                <div class="source"><span>Facebook</span><span class="source__bar"><i style="--v:27%; --i:1"></i></span><span class="source__val">27%</span></div>
+                <div class="source"><span>Instagram</span><span class="source__bar"><i style="--v:13%; --i:2"></i></span><span class="source__val">13%</span></div>
+                <div class="source"><span>Other</span><span class="source__bar"><i style="--v:8%; --i:3"></i></span><span class="source__val">8%</span></div>
+              </div>
+            </div>
+            <figcaption class="sr-only">Example of a monthly report for your website: 1,284 visits, 46 calls from Google and 31 WhatsApp chats in October, and where visitors came from: Google search 52%, Facebook 27%, Instagram 13%, other 8%.</figcaption>
+          </figure>
+          <div class="namer">
+            <label class="namer__label" for="namer-input">See it with your business name</label>
+            <div class="search__field">
+              <svg class="icon search__icon" aria-hidden="true"><use href="#i-edit"/></svg>
+              <input class="search__input" id="namer-input" type="text" placeholder="e.g. Joy's Salon" maxlength="48" autocomplete="organization" spellcheck="false" data-name-input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

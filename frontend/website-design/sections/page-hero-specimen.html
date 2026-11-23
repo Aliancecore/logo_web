@@ -1,0 +1,107 @@
+<!--
+  page-hero-specimen.html — the page's hero: a two-line thesis ("A
+  professional website, live in under 5 working days"), the lead copy and
+  two CTAs, then a drawn specimen of "your website" (the same tilting
+  browser/phone chrome as home's examples) under a small name field so the
+  visitor can see it with their own business name.
+  Needs, in this order: shared/styles/hero.css (base .hero/.hero__title
+  box+typography), shared/styles/page-hero.css (.page-hero__grid/__copy/__media,
+  .hero__actions — the inner-page hero layout, NOT used by home),
+  shared/styles/domain-search.css (.search__field/__icon/__input, reused by
+  the name field below), shared/styles/name-field.css (.namer, must load
+  after domain-search.css), shared/styles/inner-hero-text.css (readable text
+  on the tinted hero, must load after name-field.css so its .namer__label
+  colour wins), shared/styles/tilt-3d-stage.css + specimen-shell.css (the
+  .case__stage/.case__rig 3D engine and the .browser/.phone/.site drawing
+  chrome — the same ones home's examples use), then this page's own
+  website-design/styles/hero-specimen.css (the "your business" colours and
+  content: .site--yours, .yours__*). Needs shared/scripts/tilt-3d.js for the
+  tilt/parallax behaviour and shared/scripts/business-name-domain.js to fill
+  [data-name]/[data-slug]/[data-tld] with whatever the visitor types in the
+  name field (or carries over from another page).
+-->
+    <!-- ============ Hero ============ -->
+    <section class="hero page-hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap page-hero__grid">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">A professional website<span class="punct">,</span></span>
+          <span class="hero__line hero__accent">live in under 5 working days<span class="punct">.</span></span>
+        </h1>
+
+        <div class="page-hero__copy">
+          <p class="lead hero__lead">Your website is your business address online: where customers find what you sell, your prices and how to reach you, at any hour. We design it for phones first, host it securely and show you who visits.</p>
+          <div class="hero__actions">
+            <a class="btn btn--action btn--lg" href="mailto:sales@logoswebsiteservices.com?subject=A%20website" data-mail-topic="a website">
+              Ask for a website
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#prices">See design prices</a>
+          </div>
+        </div>
+
+        <div class="page-hero__media">
+          <figure class="specimen">
+            <div class="case__stage" aria-hidden="true" data-tilt>
+              <div class="case__rig">
+                <div class="browser">
+                  <div class="browser__bar">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url"><svg class="icon"><use href="#i-lock"/></svg><span><span data-slug>yourbusiness</span><span class="browser__tld" data-tld>.co.ug</span></span></span>
+                  </div>
+                  <div class="browser__view site site--yours">
+                    <div class="site__nav">
+                      <span class="site__logo"><i class="site__mark"></i><span data-name>Your business</span></span>
+                      <span class="site__links"><i></i><i></i><i></i></span>
+                      <span class="site__btn">Call us</span>
+                    </div>
+                    <div class="yours__hero">
+                      <div class="yours__copy">
+                        <i class="site__line site__line--accent" style="--w:30%"></i>
+                        <span class="site__title" data-name>Your business</span>
+                        <i class="site__line" style="--w:88%"></i>
+                        <i class="site__line" style="--w:64%"></i>
+                        <span class="site__actions"><span class="site__btn">Call us</span><span class="site__btn site__btn--ghost">Find us</span></span>
+                      </div>
+                      <div class="yours__photo"><svg viewBox="0 0 400 160" preserveAspectRatio="xMaxYMax slice"><use href="#art-elgon"/></svg></div>
+                    </div>
+                    <div class="site__cols">
+                      <span class="site__card"><i class="site__line" style="--w:62%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:78%"></i></span>
+                      <span class="site__card"><i class="site__line" style="--w:48%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:66%"></i></span>
+                      <span class="site__card"><i class="site__line" style="--w:56%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:84%"></i></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="phone">
+                  <div class="phone__frame">
+                    <div class="phone__screen site site--yours">
+                      <div class="site__nav">
+                        <span class="site__logo"><i class="site__mark"></i><span data-name>Your business</span></span>
+                        <i class="site__burger"></i>
+                      </div>
+                      <div class="yours__photo"><svg viewBox="0 0 400 160" preserveAspectRatio="xMaxYMax slice"><use href="#art-elgon"/></svg></div>
+                      <div class="yours__copy">
+                        <span class="yours__title" data-name>Your business</span>
+                        <i class="site__line" style="--w:80%"></i>
+                        <span class="site__btn">Call us</span>
+                      </div>
+                      <div class="site__cols">
+                        <span class="site__card"><i class="site__line" style="--w:58%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:74%"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption class="sr-only">Drawing of your future website on a computer and a phone, with your business name and your own address.</figcaption>
+          </figure>
+          <div class="namer">
+            <label class="namer__label" for="namer-input">See it with your business name</label>
+            <div class="search__field">
+              <svg class="icon search__icon" aria-hidden="true"><use href="#i-edit"/></svg>
+              <input class="search__input" id="namer-input" type="text" placeholder="e.g. Joy's Salon" maxlength="48" autocomplete="organization" spellcheck="false" data-name-input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

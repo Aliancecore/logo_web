@@ -1,0 +1,51 @@
+<!--
+  clients-marketplace.html — "Businesses that trust us.": a list of named
+  clients (.clients, page-specific — confirmed unique to about.html, no other
+  of the 8 pages references it) beside a "Sell on our marketplace" card that
+  reuses the shared pricing-card markup/CSS (.plan/.plan__head/.plan__name/
+  .plan__for, .checklist) WITHOUT a price — about.html is the one place .plan
+  is used with no .plan__price inside, which is fine since that block is
+  simply absent, not styled differently.
+  Needs: shared/styles/two-columns.css (.split, the left/right layout),
+  shared/styles/packages.css (.plan and children, .checklist — verified
+  shared: used by home, domains.html, hosting.html, email.html,
+  logo-design.html, website-design.html AND about.html), about's own
+  about/styles/clients.css (.clients).
+-->
+    <!-- ============ Clients and marketplace ============ -->
+    <section class="section" id="clients" aria-labelledby="clients-title">
+      <div class="wrap split">
+        <div class="split__body" data-reveal>
+          <h2 class="h2" id="clients-title">Businesses that trust us.</h2>
+          <p class="section-head__intro">Coffee cooperatives, finance firms, spas, builders, transporters and online shops across Uganda.</p>
+          <ul class="clients" role="list">
+            <li>ACPCU Ltd</li>
+            <li>Cosmopolitan Weddings</li>
+            <li>Focal Development Finance</li>
+            <li>Karama Expeditions</li>
+            <li>One Touch Sourcing</li>
+            <li>Kwefaako Development Initiative</li>
+            <li>Haven Wine Supplies</li>
+            <li>La’Scent Store</li>
+            <li>TIQVAH Organics</li>
+          </ul>
+          <a class="text-link" href="website-design.html#work">See the websites we have built <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+
+        <article class="plan" aria-labelledby="market-title" data-reveal style="--d:1">
+          <div class="plan__head">
+            <h3 class="plan__name" id="market-title">Sell on our marketplace</h3>
+            <p class="plan__for">Logos also runs an online marketplace for sellers and vendors.</p>
+          </div>
+          <ul class="checklist" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Access to online shoppers</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Lower marketing costs</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A free online payment platform</span></li>
+          </ul>
+          <a class="btn btn--outline btn--block" href="https://www.market.logosafrica.com" target="_blank" rel="noopener">
+            Visit the marketplace<span class="sr-only"> (opens in a new tab)</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
+          </a>
+        </article>
+      </div>
+    </section>

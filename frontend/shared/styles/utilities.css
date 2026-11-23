@@ -1,0 +1,170 @@
+/* utilities.css — small, generic helper classes with no component of their own.
+   Shared by every page.
+
+   - .wrap: the page's max-width content column, used by every section on every page.
+   - .sr-only / .skip-link: accessibility helpers.
+   - .sprite: hides the icon-sprite SVG (see shared/head/icon-sprite.html) without
+     removing it from the accessibility tree in a way that breaks <use>.
+   - .icon: base size/stroke for every inline <svg><use> icon.
+   - .price: tabular-nums helper, used wherever a price is printed (home and
+     every inner page); the actual digits are written by
+     shared/scripts/pricing-currency.js.
+   - .section / .section--alt: the one rule that owns block padding for every
+     <section>. A page or component sets --section-pad-top / --section-pad-bottom
+     to adjust the gap to its neighbour, instead of writing a competing
+     padding rule — see home/styles/services.css for an example.
+   - .section--after-hero / .section--flush-top: the two --section-pad-top presets
+     used by every inner page's first section after its hero (extracted from the
+     "inner pages" zone of the original stylesheet: verified generic, no page-only
+     value, used by domains/website-design/hosting/email/logo-design/digital-marketing/about).
+   - .section-foot / .text-link: a muted trailing paragraph and its inline link
+     style. Used on the home page itself ("See the 24 real sites we have built"),
+     and on domains.html, hosting.html and others — confirmed NOT home-only
+     despite living in the "inner pages" zone of the original stylesheet.
+   - .blue-tld: colours a domain's TLD suffix blue inside running text or a
+     card (".com", ".co.ug", ...). Found while building website-design.html
+     (its sector-filter .sitecard__url uses it) inside what was otherwise
+     hosting.html's own "Specimen: hosting panel" CSS zone (original
+     css/styles.css line 3225) — grepping every *.html at the repo root
+     shows it is ALSO used, verbatim, by hosting.html, digital-marketing.html
+     and email.html. Not home-only, not website-design-only: promoted here
+     rather than duplicated, per this file's own "shared = used by 2+ pages"
+     rule. */
+
+/* ---------- 3. Utilities ------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: calc(1200px + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.skip-link {
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  z-index: 100;
+  padding: .75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--c-blue);
+  color: var(--c-white);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform .2s var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+  outline-color: var(--c-night);
+}
+
+.icon {
+  display: inline-block;
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.price {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Section rhythm: one rule owns the padding. Variants only change the
+   custom properties, so no two selectors fight over the same margin. */
+.section {
+  padding-block: var(--section-pad-top, var(--space)) var(--section-pad-bottom, var(--space));
+}
+
+.section--alt {
+  background-color: var(--bg-alt);
+  border-block: 1px solid var(--line);
+}
+
+
+/* ----- Section rhythm presets + .section-foot/.text-link, reused by home and inner pages -----
+   Verified generic: moved here from the "15. Inner pages" zone of the original
+   styles.css (around line 3000), where .text-link is already used by index.html
+   ("See the 24 real sites we have built"). ----- */
+
+/* ----- Section rhythm: only the custom properties change (see section 3) ----- */
+
+.section--after-hero {
+  --section-pad-top: clamp(3rem, 2rem + 4vw, 5.5rem); /* the hero above ends with its own padding */
+}
+
+.section--flush-top {
+  --section-pad-top: 0px; /* same background as the section above, which already ends with --space */
+}
+
+.section-foot {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--muted);
+  font-size: .9375rem;
+  max-width: 46rem;
+  text-wrap: pretty;
+}
+
+.section-foot a,
+.text-link {
+  color: var(--blue);
+  font-weight: 600;
+  text-underline-offset: .2em;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  text-decoration: none;
+}
+
+.text-link .icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform .3s var(--ease-out);
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.text-link:hover .icon {
+  transform: translateX(3px);
+}
+
+/* ----- Domain TLD colour, reused wherever a domain is printed in running text -----
+   Verified generic: used by hosting.html, digital-marketing.html, email.html
+   and website-design.html (grep for class="blue-tld" across every *.html at
+   the repo root) — moved here from hosting.html's own CSS zone in the
+   original stylesheet (around line 3225) instead of being duplicated by
+   each page's agent. ----- */
+
+.blue-tld {
+  color: var(--blue);
+}

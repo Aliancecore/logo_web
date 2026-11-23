@@ -1,0 +1,28 @@
+/* name-field.css — NOT used by the home page (home's own name field is the
+   domain search input itself). The small standalone "type your business
+   name" field (.namer) shown under a specimen on 4 inner pages
+   (website-design, hosting, email, digital-marketing -- verified). Reuses
+   .search__input/.search__field from shared/styles/domain-search.css, which
+   must be loaded alongside this file.
+   Created now so those pages' agents do not duplicate it; not listed in
+   home/page.manifest.json. */
+
+/* ----- The name field under each specimen ----- */
+
+.namer {
+  display: grid;
+  gap: .5rem;
+}
+
+.namer__label {
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+/* Reuses the search bar; alone on its row, it is rounded on both ends */
+.namer .search__input {
+  min-height: 3rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+}

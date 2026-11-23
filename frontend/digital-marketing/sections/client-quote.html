@@ -1,0 +1,38 @@
+<!--
+  client-quote.html — "Priced after a short call": a two-column layout
+  (intro text on one side, a single quote-request card on the other).
+  Despite the file name the task brief suggested ("client-quote"), this
+  section is NOT a client testimonial — it is a quote-request card reusing
+  the pricing plan card verbatim (no generic "testimonial" class exists
+  anywhere in css/styles.css; grepped, none found). Needs: shared/styles/
+  two-columns.css (.split two-column layout) + shared/styles/packages.css
+  (.plan/.plan__head/.plan__name card, .checklist ticked list — both
+  already shared, reused here standalone, outside a .plans grid, exactly as
+  shared/styles/packages.css's own header comment anticipates: "the same
+  ticked list, outside a plan card").
+-->
+    <!-- ============ Quote ============ -->
+    <section class="section" id="quote" aria-labelledby="quote-title">
+      <div class="wrap split">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="quote-title">Priced after a short call.</h2>
+          <p class="section-head__intro">Every business is different, so we quote once we know yours. Tell us a little, and we come back with a plan and a price.</p>
+        </header>
+
+        <article class="plan" aria-labelledby="quote-card" data-reveal style="--d:1">
+          <div class="plan__head">
+            <h3 class="plan__name" id="quote-card">What helps us quote</h3>
+          </div>
+          <ul class="checklist" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>What you sell, and to whom</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Where your customers are</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>The platforms you already use</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your monthly budget for ads</span></li>
+          </ul>
+          <a class="btn btn--action btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Digital%20marketing%3A%20quote" data-mail-topic="digital marketing">
+            Ask for a quote
+            <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+        </article>
+      </div>
+    </section>

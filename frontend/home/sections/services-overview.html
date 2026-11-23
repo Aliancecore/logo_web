@@ -1,0 +1,85 @@
+<!--
+  services-overview.html — "From the name to the customers": the 6-card grid
+  linking to the other 7 pages (domains, website-design, hosting, email,
+  logo-design, digital-marketing).
+  Needs: shared/styles/services.css (card grid) + home/styles/services.css
+  (this section's own top padding).
+-->
+    <!-- ============ Services ============ -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="services-title">From the name to the customers.</h2>
+          <p class="section-head__intro">Six services that work together. Take one, or hand us the whole job.</p>
+        </header>
+
+        <ul class="services__grid" role="list">
+          <li class="services__item" data-reveal style="--d:0">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-globe"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="domains.html">Domain names</a></h3>
+              <p class="service__desc">Register .com, .org, .co.ug and .ug names, with 10% off every domain.</p>
+              <p class="service__foot">
+                <span class="service__fact">From <span class="price" data-usd="11.7">$11.70</span> a year</span>
+                <span class="service__go" aria-hidden="true">Prices and transfers <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:1">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-server"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="hosting.html">Managed hosting</a></h3>
+              <p class="service__desc">Secure, reliable hosting that we look after, so your site stays up and loads fast.</p>
+              <p class="service__foot">
+                <span class="service__fact">SSL included</span>
+                <span class="service__go" aria-hidden="true">Hosting plans <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:2">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-browser"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="website-design.html">Websites</a></h3>
+              <p class="service__desc">A fast, modern website designed and built for your business, made for phones first.</p>
+              <p class="service__foot">
+                <span class="service__fact">Live in under 5 working days</span>
+                <span class="service__go" aria-hidden="true">Prices and our work <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:3">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="email.html">Business email</a></h3>
+              <p class="service__desc">Addresses on your own domain, so customers know the message really comes from you.</p>
+              <p class="service__foot">
+                <span class="service__fact" data-email>hello@<wbr>yourbusiness<wbr>.co.ug</span>
+                <span class="service__go" aria-hidden="true">Email options <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:4">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-shapes"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="logo-design.html">Logo design</a></h3>
+              <p class="service__desc">A logo that works on your shopfront, your receipts and a phone screen alike.</p>
+              <p class="service__foot">
+                <span class="service__fact">For print and screen</span>
+                <span class="service__go" aria-hidden="true">Logo packages <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
+          </li>
+          <li class="services__item" data-reveal style="--d:5">
+            <article class="service">
+              <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
+              <h3 class="service__name"><a class="service__link" href="digital-marketing.html">Digital marketing</a></h3>
+              <p class="service__desc">Social media, search and traffic reports that show who is finding you, and how.</p>
+              <p class="service__foot">
+                <span class="service__fact">Social, search, analytics</span>
+                <span class="service__go" aria-hidden="true">Marketing services <svg class="icon"><use href="#i-arrow-right"/></svg></span>
+              </p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>

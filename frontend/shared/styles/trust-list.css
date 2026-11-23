@@ -1,0 +1,66 @@
+/* trust-list.css — the ".trust" reassurance list (icon + bold fact), and its
+   "nested inside a two-column .split" layout variant.
+   Verified cross-page: used in the home hero, the domains.html hero, AND
+   inside email.html's two-column body (via .split .trust) — genuinely shared,
+   not home-only as the original zone split assumed.
+   --i (set inline per <li style="--i:N">) staggers the entrance animation in
+   shared/styles/motion.css. */
+
+/* ----- Reassurance, facts only ----- */
+
+.trust {
+  grid-area: trust;
+  display: grid;
+  gap: .9rem;
+}
+
+@media (min-width: 560px) and (max-width: 1023.98px) {
+  .trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+}
+
+.trust__item {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--muted);
+  font-size: .9375rem;
+  line-height: 1.4;
+}
+
+.trust__item strong {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.trust__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 12px;
+  background-color: var(--blue-soft);
+  color: var(--blue);
+}
+
+.trust__icon .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  stroke-width: 1.9;
+}
+
+/* ----- .trust nested inside a two-column .split (email.html) ----- */
+
+.split .trust {
+  grid-area: auto;
+  margin-top: .25rem;
+}
+
+@media (min-width: 900px) and (max-width: 1023.98px) {
+  .split .trust {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

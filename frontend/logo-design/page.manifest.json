@@ -1,0 +1,53 @@
+{
+  "slug": "logo-design",
+  "output_file": "logo-design.html",
+  "title": "Logo design and branding in Kampala, from $150 \u00b7 Logos",
+  "description": "A logo that works on a shop sign, a receipt and a phone screen, with every file your printer needs. Logo and branding packages from $150. Logos Cloud Edge, Kampala.",
+  "active_nav": "logo-design.html",
+  "sections": [
+    "shared/layout/header-nav.html",
+    "logo-design/sections/page-hero-specimen.html",
+    "logo-design/sections/three-logo-styles.html",
+    "logo-design/sections/delivered-files.html",
+    "logo-design/sections/design-process-steps.html",
+    "logo-design/sections/logo-packages-pricing.html",
+    "logo-design/sections/faq.html",
+    "logo-design/sections/final-cta.html",
+    "shared/layout/footer.html"
+  ],
+  "styles": [
+    "shared/styles/fonts.css",
+    "shared/styles/tokens.css",
+    "shared/styles/base.css",
+    "shared/styles/utilities.css",
+    "shared/styles/typography.css",
+    "shared/styles/buttons.css",
+    "shared/styles/header.css",
+    "shared/styles/hero.css",
+    "shared/styles/inner-hero-text.css",
+    "shared/styles/specimen-shell.css",
+    "shared/styles/print-pattern.css",
+    "shared/styles/page-hero.css",
+    "logo-design/styles/page-hero-specimen.css",
+    "logo-design/styles/three-logo-styles.css",
+    "logo-design/styles/delivered-files.css",
+    "shared/styles/packages.css",
+    "shared/styles/week.css",
+    "shared/styles/price-list.css",
+    "shared/styles/faq.css",
+    "shared/styles/final-cta.css",
+    "shared/styles/footer.css",
+    "shared/styles/motion.css",
+    "shared/styles/inner-motion.css"
+  ],
+  "scripts": [
+    "shared/scripts/constants-and-helpers.js",
+    "shared/scripts/theme-toggle.js",
+    "shared/scripts/header-nav.js",
+    "shared/scripts/pricing-currency.js",
+    "shared/scripts/business-name-domain.js",
+    "shared/scripts/scroll-reveal.js",
+    "shared/scripts/init.js"
+  ],
+  "icon_sprite": "shared/head/icon-sprite-inner.html"
+}

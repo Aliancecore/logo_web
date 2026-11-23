@@ -1,0 +1,189 @@
+/* tokens.css — design tokens: colour palette, type scale, spacing, shape, motion.
+   Shared by every page. Loaded first (after fonts.css) so every other shared
+   or page file can read these custom properties.
+
+   Key custom properties and who reads them:
+   - --c-blue / --c-night / --c-orange / --c-paper / --c-ink / --c-slate
+     the fixed brand palette. --c-orange is only ever used on .btn--action and
+     .badge (see buttons.css / typography.css) — never as a background or text colour.
+   - --c-white, --c-orange-deep, --c-blue-deep, --c-blue-light, --c-night-deep
+     derived shades (hovers, dark-theme surfaces).
+   - --font-display / --font-body: the two type families, used across every
+     shared and page CSS file for headings vs. body text.
+   - --step--1 … --step-4: the type scale, used throughout every file.
+   - --gutter / --space / --radius* / --header-h: spacing and shape primitives
+     used by utilities.css, header.css, and every section.
+   - --ease-out: the one easing curve used by every transition/animation site-wide.
+   - --bg, --bg-alt, --bg-hero, --surface, --text, --heading, --muted, --line,
+     --line-strong, --blue, --on-blue, --blue-soft, --blue-mark, --blue-ring,
+     --danger, --focus, --chrome, --panel, --shadow-sm/md/lg, --sun-d/--moon-d,
+     --bg-stage, --bezel, --bezel-ring, --shadow-phone
+     theme-dependent values: declared once under :root (light theme), then
+     re-declared under :root[data-theme="dark"] (explicit toggle, set by
+     shared/scripts/theme-toggle.js) and under the prefers-color-scheme media
+     query (system default, when the visitor has not toggled). Consumed by
+     almost every shared and page CSS file.
+   - .on-dark / .on-blue: fixed-colour surfaces (header, footer, final CTA)
+     that keep their own contrast whatever the active theme is. */
+
+/* ---------- 1. Tokens ---------------------------------------------------- */
+
+:root {
+  /* Palette, fixed by the brief */
+  --c-blue: #1D4ED8;    /* principal */
+  --c-night: #0F172A;   /* header, footer, text on orange */
+  --c-orange: #F97316;  /* actions only */
+  --c-paper: #F8FAFC;   /* light background */
+  --c-ink: #1E293B;     /* text */
+  --c-slate: #64748B;   /* secondary text */
+
+  /* Derived from the palette */
+  --c-white: #FFFFFF;
+  --c-orange-deep: #EA580C; /* orange button hover (still 5:1 with night text) */
+  --c-blue-deep: #1E40AF;   /* blue hover, call-to-action panel at night */
+  --c-blue-light: #7799F8;  /* the same hue lightened for dark surfaces (6.5:1 on night) */
+  --c-night-deep: #0A101E;  /* header and footer in the dark theme */
+
+  /* Type */
+  --font-display: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+
+  --step--1: .8125rem;
+  --step-0: 1rem;
+  --step-1: clamp(1.0625rem, 1rem + .3vw, 1.25rem);
+  --step-2: clamp(1.1875rem, 1.1rem + .35vw, 1.375rem);
+  --step-3: clamp(1.875rem, 1.3rem + 2.2vw, 3rem);
+  --step-4: clamp(2.375rem, 1.3rem + 3.6vw, 4.25rem);
+
+  /* Space & shape */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --space: clamp(4rem, 2.5rem + 6vw, 7rem);
+  --radius-lg: 20px;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --header-h: 4.25rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(.2, .75, .25, 1);
+
+  /* ----- Theme: light ----- */
+  color-scheme: light;
+  --bg: var(--c-paper);
+  --bg-alt: var(--c-white);
+  --bg-hero: linear-gradient(180deg, #E9EFFD 0%, var(--c-paper) 82%);
+  --surface: var(--c-white);
+  --text: var(--c-ink);
+  --heading: var(--c-ink);
+  --muted: var(--c-slate);
+  --line: #E2E8F0;
+  --line-strong: #CBD5E1;
+  --blue: var(--c-blue);
+  --on-blue: var(--c-white);
+  --blue-soft: rgba(29, 78, 216, .08);
+  --blue-mark: rgba(29, 78, 216, .16);
+  --blue-ring: rgba(29, 78, 216, .2);
+  --danger: #B91C1C;
+  --focus: var(--c-blue);
+  --chrome: var(--c-night);
+  --panel: var(--c-blue);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, .05);
+  --shadow-md: 0 1px 2px rgba(15, 23, 42, .05), 0 18px 34px -20px rgba(15, 23, 42, .28);
+  --shadow-lg: 0 1px 3px rgba(15, 23, 42, .06), 0 30px 60px -30px rgba(29, 78, 216, .42);
+  --sun-d: none;
+  --moon-d: inline-block;
+  /* Examples: the stage floor and the phone in front of each browser */
+  --bg-stage: linear-gradient(180deg, var(--c-paper) 0%, #E9EFFD 100%);
+  --bezel: var(--c-night);
+  --bezel-ring: rgba(15, 23, 42, 0);
+  --shadow-phone: 0 1px 2px rgba(15, 23, 42, .14), -14px 22px 34px -16px rgba(15, 23, 42, .5);
+}
+
+/* ----- Theme: dark (same blue/orange, night surfaces) ----- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: var(--c-night);
+  --bg-alt: #111B2F;
+  --bg-hero: linear-gradient(180deg, #13203E 0%, var(--c-night) 82%);
+  --surface: #182235;
+  --text: #E2E8F0;
+  --heading: #F1F5F9;
+  --muted: #94A3B8;
+  --line: rgba(148, 163, 184, .18);
+  --line-strong: rgba(148, 163, 184, .36);
+  --blue: var(--c-blue-light);
+  --on-blue: var(--c-night);
+  --blue-soft: rgba(119, 153, 248, .13);
+  --blue-mark: rgba(119, 153, 248, .26);
+  --blue-ring: rgba(119, 153, 248, .3);
+  --danger: #FCA5A5;
+  --focus: var(--c-blue-light);
+  --chrome: var(--c-night-deep);
+  --panel: var(--c-blue-deep);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-md: 0 1px 2px rgba(0, 0, 0, .3), 0 20px 40px -22px rgba(0, 0, 0, .8);
+  --shadow-lg: 0 1px 3px rgba(0, 0, 0, .35), 0 32px 64px -30px rgba(0, 0, 0, .85);
+  --sun-d: inline-block;
+  --moon-d: none;
+  --bg-stage: linear-gradient(180deg, var(--c-night) 0%, #13203E 100%);
+  --bezel: var(--c-night-deep);
+  --bezel-ring: rgba(148, 163, 184, .3);
+  --shadow-phone: 0 1px 2px rgba(0, 0, 0, .4), -14px 22px 34px -14px rgba(0, 0, 0, .85);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: var(--c-night);
+    --bg-alt: #111B2F;
+    --bg-hero: linear-gradient(180deg, #13203E 0%, var(--c-night) 82%);
+    --surface: #182235;
+    --text: #E2E8F0;
+    --heading: #F1F5F9;
+    --muted: #94A3B8;
+    --line: rgba(148, 163, 184, .18);
+    --line-strong: rgba(148, 163, 184, .36);
+    --blue: var(--c-blue-light);
+    --on-blue: var(--c-night);
+    --blue-soft: rgba(119, 153, 248, .13);
+    --blue-mark: rgba(119, 153, 248, .26);
+    --blue-ring: rgba(119, 153, 248, .3);
+    --danger: #FCA5A5;
+    --focus: var(--c-blue-light);
+    --chrome: var(--c-night-deep);
+    --panel: var(--c-blue-deep);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3);
+    --shadow-md: 0 1px 2px rgba(0, 0, 0, .3), 0 20px 40px -22px rgba(0, 0, 0, .8);
+    --shadow-lg: 0 1px 3px rgba(0, 0, 0, .35), 0 32px 64px -30px rgba(0, 0, 0, .85);
+    --sun-d: inline-block;
+    --moon-d: none;
+    --bg-stage: linear-gradient(180deg, var(--c-night) 0%, #13203E 100%);
+    --bezel: var(--c-night-deep);
+    --bezel-ring: rgba(148, 163, 184, .3);
+    --shadow-phone: 0 1px 2px rgba(0, 0, 0, .4), -14px 22px 34px -14px rgba(0, 0, 0, .85);
+  }
+}
+
+/* Surfaces with fixed colours, whatever the theme */
+.on-dark {
+  --text: #E2E8F0;
+  --heading: #FFFFFF;
+  --muted: #94A3B8;
+  --line: rgba(148, 163, 184, .2);
+  --line-strong: rgba(226, 232, 240, .5);
+  --blue: var(--c-blue-light);
+  --focus: #A5BDFB;
+  background-color: var(--chrome);
+  color: var(--text);
+}
+
+.on-blue {
+  --text: #FFFFFF;
+  --heading: #FFFFFF;
+  --muted: rgba(255, 255, 255, .86);
+  --line: rgba(255, 255, 255, .24);
+  --line-strong: rgba(255, 255, 255, .8);
+  --focus: #FFFFFF;
+  background-color: var(--panel);
+  color: var(--text);
+}
+

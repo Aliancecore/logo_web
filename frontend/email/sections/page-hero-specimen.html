@@ -1,0 +1,75 @@
+<!--
+  page-hero-specimen.html — email's hero: the two-line thesis, the
+  "ask for business email" / "compare options" actions, and the specimen
+  mockup of the same message seen from a free Gmail address and from an
+  address on the visitor's own domain, plus the standalone "type your
+  business name" field underneath it.
+  Needs: shared/styles/hero.css (base .hero box), shared/styles/page-hero.css
+  (.page-hero__grid/__copy/__media, .hero__actions), shared/styles/
+  specimen-shell.css (.specimen, .sheet, .tag--plain — the generic specimen
+  wrapper), email/styles/two-emails-specimen.css (.mail, .mail__card... —
+  page-specific, see that file's header), shared/styles/domain-search.css
+  (.search__field/.search__icon/.search__input base rules — the namer field
+  reuses them, per shared/styles/name-field.css's own header comment) and
+  shared/styles/name-field.css (.namer, plus the "alone on its row" tweak to
+  .search__input), shared/styles/inner-hero-text.css (readable text on the
+  tinted hero background). shared/scripts/business-name-domain.js fills every
+  <span data-slug>/<span data-tld> live from whatever the visitor types in
+  this hero's .namer field (or keeps the "yourbusiness"/".co.ug" defaults);
+  shared/styles/inner-motion.css animates .hero__actions, .page-hero__media
+  and .mail__card--own on load.
+-->
+    <!-- ============ Hero ============ -->
+    <section class="hero page-hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap page-hero__grid">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Get a company email<span class="punct">,</span></span>
+          <span class="hero__line hero__accent">boost your credibility<span class="punct">.</span></span>
+        </h1>
+
+        <div class="page-hero__copy">
+          <p class="lead hero__lead">Customers trust an address on your own domain more than a free one. We set up the mailboxes, filter out spam and viruses, and get your email working in Outlook, in the browser and on your phone.</p>
+          <div class="hero__actions">
+            <a class="btn btn--action btn--lg" href="mailto:sales@logoswebsiteservices.com?subject=Business%20email" data-mail-topic="business email">
+              Ask for business email
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#options">Compare options</a>
+          </div>
+        </div>
+
+        <div class="page-hero__media">
+          <figure class="specimen">
+            <div class="mail" aria-hidden="true">
+              <div class="sheet mail__card mail__card--free">
+                <p class="tag tag--plain">Free address</p>
+                <div class="mail__from">
+                  <span class="mail__avatar" data-initial>Y</span>
+                  <span class="mail__name" data-name>Your business</span>
+                  <span class="mail__addr"><s><span data-slug>yourbusiness</span>256@gmail.com</s></span>
+                </div>
+              </div>
+              <div class="sheet mail__card mail__card--own">
+                <p class="tag">On your own domain</p>
+                <div class="mail__from">
+                  <span class="mail__avatar" data-initial>Y</span>
+                  <span class="mail__name" data-name>Your business</span>
+                  <span class="mail__time">09:14</span>
+                  <span class="mail__addr">hello@<span data-slug>yourbusiness</span><span class="blue-tld" data-tld>.co.ug</span></span>
+                </div>
+                <p class="mail__subject">Your quote for Saturday</p>
+                <p class="mail__body">Hello Mary, thank you for your message. Please find the quote attached: we can deliver on Saturday morning.</p>
+              </div>
+            </div>
+            <figcaption class="sr-only">The same message seen by a customer twice: once from a free Gmail address, once from hello at your own domain.</figcaption>
+          </figure>
+          <div class="namer">
+            <label class="namer__label" for="namer-input">See it with your business name</label>
+            <div class="search__field">
+              <svg class="icon search__icon" aria-hidden="true"><use href="#i-edit"/></svg>
+              <input class="search__input" id="namer-input" type="text" placeholder="e.g. Joy's Salon" maxlength="48" autocomplete="organization" spellcheck="false" data-name-input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

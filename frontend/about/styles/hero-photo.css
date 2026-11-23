@@ -1,0 +1,44 @@
+/* hero-photo.css (about) — the Kampala photo shown in about's hero, instead
+   of the product mockups the other 6 inner pages show there. Confirmed
+   unique to about.html: no other of the 8 pages has a ".hero-photo" element
+   (extracted from css/styles.css's "About: hero photo with its credit"
+   comment, lines ~4596-4617 — the ".clients" rule that original comment
+   block also covered, lines ~4619-4634, is unrelated content and lives in
+   about/styles/clients.css instead).
+
+   - .hero-photo: the <figure> wrapper, just a gap between image and caption.
+   - .hero-photo img: the photo itself — fixed 3:2 box, rounded corners,
+     cropped to fill (object-fit: cover), with a placeholder background
+     colour while it loads.
+   - .hero-photo figcaption: the credit line under the photo. Its colour
+     (var(--muted)) is set here but immediately overridden by
+     shared/styles/inner-hero-text.css's ".hero-photo figcaption { color:
+     var(--on-tint); }" rule, which has equal selector specificity and must
+     win — exactly like the original stylesheet, where that rule (line
+     ~4663) comes AFTER this one (line ~4614). about/page.manifest.json
+     lists shared/styles/inner-hero-text.css after this file to preserve
+     that same order. Kept here anyway (rather than deleted as dead code)
+     to stay byte-for-byte faithful to the source: it is the fallback colour
+     for any future caller of .hero-photo that does not sit on the tinted
+     .hero background. */
+
+.hero-photo {
+  display: grid;
+  gap: .6rem;
+  margin: 0;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-lg);
+  background-color: var(--line);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-photo figcaption {
+  color: var(--muted);
+  font-size: var(--step--1);
+}

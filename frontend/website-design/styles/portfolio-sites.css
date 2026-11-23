@@ -1,0 +1,115 @@
+/* portfolio-sites.css — "Sites we have built": the sector filter row
+   (.filters, re-using the shared .chip pill from shared/styles/
+   domain-search.css) and the 24-card grid of real client sites (.sites,
+   .sitecard*).
+   Confirmed unique to website-design.html: no other of the 8 original
+   pages references .filters, .sites or .sitecard* (grepped every *.html at
+   the repo root). Flagged "unsure, leave untouched" in shared/README.md's
+   "Unresolved from the original brief" list -- now resolved by this file,
+   built by the agent assigned to website-design.html as that note expected.
+
+   Extracted verbatim from css/styles.css's "15. Inner pages" zone (original
+   lines ~4216-4314, "Websites: the sites we have built"). The filter
+   behaviour itself (showing/hiding <li data-sector> and toggling
+   aria-pressed) is website-design/scripts/sector-filter.js -- see that
+   file's own header comment for why it is a page-local script rather than
+   a shared/scripts/ fragment. */
+
+/* ----- Websites: the sites we have built ----- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+}
+
+.sites {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16.5rem), 1fr));
+  gap: .75rem;
+  margin-top: 1.25rem;
+}
+
+.sitecard {
+  position: relative;
+  display: grid;
+  gap: .8rem;
+  height: 100%;
+  padding: .7rem .7rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color .2s ease, box-shadow .3s var(--ease-out), transform .3s var(--ease-out);
+}
+
+.sitecard:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.sitecard__bar {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  min-width: 0;
+  padding: .45rem .75rem;
+  border-radius: 999px;
+  background-color: var(--bg);
+  color: var(--heading);
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.sitecard__bar .icon {
+  width: .9rem;
+  height: .9rem;
+  color: var(--muted);
+  stroke-width: 2.4;
+}
+
+.sitecard__url {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sitecard__body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .75rem;
+  padding-inline: .35rem;
+}
+
+.sitecard__name {
+  display: block;
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.015em;
+}
+
+.sitecard__sector {
+  display: block;
+  margin-top: .15rem;
+  color: var(--muted);
+  font-size: .8125rem;
+}
+
+.sitecard__go {
+  flex: none;
+  color: var(--blue);
+}
+
+.sitecard__go .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}

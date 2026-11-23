@@ -1,0 +1,38 @@
+<!--
+  faq.html — "Questions about domains.": the <details>-based FAQ list.
+  Markup and behaviour are entirely the shared faq component
+  (shared/styles/faq.css); only the 5 questions/answers below are
+  domains-specific content.
+  Needs: shared/styles/faq.css.
+-->
+    <!-- ============ Questions ============ -->
+    <section class="section" id="questions" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="faq-title">Questions about domains.</h2>
+          <p class="section-head__intro">Something else on your mind? Call us: we answer 24/7.</p>
+        </header>
+        <div class="faq__list" data-reveal style="--d:1">
+            <details class="faq__item">
+              <summary class="faq__q">What is a domain name?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>It is your website’s address on the internet, like <strong>logos.co.ug</strong>. When someone types it, their browser finds your website. It also gives you email addresses on your own name.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Which ending should I choose?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>.co.ug tells customers you trade in Uganda. .com suits a business that sells abroad. .org is the usual ending for NGOs and associations. Many businesses take two, so nobody else can register the other one.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Do I pay every year?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>Yes. A domain is registered for a year, then renewed. The first year includes the 10% discount. Renewal prices are on the cards above.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">How long does a transfer take?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>For .com and .org, usually less than a week: once you approve, the move completes within five days. For .ug and .co.ug, ask us.</p></div>
+            </details>
+            <details class="faq__item">
+              <summary class="faq__q">Which other endings can I get?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+              <div class="faq__a"><p>.biz and .info are on our price list too, and we can look up most other endings. <a href="mailto:sales@logoswebsiteservices.com?subject=Domain%3A%20another%20ending">Ask sales</a>.</p></div>
+            </details>
+        </div>
+      </div>
+    </section>

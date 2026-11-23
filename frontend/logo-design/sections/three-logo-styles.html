@@ -1,0 +1,79 @@
+<!--
+  three-logo-styles.html — "Three styles, three businesses": the logos
+  drawn for the 3 sample businesses used throughout the site (the coffee
+  cooperative, the beauty salon and the fabric shop from the home page's
+  showcase), one per logo style (emblem, wordmark, symbol-and-name).
+  Needs: logo-design/styles/three-logo-styles.css (.logos/.logo-card/
+  .emblem/.wordmark, logo-design-only). The emblem is drawn inline as raw
+  SVG (no shared icon); the symbol-and-name card reuses svg#mark-nakato
+  from shared/head/icon-sprite.html, same as the hero specimen above.
+-->
+
+    <!-- ============ Three styles ============ -->
+    <section class="section section--after-hero" id="styles" aria-labelledby="styles-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="styles-title">Three styles, three businesses.</h2>
+          <p class="section-head__intro">The businesses from our sample sites, each with the logo style that suits it best.</p>
+        </header>
+
+        <ul class="logos" role="list">
+          <li data-reveal style="--d:0">
+            <figure class="logo-card">
+              <div class="logo-card__art">
+                <svg class="emblem" viewBox="0 0 120 120" aria-hidden="true">
+                  <defs>
+                    <path id="emblem-top" d="M18 60a42 42 0 0 1 84 0"/>
+                    <path id="emblem-bottom" d="M13 60a47 47 0 0 0 94 0"/>
+                    <clipPath id="emblem-clip"><circle cx="60" cy="60" r="33"/></clipPath>
+                  </defs>
+                  <circle cx="60" cy="60" r="58" fill="#0F172A"/>
+                  <circle cx="60" cy="60" r="53.5" fill="none" stroke="#7799F8" stroke-width="1.2"/>
+                  <g clip-path="url(#emblem-clip)">
+                    <rect x="20" y="20" width="80" height="80" fill="#13203E"/>
+                    <circle cx="74" cy="49" r="8" fill="#E9EFFD"/>
+                    <path fill="#1D4ED8" d="M24 80c10-6 18-13 26-18 4-2.5 7-3 11-3h10c5 0 10 4 15 9 4 4 8 7 12 8v24H24Z"/>
+                    <path fill="#1E40AF" d="M24 86c14-5 28-5 40-2 12 3 22-1 32-3v19H24Z"/>
+                    <path fill="none" stroke="#7799F8" stroke-width="2" stroke-linecap="round" stroke-dasharray="0 5" d="M26 92c14-5 28-5 40-2 12 3 22-1 32-3"/>
+                  </g>
+                  <circle cx="60" cy="60" r="34" fill="none" stroke="#7799F8" stroke-width="1.2"/>
+                  <text fill="#F8FAFC" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="800" letter-spacing="2.4"><textPath href="#emblem-top" startOffset="50%" text-anchor="middle">ELGON RIDGE</textPath></text>
+                  <text fill="#7799F8" font-family="Plus Jakarta Sans, sans-serif" font-size="7" font-weight="700" letter-spacing="2.2"><textPath href="#emblem-bottom" startOffset="50%" text-anchor="middle">COFFEE · KAPCHORWA</textPath></text>
+                  <circle cx="14.5" cy="60" r="1.6" fill="#7799F8"/>
+                  <circle cx="105.5" cy="60" r="1.6" fill="#7799F8"/>
+                </svg>
+              </div>
+              <figcaption class="logo-card__cap">
+                <p class="logo-card__style">Emblem</p>
+                <h3 class="logo-card__name">Elgon Ridge Coffee</h3>
+                <p class="logo-card__desc">A badge holds the name, the mountain and the town. It reads like a stamp, on coffee bags and export boxes alike.</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li data-reveal style="--d:1">
+            <figure class="logo-card">
+              <div class="logo-card__art">
+                <span class="wordmark" aria-hidden="true"><span class="wordmark__name">Joy’s<i></i></span><span class="wordmark__sub">Beauty salon · Ntinda</span></span>
+              </div>
+              <figcaption class="logo-card__cap">
+                <p class="logo-card__style">Wordmark</p>
+                <h3 class="logo-card__name">Joy’s Beauty Salon</h3>
+                <p class="logo-card__desc">The name alone, set heavy, with one blue dot of its own. Easy to paint on a shopfront, easy to remember.</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li data-reveal style="--d:2">
+            <figure class="logo-card">
+              <div class="logo-card__art">
+                <span class="lockup"><svg class="lockup__mark"><use href="#mark-nakato"/></svg><span class="lockup__words"><span>Nakato</span><span class="lockup__sub">Prints · Kampala</span></span></span>
+              </div>
+              <figcaption class="logo-card__cap">
+                <p class="logo-card__style">Symbol and name</p>
+                <h3 class="logo-card__name">Nakato Prints</h3>
+                <p class="logo-card__desc">A wax-print flower that stands alone as a profile picture, next to a name that does the selling.</p>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>

@@ -1,0 +1,72 @@
+<!--
+  page-hero-specimen.html — "Get a logo, stand out and stand tall": the hero
+  headline, lead paragraph and call-to-action buttons, next to a specimen
+  showing one logo (Nakato Prints, a fabric shop) drawn on a shop sign, a
+  black-and-white receipt and a round social profile picture.
+  Needs: shared/styles/hero.css (title/line/accent box+type), shared/styles/
+  inner-hero-text.css (readable text on the tinted hero), shared/styles/
+  page-hero.css (.page-hero__grid/.page-hero__copy/.page-hero__media/
+  .hero__actions layout), shared/styles/specimen-shell.css (.specimen
+  wrapper), shared/styles/print-pattern.css (.print/.print--rings, the wax-
+  print pattern behind the profile picture) and logo-design/styles/
+  page-hero-specimen.css (signage/receipt/profile chrome, logo-design-only).
+  The mark used throughout (svg#mark-nakato) lives in shared/head/icon-
+  sprite.html.
+-->
+
+    <!-- ============ Hero ============ -->
+    <section class="hero page-hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap page-hero__grid">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Get a logo<span class="punct">,</span></span>
+          <span class="hero__line hero__accent">stand out and stand tall<span class="punct">.</span></span>
+        </h1>
+
+        <div class="page-hero__copy">
+          <p class="lead hero__lead">A logo is how customers recognise you before they read a word. We design yours to work on a shop sign, a receipt and a phone screen, then hand over every file your printer will ask for.</p>
+          <div class="hero__actions">
+            <a class="btn btn--action btn--lg" href="mailto:sales@logoswebsiteservices.com?subject=A%20logo" data-mail-topic="a logo">
+              Ask for a logo
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#packages">See packages</a>
+          </div>
+        </div>
+
+        <div class="page-hero__media">
+          <figure class="specimen">
+            <div class="signage" aria-hidden="true">
+              <div class="signage__item signage__item--sign">
+                <div class="board"><span class="lockup"><svg class="lockup__mark"><use href="#mark-nakato"/></svg><span class="lockup__words"><span>Nakato</span><span class="lockup__sub">Prints · Kampala</span></span></span></div>
+                <p class="signage__cap">Shop sign</p>
+              </div>
+              <div class="signage__item">
+                <div class="receipt">
+                  <span class="lockup"><svg class="lockup__mark"><use href="#mark-nakato"/></svg><span class="lockup__words"><span>Nakato</span><span class="lockup__sub">Prints</span></span></span>
+                  <div class="receipt__lines">
+                    <span class="receipt__line">Kitenge, 6 yards<i></i>85,000</span>
+                    <span class="receipt__line">Gomesi<i></i>120,000</span>
+                    <span class="receipt__line receipt__line--total">Total UGX<i></i>205,000</span>
+                  </div>
+                  <p class="receipt__thanks">Thank you! nakatoprints.co.ug</p>
+                </div>
+                <p class="signage__cap">Receipt, one colour</p>
+              </div>
+              <div class="signage__item">
+                <div class="profile">
+                  <i class="profile__cover print print--rings"></i>
+                  <div class="profile__head">
+                    <svg class="profile__pic"><use href="#mark-nakato"/></svg>
+                    <span class="profile__name">Nakato Prints</span>
+                  </div>
+                  <p class="profile__meta">Fabric shop · Kampala</p>
+                  <p class="profile__actions"><span>Message</span><span>Follow</span></p>
+                </div>
+                <p class="signage__cap">Profile picture</p>
+              </div>
+            </div>
+            <figcaption class="sr-only">A sample logo for Nakato Prints, a fabric shop: on a shop sign, on a black and white receipt and as a round profile picture.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>

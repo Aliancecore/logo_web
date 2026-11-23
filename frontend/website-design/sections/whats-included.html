@@ -1,0 +1,49 @@
+<!--
+  whats-included.html — "Everything a business address needs": the
+  platforms used (tag list) on one side, the checklist of what is in every
+  website and what an online shop adds on the other.
+  Needs shared/styles/utilities.css (.section--after-hero), shared/styles/
+  two-columns.css (.split/.split__body/.split__title/.tags, must load after
+  shared/styles/packages.css — see that file's header comment for why: both
+  files style .checklist at equal specificity and packages.css's base rule
+  must come first for two-columns.css's .checklist--cols modifier to win)
+  and shared/styles/packages.css (.checklist, the base ticked-list rule also
+  used by the yearly plan cards on other pages).
+-->
+    <!-- ============ What is included ============ -->
+    <section class="section section--after-hero" id="included" aria-labelledby="included-title">
+      <div class="wrap split">
+        <div class="split__body" data-reveal>
+          <h2 class="h2" id="included-title">Everything a business address needs.</h2>
+          <p class="section-head__intro">Every website comes with the essentials, so it is fast, secure and found. Add an online shop and customers can order and pay at any time.</p>
+          <h3 class="split__title">Platforms we use</h3>
+          <ul class="tags" role="list">
+            <li class="tag">HTML5</li><li class="tag">JavaScript</li><li class="tag">PHP</li><li class="tag">MySQL</li>
+            <li class="tag">Laravel</li><li class="tag">Node.js</li><li class="tag">React</li><li class="tag">WordPress</li>
+            <li class="tag">Joomla</li><li class="tag">Drupal</li><li class="tag">ASP.NET</li>
+          </ul>
+        </div>
+
+        <div class="split__body" data-reveal style="--d:1">
+          <h3 class="split__title">In every website</h3>
+          <ul class="checklist checklist--cols" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your own domain</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Secure, reliable hosting</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Design made for phones first</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>SSL certificate</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Basic SEO</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Content writing</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Business email</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Reports on your visitors</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>24/7 support</span></li>
+          </ul>
+          <h3 class="split__title">With an online shop</h3>
+          <ul class="checklist checklist--cols" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Products and a cart</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Stock that updates as you sell</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Orders at any hour</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Online payments</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>

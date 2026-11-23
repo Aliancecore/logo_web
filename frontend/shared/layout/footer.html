@@ -1,0 +1,74 @@
+<!--
+  footer.html — the site footer (brand/mission, contact column, Services
+  column, Company column, legal line). Identical markup on every page
+  except which Services/Company link matches the current page.
+
+  NOTE ON THIS COMMENT: same reason as shared/layout/header-nav.html's
+  header comment — the exact placeholder syntax is deliberately not
+  written out literally here, only described, so this explanation does
+  not get mangled by build/assemble.py's own substitution.
+
+  Same per-link placeholder mechanism as shared/layout/header-nav.html
+  (see its header comment): for each link below, build/assemble.py
+  substitutes a leading space plus aria-current="page" when that link's
+  page equals the manifest's "active_nav", or nothing otherwise. On the
+  home page (active_nav="index.html"), none of these placeholders match
+  (home is not listed in its own footer), so every one resolves to nothing
+  here — verified against the current index.html, whose footer has no
+  aria-current at all.
+  The other Company links (to section anchors on other pages) are plain,
+  static links: they are not "this page" entries, so they never get
+  aria-current on any page.
+-->
+<!-- ============ Footer ============ -->
+<footer class="site-footer on-dark">
+  <div class="wrap site-footer__grid site-footer__grid--4">
+    <div class="site-footer__brand">
+      <a class="brand brand--lg" href="index.html">
+        <span class="brand__mark" aria-hidden="true">L</span>
+        <span class="brand__name">Logos</span>
+        <span class="sr-only">, home page</span>
+      </a>
+      <p class="site-footer__mission">Digitizing businesses, touching lives and transforming communities.</p>
+    </div>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__title">Talk to us</h2>
+      <ul class="site-footer__list" role="list">
+        <li><a href="mailto:sales@logoswebsiteservices.com">sales@logoswebsiteservices.com</a></li>
+        <li><a href="tel:+256709781426">+256 709 781426</a></li>
+        <li><a href="tel:+256790001606">+256 790 001606</a></li>
+        <li>Kampala, Uganda</li>
+      </ul>
+    </div>
+
+    <nav class="site-footer__col" aria-label="Services">
+      <h2 class="site-footer__title">Services</h2>
+      <ul class="site-footer__list" role="list">
+        <li><a href="domains.html"{{ARIA_CURRENT:domains.html}}>Domain names</a></li>
+        <li><a href="website-design.html"{{ARIA_CURRENT:website-design.html}}>Websites</a></li>
+        <li><a href="hosting.html"{{ARIA_CURRENT:hosting.html}}>Managed hosting</a></li>
+        <li><a href="email.html"{{ARIA_CURRENT:email.html}}>Business email</a></li>
+        <li><a href="logo-design.html"{{ARIA_CURRENT:logo-design.html}}>Logo design</a></li>
+        <li><a href="digital-marketing.html"{{ARIA_CURRENT:digital-marketing.html}}>Digital marketing</a></li>
+      </ul>
+    </nav>
+
+    <nav class="site-footer__col" aria-label="Company">
+      <h2 class="site-footer__title">Company</h2>
+      <ul class="site-footer__list" role="list">
+        <li><a href="about.html"{{ARIA_CURRENT:about.html}}>About us</a></li>
+        <li><a href="website-design.html#work">Our work</a></li>
+        <li><a href="index.html#packages">Yearly packages</a></li>
+        <li><a href="index.html#week">How it works</a></li>
+        <li><a href="domains.html#biz-name" data-focus-name>Search a domain</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="wrap site-footer__base">
+    <p>&copy; 2026 Logos Cloud Edge Limited</p>
+    <p>Prices in US dollars. Shilling amounts are estimates.</p>
+    <p>Photos of Kampala: <a href="https://unsplash.com/photos/a-view-of-a-city-from-a-tall-building-lii0uaz8Ieo">Keith Kasaija</a> and <a href="https://unsplash.com/photos/a-woman-sitting-on-a-chair-in-front-of-a-store-0eWk4klcGOY">Jonathan Ward</a> on Unsplash.</p>
+  </div>
+</footer>

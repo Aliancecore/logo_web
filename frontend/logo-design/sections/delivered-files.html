@@ -1,0 +1,57 @@
+<!--
+  delivered-files.html — "Every file you will be asked for": the 7 files
+  handed over at the end of a logo project (svg/pdf/png variants, an icon
+  and a brand sheet), each named after the visitor's own business name.
+  Needs: logo-design/styles/delivered-files.css (.files/.file*, logo-design-
+  only). <span data-slug> is filled live by shared/scripts/business-name-
+  domain.js from whatever the visitor typed on another page's domain search
+  (this page has no search field of its own).
+-->
+
+    <!-- ============ Files ============ -->
+    <section class="section section--alt" id="files" aria-labelledby="files-title">
+      <div class="wrap">
+        <header class="section-head section-head--wide" data-reveal>
+          <h2 class="h2" id="files-title">Every file you will be asked for.</h2>
+          <p class="section-head__intro">Your printer, your signwriter and your web designer each want a different file. You get them all, named so you know which is which.</p>
+        </header>
+
+        <ul class="files" role="list" data-reveal>
+          <li class="file">
+            <span class="file__icon" aria-hidden="true">svg</span>
+            <span class="file__name"><span data-slug>yourbusiness</span>-logo.svg</span>
+            <span class="file__use">Website and signs, sharp at any size</span>
+          </li>
+          <li class="file">
+            <span class="file__icon" aria-hidden="true">pdf</span>
+            <span class="file__name"><span data-slug>yourbusiness</span>-logo.pdf</span>
+            <span class="file__use">Printers and signwriters</span>
+          </li>
+          <li class="file">
+            <span class="file__icon" aria-hidden="true">png</span>
+            <span class="file__name"><span data-slug>yourbusiness</span>-logo.png</span>
+            <span class="file__use">Documents, slides and WhatsApp, on a clear background</span>
+          </li>
+          <li class="file">
+            <span class="file__icon" aria-hidden="true">png</span>
+            <span class="file__name"><span data-slug>yourbusiness</span>-logo-white.png</span>
+            <span class="file__use">On dark photos and backgrounds</span>
+          </li>
+          <li class="file">
+            <span class="file__icon" aria-hidden="true">svg</span>
+            <span class="file__name"><span data-slug>yourbusiness</span>-logo-black.svg</span>
+            <span class="file__use">Receipts, stamps and one-colour print</span>
+          </li>
+          <li class="file">
+            <span class="file__icon" aria-hidden="true">png</span>
+            <span class="file__name"><span data-slug>yourbusiness</span>-icon-512.png</span>
+            <span class="file__use">Profile picture and the icon in a browser tab</span>
+          </li>
+          <li class="file">
+            <span class="file__icon" aria-hidden="true">pdf</span>
+            <span class="file__name"><span data-slug>yourbusiness</span>-brand-sheet.pdf</span>
+            <span class="file__use">Your colours (HEX and CMYK) and your fonts</span>
+          </li>
+        </ul>
+      </div>
+    </section>

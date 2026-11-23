@@ -1,0 +1,217 @@
+<!--
+  product-examples-showcase.html — "What goes live under your name": three
+  hand-drawn sample sites (coffee cooperative, beauty salon, fabric shop),
+  each on a tilting 3D "stage" with a browser window and a phone in front.
+  Needs, in this order: shared/styles/tilt-3d-stage.css (stage/rig engine),
+  shared/styles/specimen-shell.css (browser/phone/site chrome),
+  home/styles/examples-showcase.css (this page's own layout, colours and
+  drawings). Needs shared/scripts/tilt-3d.js for the tilt/parallax behaviour
+  (reads/writes the data-tilt elements below).
+-->
+    <!-- ============ Examples ============
+         Three sample sites, drawn in HTML/CSS (no screenshots), one per package.
+         The drawings are hidden from assistive tech: each caption says what the site does. -->
+    <section class="section showcase" id="examples" aria-labelledby="examples-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="examples-title">What goes live under your name.</h2>
+          <p class="section-head__intro">Three sample sites, one for each package. Yours is built around your own name, prices and photos, and made for phones first.</p>
+        </header>
+
+        <ul class="cases" role="list">
+
+          <!-- Startup: coffee cooperative -->
+          <li class="cases__item" data-reveal style="--d:0">
+            <figure class="case">
+              <div class="case__stage" aria-hidden="true" data-tilt>
+                <div class="case__rig">
+                  <div class="browser">
+                    <div class="browser__bar">
+                      <span class="browser__dots"><i></i><i></i><i></i></span>
+                      <span class="browser__url"><svg class="icon"><use href="#i-lock"/></svg><span>elgonridgecoffee<span class="browser__tld">.co.ug</span></span></span>
+                    </div>
+                    <div class="browser__view site site--coffee">
+                      <div class="site__nav">
+                        <span class="site__logo"><i class="site__bean"></i>Elgon Ridge</span>
+                        <span class="site__links"><i></i><i></i><i></i></span>
+                        <span class="site__btn site__btn--ghost">Contact</span>
+                      </div>
+                      <div class="coffee__hero">
+                        <svg class="coffee__hills" viewBox="0 0 400 160" preserveAspectRatio="xMidYMax slice"><use href="#art-elgon"/></svg>
+                        <div class="coffee__copy">
+                          <span class="site__title">Arabica from the slopes of Mount Elgon.</span>
+                          <i class="site__line" style="--w:72%"></i>
+                          <span class="site__btn">Talk to the co-op</span>
+                        </div>
+                      </div>
+                      <div class="site__cols">
+                        <span class="site__card"><i class="site__line" style="--w:62%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:78%"></i></span>
+                        <span class="site__card"><i class="site__line" style="--w:48%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:66%"></i></span>
+                        <span class="site__card"><i class="site__line" style="--w:56%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:84%"></i></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="phone">
+                    <div class="phone__frame">
+                      <div class="phone__screen site site--coffee">
+                        <div class="site__nav">
+                          <span class="site__logo"><i class="site__bean"></i>Elgon Ridge</span>
+                          <i class="site__burger"></i>
+                        </div>
+                        <div class="coffee__hero">
+                          <svg class="coffee__hills" viewBox="0 0 400 160" preserveAspectRatio="xMidYMax slice"><use href="#art-elgon"/></svg>
+                          <div class="coffee__copy">
+                            <span class="site__title">Arabica from Mount Elgon.</span>
+                            <span class="site__btn">Talk to the co-op</span>
+                          </div>
+                        </div>
+                        <div class="site__cols">
+                          <span class="site__card"><i class="site__line" style="--w:58%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:74%"></i></span>
+                          <span class="site__card"><i class="site__line" style="--w:44%"></i><i class="site__line site__line--soft"></i><i class="site__line site__line--soft" style="--w:68%"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <figcaption class="case__cap">
+                <p class="case__kind">Coffee cooperative, Kapchorwa</p>
+                <h3 class="case__domain"><span class="sr-only">Sample site: </span>elgonridgecoffee<span class="case__tld">.co.ug</span></h3>
+                <p class="case__desc">A first website: the farms, the harvest and an easy way for buyers to get in touch.</p>
+                <p class="tag case__plan">Startup package</p>
+              </figcaption>
+            </figure>
+          </li>
+
+          <!-- SME: beauty salon -->
+          <li class="cases__item" data-reveal style="--d:1">
+            <figure class="case">
+              <div class="case__stage" aria-hidden="true" data-tilt>
+                <div class="case__rig">
+                  <div class="browser">
+                    <div class="browser__bar">
+                      <span class="browser__dots"><i></i><i></i><i></i></span>
+                      <span class="browser__url"><svg class="icon"><use href="#i-lock"/></svg><span>joysbeautysalon<span class="browser__tld">.co.ug</span></span></span>
+                    </div>
+                    <div class="browser__view site site--salon">
+                      <div class="site__nav">
+                        <span class="site__logo">Joy’s<i class="site__pip"></i></span>
+                        <span class="site__links"><i></i><i></i><i></i></span>
+                        <span class="site__btn">Book now</span>
+                      </div>
+                      <div class="salon__hero">
+                        <div class="salon__copy">
+                          <i class="site__line site__line--accent" style="--w:34%"></i>
+                          <span class="site__title">Braids, nails and spa days in Ntinda.</span>
+                          <i class="site__line"></i>
+                          <i class="site__line" style="--w:76%"></i>
+                          <span class="site__actions"><span class="site__btn">Book a visit</span><span class="site__btn site__btn--ghost">Call us</span></span>
+                        </div>
+                        <div class="salon__visual">
+                          <div class="salon__arch">
+                            <i class="salon__bun"></i><i class="salon__hair"></i><i class="salon__neck"></i><i class="salon__body"></i><i class="salon__face"></i>
+                          </div>
+                          <span class="salon__open">Open until 8 pm</span>
+                        </div>
+                      </div>
+                      <div class="salon__prices">
+                        <span class="salon__price">Box braids<i></i>UGX 60,000</span>
+                        <span class="salon__price">Manicure<i></i>UGX 25,000</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="phone">
+                    <div class="phone__frame">
+                      <div class="phone__screen site site--salon">
+                        <div class="site__nav">
+                          <span class="site__logo">Joy’s<i class="site__pip"></i></span>
+                          <i class="site__burger"></i>
+                        </div>
+                        <div class="book">
+                          <span class="book__title">Pick a time</span>
+                          <span class="book__service"><i class="site__line" style="--w:70%"></i><i class="site__line" style="--w:46%"></i></span>
+                          <span class="book__days"><span>Fri<b>13</b></span><span class="is-on">Sat<b>14</b></span><span>Sun<b>15</b></span></span>
+                          <span class="book__times"><span>09:00</span><span class="is-on">10:30</span><span>12:00</span><span>14:00</span><span>15:30</span><span>17:00</span></span>
+                          <span class="site__btn site__btn--block">Book Sat, 10:30</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <figcaption class="case__cap">
+                <p class="case__kind">Beauty salon, Ntinda</p>
+                <h3 class="case__domain"><span class="sr-only">Sample site: </span>joysbeautysalon<span class="case__tld">.co.ug</span></h3>
+                <p class="case__desc">Clients find the salon online, check the prices and book a time from their phone.</p>
+                <p class="tag case__plan">SME package</p>
+              </figcaption>
+            </figure>
+          </li>
+
+          <!-- Online Shop: fabric shop -->
+          <li class="cases__item" data-reveal style="--d:2">
+            <figure class="case">
+              <div class="case__stage" aria-hidden="true" data-tilt>
+                <div class="case__rig">
+                  <div class="browser">
+                    <div class="browser__bar">
+                      <span class="browser__dots"><i></i><i></i><i></i></span>
+                      <span class="browser__url"><svg class="icon"><use href="#i-lock"/></svg><span>nakatoprints<span class="browser__tld">.co.ug</span></span></span>
+                    </div>
+                    <div class="browser__view site site--shop">
+                      <div class="site__nav">
+                        <span class="site__logo">Nakato Prints</span>
+                        <span class="shop__search"><svg class="icon"><use href="#i-search"/></svg><i></i></span>
+                        <span class="shop__cart"><svg class="icon"><use href="#i-bag"/></svg><b>2</b></span>
+                      </div>
+                      <div class="shop__head"><span>New this week</span><span>See all</span></div>
+                      <div class="shop__chips"><span class="is-on">Kitenge</span><span>Gomesi</span><span>Bags</span><span>Kids</span></div>
+                      <div class="shop__grid">
+                        <span class="shop__item"><i class="print print--rings"></i><i class="site__line" style="--w:74%"></i><b>UGX 85,000</b></span>
+                        <span class="shop__item"><i class="print print--zigzag"></i><i class="site__line" style="--w:60%"></i><b>UGX 60,000</b></span>
+                        <span class="shop__item"><i class="print print--diamonds"></i><i class="site__line" style="--w:80%"></i><b>UGX 95,000</b></span>
+                        <span class="shop__item"><i class="print print--dots"></i><i class="site__line" style="--w:54%"></i><b>UGX 45,000</b></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="phone">
+                    <div class="phone__frame">
+                      <div class="phone__screen site site--shop">
+                        <div class="site__nav">
+                          <i class="site__back"></i>
+                          <span class="site__logo">Nakato Prints</span>
+                          <span class="shop__cart"><svg class="icon"><use href="#i-bag"/></svg><b>2</b></span>
+                        </div>
+                        <i class="print print--rings shop__hero"></i>
+                        <div class="shop__detail">
+                          <span class="shop__name">Kitenge, 6 yards</span>
+                          <span class="shop__price">UGX 85,000</span>
+                          <span class="shop__swatches"><i class="print print--rings"></i><i class="print print--diamonds"></i><i class="print print--dots"></i></span>
+                          <span class="site__btn site__btn--block">Add to cart</span>
+                          <span class="shop__pay">Pay with Mobile Money or card</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <figcaption class="case__cap">
+                <p class="case__kind">Fabric shop, Kampala</p>
+                <h3 class="case__domain"><span class="sr-only">Sample site: </span>nakatoprints<span class="case__tld">.co.ug</span></h3>
+                <p class="case__desc">Customers browse kitenge and gomesi, fill a cart and pay online.</p>
+                <p class="tag case__plan">Online Shop package</p>
+              </figcaption>
+            </figure>
+          </li>
+
+        </ul>
+
+        <p class="section-foot" data-reveal><a class="text-link" href="website-design.html#work">See the 24 real sites we have built <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+      </div>
+    </section>

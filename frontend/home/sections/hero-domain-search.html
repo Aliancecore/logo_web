@@ -1,0 +1,104 @@
+<!--
+  hero-domain-search.html — home's hero: headline, the domain search form
+  (shared component, markup lives here but its CSS/behaviour are
+  shared/styles/domain-search.css + shared/scripts/business-name-domain.js),
+  and the 4-item trust list (shared/styles/trust-list.css).
+  Needs: shared/styles/hero.css, shared/styles/domain-search.css,
+  shared/styles/trust-list.css, shared/styles/inner-hero-text.css.
+-->
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+
+        <div class="hero__intro">
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__line">Your business online<span class="punct">,</span></span>
+            <span class="hero__line hero__accent">under your own name<span class="punct">.</span></span>
+          </h1>
+          <p class="lead hero__lead">Search for your domain below. We register it, build the website behind it, host it and set up your business email. Your site goes live in under 5 working days.</p>
+        </div>
+
+        <!-- Domain search: the one thing this page asks you to do -->
+        <form class="search" id="domain-search" action="mailto:sales@logoswebsiteservices.com" method="get" novalidate data-search>
+          <div class="search__head">
+            <label class="search__label" for="biz-name">Search for your business name</label>
+            <span class="tag">10% off every domain</span>
+          </div>
+
+          <div class="search__bar">
+            <div class="search__field" data-search-field>
+              <svg class="icon search__icon" aria-hidden="true"><use href="#i-search"/></svg>
+              <input class="search__input" id="biz-name" name="name" type="text" placeholder="e.g. Joy's Salon" maxlength="48" autocomplete="organization" spellcheck="false" enterkeyhint="send" aria-describedby="search-help" data-name-input>
+              <span class="search__divider" aria-hidden="true"></span>
+              <div class="search__tld">
+                <label class="sr-only" for="tld">Domain ending</label>
+                <select class="search__select" id="tld" name="tld" data-tld-select>
+                  <option value="co.ug" selected>.co.ug</option>
+                  <option value="ug">.ug</option>
+                  <option value="com">.com</option>
+                  <option value="org">.org</option>
+                </select>
+                <svg class="icon search__chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </div>
+            </div>
+
+            <button class="btn btn--action btn--lg search__submit" type="submit" aria-describedby="domain-preview">
+              Request domain
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </button>
+          </div>
+
+          <p class="search__error" id="search-error" role="alert" data-search-error hidden></p>
+
+          <div class="search__out">
+            <!-- The address, assembled live from the name -->
+            <div class="result">
+              <p class="result__address">
+                <svg class="icon result__lock" aria-hidden="true"><use href="#i-lock"/></svg>
+                <span class="result__domain"><span class="result__scheme" aria-hidden="true">https://</span><span class="result__slug" data-slug>yourbusiness</span><span class="result__tld" data-tld data-tld-swap>.co.ug</span></span>
+              </p>
+              <p class="result__price">
+                <span class="sr-only">Usually</span>
+                <s class="result__was price" data-usd="30" data-price-was>$30</s>
+                <span class="sr-only">, now</span>
+                <span class="result__now price" data-usd="27" data-price-now>$27</span>
+                <span class="result__per">per year</span>
+              </p>
+            </div>
+
+            <div class="endings">
+              <p class="endings__label" id="endings-label">Compare endings, per year</p>
+              <ul class="endings__list" role="list" aria-labelledby="endings-label">
+                <li><button class="ending" type="button" data-ending="co.ug" aria-pressed="true"><span class="ending__ext">.co.ug</span> <span class="ending__price price" data-usd="27">$27</span></button></li>
+                <li><button class="ending" type="button" data-ending="ug" aria-pressed="false"><span class="ending__ext">.ug</span> <span class="ending__price price" data-usd="27">$27</span></button></li>
+                <li><button class="ending" type="button" data-ending="com" aria-pressed="false"><span class="ending__ext">.com</span> <span class="ending__price price" data-usd="11.7">$11.70</span></button></li>
+                <li><button class="ending" type="button" data-ending="org" aria-pressed="false"><span class="ending__ext">.org</span> <span class="ending__price price" data-usd="13.5">$13.50</span></button></li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="search__help" id="search-help">“Request domain” opens an email to our sales team. We check that the name is free and reply by email.</p>
+          <p class="sr-only" id="domain-preview">Your domain: <span data-domain>yourbusiness.co.ug</span></p>
+        </form>
+
+        <ul class="trust" role="list">
+          <li class="trust__item" style="--i:0">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <span><strong>SSL certificate</strong> on every site</span>
+          </li>
+          <li class="trust__item" style="--i:1">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <span><strong>Live in under 5 working days</strong>, from first call</span>
+          </li>
+          <li class="trust__item" style="--i:2">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-support"/></svg></span>
+            <span><strong>24/7 support</strong>, weekends included</span>
+          </li>
+          <li class="trust__item" style="--i:3">
+            <span class="trust__icon" aria-hidden="true"><svg class="icon"><use href="#i-pin"/></svg></span>
+            <span><strong>A local team</strong> in Kampala, Uganda</span>
+          </li>
+        </ul>
+
+      </div>
+    </section>

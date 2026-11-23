@@ -1,0 +1,31 @@
+<!--
+  final-cta.html — "Let's put <your-domain> online this week": the closing
+  call-to-action panel (call / email buttons).
+  Needs: shared/styles/final-cta.css. <span data-slug>/<span data-tld> are
+  filled live by shared/scripts/business-name-domain.js from whatever the
+  visitor typed in the hero's domain search, above.
+-->
+    <!-- ============ Final call to action ============ -->
+    <section class="section contact" id="contact" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta on-blue" data-reveal>
+          <h2 class="cta__title" id="cta-title">
+            <span class="cta__pre">Let's put</span>
+            <span class="cta__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span>
+            <span class="cta__post">online this week.</span>
+          </h2>
+
+          <div class="cta__actions">
+            <a class="btn btn--action btn--lg" href="tel:+256709781426">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              Call +256 709 781426
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:sales@logoswebsiteservices.com" data-mail-topic="">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email sales
+            </a>
+          </div>
+          <p class="cta__note">Not your business name? <a href="#biz-name" data-focus-name>Change it in the search bar</a>.</p>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,11 @@
+/* services.css (home) — home's own vertical-spacing hook for its services
+   section. The card grid itself (.services__grid, .service...) is shared
+   (shared/styles/services.css, loaded before this file) because
+   hosting.html and digital-marketing.html reuse it verbatim; this one rule
+   is specific to how home's hero flows into this section and is not reused
+   anywhere else (the other pages use the generic .section--after-hero
+   preset instead). */
+
+.services {
+  --section-pad-top: clamp(3rem, 2rem + 4vw, 5.5rem); /* the hero above already ends with its own padding */
+}

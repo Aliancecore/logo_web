@@ -1,0 +1,65 @@
+<!--
+  options.html — "Two ways to run your email": the 2-card comparison
+  between plain business email and Microsoft 365, each linking to a
+  mailto price request (no visible price — the team quotes by email).
+  Needs: shared/styles/packages.css (.plans/.plan and children, incl. the
+  shared .checklist base rule reused as .plan__features), email/styles/
+  options-pricing.css (.plans--2 — the 2-card width variant, page-specific:
+  see that file's header), shared/styles/typography.css (.h2,
+  .section-head/.section-head__intro), shared/styles/utilities.css
+  (.section--alt, .section-foot).
+-->
+    <!-- ============ Options ============ -->
+    <section class="section section--alt" id="options" aria-labelledby="options-title">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <h2 class="h2" id="options-title">Two ways to run your email.</h2>
+          <p class="section-head__intro">Business email for mail alone, or Microsoft 365 if your team also needs office apps. We set up either one.</p>
+        </header>
+
+        <ul class="plans plans--2" role="list">
+          <li class="plans__item" data-reveal style="--d:0">
+            <article class="plan" aria-labelledby="opt-mail">
+              <div class="plan__head">
+                <h3 class="plan__name" id="opt-mail">Business email</h3>
+                <p class="plan__for">Spam-free, instant email on your domain, at a price any team can afford.</p>
+              </div>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Business%20email%3A%20price">
+                Ask for a price
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Addresses on your domain</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Outlook, webmail and phone</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Spam and virus filters</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Instant messaging</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Shared calendars and contacts</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>24/7 support</span></li>
+              </ul>
+            </article>
+          </li>
+          <li class="plans__item" data-reveal style="--d:1">
+            <article class="plan" aria-labelledby="opt-365">
+              <div class="plan__head">
+                <h3 class="plan__name" id="opt-365">Microsoft 365</h3>
+                <p class="plan__for">Premium office apps with your email: create, communicate and work together from anywhere.</p>
+              </div>
+              <a class="btn btn--outline btn--block" href="mailto:sales@logoswebsiteservices.com?subject=Microsoft%20365%3A%20price">
+                Ask for a price
+                <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <ul class="plan__features" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Email on your domain, in Outlook</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Word, Excel and PowerPoint</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Teams for chat and meetings</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>OneDrive for your files</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Stronger protection against cyber attacks</span></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Work from any device</span></li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+
+        <p class="section-foot" data-reveal>The price depends on how many mailboxes you need. Tell us how many people need an address and we reply with a quote.</p>
+      </div>
+    </section>

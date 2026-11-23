@@ -1,0 +1,32 @@
+<!--
+  final-cta.html — "Let's keep <your-domain> online, day and night": the
+  closing call-to-action panel (call / email buttons). Same component as
+  home's, with hosting's own headline wording.
+  Needs: shared/styles/final-cta.css. <span data-slug>/<span data-tld> are
+  filled live by shared/scripts/business-name-domain.js from whatever the
+  visitor typed in the name field, above.
+-->
+    <!-- ============ Final call to action ============ -->
+    <section class="section contact" id="contact" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta on-blue" data-reveal>
+          <h2 class="cta__title" id="cta-title">
+            <span class="cta__pre">Let's keep</span>
+            <span class="cta__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span>
+            <span class="cta__post">online, day and night.</span>
+          </h2>
+
+          <div class="cta__actions">
+            <a class="btn btn--action btn--lg" href="tel:+256709781426">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              Call +256 709 781426
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:sales@logoswebsiteservices.com" data-mail-topic="managed hosting">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email sales
+            </a>
+          </div>
+          <p class="cta__note">Not your business name? <a href="#namer-input" data-focus-name="namer-input">Type it above</a>.</p>
+        </div>
+      </div>
+    </section>

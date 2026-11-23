@@ -1,0 +1,37 @@
+<!--
+  final-cta.html — "Let's bring customers to <your-domain> starting this
+  month": this page's own closing call-to-action panel (call / email
+  buttons). Page content, not shared, even though home/sections/final-cta.html
+  looks structurally identical — the headline text, mailto subject
+  ("digital marketing" topic) and the note's target (#namer-input, this
+  page's own name field, not home's #biz-name search bar) are specific to
+  this page. See shared/README.md: "two pages both having a [section] does
+  not make their content shared; only the CSS box is."
+  Needs: shared/styles/final-cta.css. <span data-slug>/<span data-tld> are
+  filled live by shared/scripts/business-name-domain.js from whatever the
+  visitor typed in this page's own namer field (#namer-input, in the hero).
+-->
+    <!-- ============ Final call to action ============ -->
+    <section class="section contact" id="contact" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta on-blue" data-reveal>
+          <h2 class="cta__title" id="cta-title">
+            <span class="cta__pre">Let's bring customers to</span>
+            <span class="cta__domain"><span data-slug>yourbusiness</span><span data-tld>.co.ug</span></span>
+            <span class="cta__post">starting this month.</span>
+          </h2>
+
+          <div class="cta__actions">
+            <a class="btn btn--action btn--lg" href="tel:+256709781426">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              Call +256 709 781426
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:sales@logoswebsiteservices.com" data-mail-topic="digital marketing">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              Email sales
+            </a>
+          </div>
+          <p class="cta__note">Not your business name? <a href="#namer-input" data-focus-name="namer-input">Type it above</a>.</p>
+        </div>
+      </div>
+    </section>

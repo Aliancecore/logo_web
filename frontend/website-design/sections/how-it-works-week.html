@@ -1,0 +1,57 @@
+<!--
+  how-it-works-week.html — "Five working days, from first call to launch":
+  the same 5-day process timeline component as home (Monday to Friday, no
+  .days--3/.days--4 modifier — this page's week has 5 steps too), plus the
+  "what we need from you" line under each day.
+  Needs shared/styles/week.css (.days, .day* — including .day__from, used
+  here). No page-local CSS: this page's week needs nothing beyond the
+  shared component (unlike home, which also has its own two Kampala photos
+  in home/styles/week-photos.css — not used here).
+-->
+    <!-- ============ The week ============ -->
+    <section class="section week" id="week" aria-labelledby="week-title">
+      <div class="wrap">
+        <header class="section-head section-head--wide" data-reveal>
+          <h2 class="h2" id="week-title">Five working days, from first call to launch.</h2>
+          <p class="section-head__intro">What we do each day, and the little we need from you.</p>
+        </header>
+
+        <ol class="days" role="list">
+          <li class="day" data-reveal style="--d:0">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Monday</p>
+            <h3 class="day__title">We talk</h3>
+            <p class="day__text">You tell us what you sell and who buys it. We agree on a package and a plan.</p>
+            <p class="day__from"><strong>From you:</strong> a short call, and your logo if you have one.</p>
+          </li>
+          <li class="day" data-reveal style="--d:1">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Tuesday</p>
+            <h3 class="day__title">Your name goes live</h3>
+            <p class="day__text">We register your domain and set up your business email.</p>
+            <p class="day__from"><strong>From you:</strong> the name you want, and who needs an address.</p>
+          </li>
+          <li class="day" data-reveal style="--d:2">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Wednesday</p>
+            <h3 class="day__title">Design</h3>
+            <p class="day__text">We design your pages and send you a preview link to comment on.</p>
+            <p class="day__from"><strong>From you:</strong> your comments on the preview.</p>
+          </li>
+          <li class="day" data-reveal style="--d:3">
+            <span class="day__node" aria-hidden="true"></span>
+            <p class="day__name">Thursday</p>
+            <h3 class="day__title">Content and SEO</h3>
+            <p class="day__text">We write your pages, add your photos and set up basic SEO.</p>
+            <p class="day__from"><strong>From you:</strong> photos of your work, prices and opening hours.</p>
+          </li>
+          <li class="day day--live" data-reveal style="--d:4">
+            <span class="day__node day__node--live" aria-hidden="true">Live</span>
+            <p class="day__name">Friday</p>
+            <h3 class="day__title">Launch</h3>
+            <p class="day__text">Your site goes live on secure hosting, with SSL. Support carries on 24/7.</p>
+            <p class="day__from"><strong>From you:</strong> a last look, then the go-ahead.</p>
+          </li>
+        </ol>
+      </div>
+    </section>

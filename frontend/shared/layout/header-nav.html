@@ -1,0 +1,64 @@
+<!--
+  header-nav.html — the sticky site header (brand, main nav, theme toggle,
+  call button, mobile nav toggle). Identical markup on every page except
+  which link is "active".
+
+  NOTE ON THIS COMMENT: do not write the literal placeholder syntax here
+  (double curly braces, ARIA_CURRENT, a colon, a page name, double curly
+  braces again) — build/assemble.py's substitution is a global regex over
+  the whole file, so any occurrence of that exact pattern gets resolved too,
+  even inside a comment meant to explain it. See the real placeholders
+  further down in the actual <li> markup instead.
+
+  Each link below carries one such placeholder naming its own page. For
+  every one, build/assemble.py reads the manifest's "active_nav" field and
+  substitutes:
+    - a leading space plus aria-current="page" when the named page equals
+      active_nav — reproducing e.g. <a href="index.html" aria-current="page">
+    - nothing otherwise — reproducing e.g. <a href="domains.html">
+  with no leftover space either way, so the assembled HTML is byte-identical
+  to the original hand-written markup.
+
+  Behaviour (scroll shadow, mobile menu, theme toggle) lives in
+  shared/scripts/header-nav.js and shared/scripts/theme-toggle.js.
+-->
+<!-- ============ Header ============ -->
+<header class="site-header on-dark" data-header>
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">L</span>
+      <span class="brand__name">Logos</span>
+      <span class="sr-only">, home page</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list" id="nav-list" role="list">
+        <li><a href="index.html"{{ARIA_CURRENT:index.html}}>Home</a></li>
+        <li><a href="domains.html"{{ARIA_CURRENT:domains.html}}>Domains</a></li>
+        <li><a href="website-design.html"{{ARIA_CURRENT:website-design.html}}>Websites</a></li>
+        <li><a href="hosting.html"{{ARIA_CURRENT:hosting.html}}>Hosting</a></li>
+        <li><a href="email.html"{{ARIA_CURRENT:email.html}}>Email</a></li>
+        <li><a href="logo-design.html"{{ARIA_CURRENT:logo-design.html}}>Logo design</a></li>
+        <li><a href="digital-marketing.html"{{ARIA_CURRENT:digital-marketing.html}}>Marketing</a></li>
+        <li class="site-nav__call"><a href="tel:+256709781426">Call +256 709 781426</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+        <svg class="icon icon--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <span class="sr-only">Dark theme</span>
+      </button>
+      <a class="btn btn--ghost btn--small site-header__call" href="tel:+256709781426">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+        Call sales
+      </a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list" data-nav-toggle>
+        <svg class="icon icon--menu" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon icon--close" aria-hidden="true"><use href="#i-close"/></svg>
+        <span class="sr-only">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
