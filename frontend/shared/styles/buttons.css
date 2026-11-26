@@ -52,7 +52,7 @@
   --_bg: var(--c-orange);
   --_fg: var(--c-night);
   --_bd: var(--c-orange);
-  box-shadow: 0 8px 18px -10px rgba(249, 115, 22, .7);
+  box-shadow: 0 8px 18px -10px rgba(124, 192, 69, .7);
 }
 
 .btn--action:hover {

@@ -29,20 +29,23 @@
 /* ---------- 1. Tokens ---------------------------------------------------- */
 
 :root {
-  /* Palette, fixed by the brief */
-  --c-blue: #1D4ED8;    /* principal */
-  --c-night: #0F172A;   /* header, footer, text on orange */
-  --c-orange: #F97316;  /* actions only */
+  /* Palette: the official LOGOS brand colours, taken from the logo.
+     NOTE: the variable names --c-blue / --c-orange are historical (first
+     version of the design was blue + orange). They now hold LOGOS purple and
+     LOGOS green; the names are kept so no other file had to change. */
+  --c-blue: #83308C;    /* principal: LOGOS purple */
+  --c-night: #1E0F23;   /* header, footer, text on green: very dark plum */
+  --c-orange: #7CC045;  /* actions only: LOGOS green */
   --c-paper: #F8FAFC;   /* light background */
   --c-ink: #1E293B;     /* text */
   --c-slate: #64748B;   /* secondary text */
 
   /* Derived from the palette */
   --c-white: #FFFFFF;
-  --c-orange-deep: #EA580C; /* orange button hover (still 5:1 with night text) */
-  --c-blue-deep: #1E40AF;   /* blue hover, call-to-action panel at night */
-  --c-blue-light: #7799F8;  /* the same hue lightened for dark surfaces (6.5:1 on night) */
-  --c-night-deep: #0A101E;  /* header and footer in the dark theme */
+  --c-orange-deep: #6BAE36; /* orange button hover (still 5:1 with night text) */
+  --c-blue-deep: #5E2166;   /* blue hover, call-to-action panel at night */
+  --c-blue-light: #D49BDD;  /* the same hue lightened for dark surfaces (6.5:1 on night) */
+  --c-night-deep: #14091A;  /* header and footer in the dark theme */
 
   /* Type */
   --font-display: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -70,7 +73,7 @@
   color-scheme: light;
   --bg: var(--c-paper);
   --bg-alt: var(--c-white);
-  --bg-hero: linear-gradient(180deg, #E9EFFD 0%, var(--c-paper) 82%);
+  --bg-hero: linear-gradient(180deg, #F4E8F6 0%, var(--c-paper) 82%);
   --surface: var(--c-white);
   --text: var(--c-ink);
   --heading: var(--c-ink);
@@ -79,32 +82,32 @@
   --line-strong: #CBD5E1;
   --blue: var(--c-blue);
   --on-blue: var(--c-white);
-  --blue-soft: rgba(29, 78, 216, .08);
-  --blue-mark: rgba(29, 78, 216, .16);
-  --blue-ring: rgba(29, 78, 216, .2);
+  --blue-soft: rgba(131, 48, 140, .08);
+  --blue-mark: rgba(131, 48, 140, .16);
+  --blue-ring: rgba(131, 48, 140, .2);
   --danger: #B91C1C;
   --focus: var(--c-blue);
   --chrome: var(--c-night);
   --panel: var(--c-blue);
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, .05);
-  --shadow-md: 0 1px 2px rgba(15, 23, 42, .05), 0 18px 34px -20px rgba(15, 23, 42, .28);
-  --shadow-lg: 0 1px 3px rgba(15, 23, 42, .06), 0 30px 60px -30px rgba(29, 78, 216, .42);
+  --shadow-sm: 0 1px 2px rgba(30, 15, 35, .05);
+  --shadow-md: 0 1px 2px rgba(30, 15, 35, .05), 0 18px 34px -20px rgba(30, 15, 35, .28);
+  --shadow-lg: 0 1px 3px rgba(30, 15, 35, .06), 0 30px 60px -30px rgba(131, 48, 140, .42);
   --sun-d: none;
   --moon-d: inline-block;
   /* Examples: the stage floor and the phone in front of each browser */
-  --bg-stage: linear-gradient(180deg, var(--c-paper) 0%, #E9EFFD 100%);
+  --bg-stage: linear-gradient(180deg, var(--c-paper) 0%, #F4E8F6 100%);
   --bezel: var(--c-night);
-  --bezel-ring: rgba(15, 23, 42, 0);
-  --shadow-phone: 0 1px 2px rgba(15, 23, 42, .14), -14px 22px 34px -16px rgba(15, 23, 42, .5);
+  --bezel-ring: rgba(30, 15, 35, 0);
+  --shadow-phone: 0 1px 2px rgba(30, 15, 35, .14), -14px 22px 34px -16px rgba(30, 15, 35, .5);
 }
 
 /* ----- Theme: dark (same blue/orange, night surfaces) ----- */
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: var(--c-night);
-  --bg-alt: #111B2F;
-  --bg-hero: linear-gradient(180deg, #13203E 0%, var(--c-night) 82%);
-  --surface: #182235;
+  --bg-alt: #26142B;
+  --bg-hero: linear-gradient(180deg, #2A1530 0%, var(--c-night) 82%);
+  --surface: #2F1A36;
   --text: #E2E8F0;
   --heading: #F1F5F9;
   --muted: #94A3B8;
@@ -112,9 +115,9 @@
   --line-strong: rgba(148, 163, 184, .36);
   --blue: var(--c-blue-light);
   --on-blue: var(--c-night);
-  --blue-soft: rgba(119, 153, 248, .13);
-  --blue-mark: rgba(119, 153, 248, .26);
-  --blue-ring: rgba(119, 153, 248, .3);
+  --blue-soft: rgba(212, 155, 221, .13);
+  --blue-mark: rgba(212, 155, 221, .26);
+  --blue-ring: rgba(212, 155, 221, .3);
   --danger: #FCA5A5;
   --focus: var(--c-blue-light);
   --chrome: var(--c-night-deep);
@@ -124,7 +127,7 @@
   --shadow-lg: 0 1px 3px rgba(0, 0, 0, .35), 0 32px 64px -30px rgba(0, 0, 0, .85);
   --sun-d: inline-block;
   --moon-d: none;
-  --bg-stage: linear-gradient(180deg, var(--c-night) 0%, #13203E 100%);
+  --bg-stage: linear-gradient(180deg, var(--c-night) 0%, #2A1530 100%);
   --bezel: var(--c-night-deep);
   --bezel-ring: rgba(148, 163, 184, .3);
   --shadow-phone: 0 1px 2px rgba(0, 0, 0, .4), -14px 22px 34px -14px rgba(0, 0, 0, .85);
@@ -134,9 +137,9 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: var(--c-night);
-    --bg-alt: #111B2F;
-    --bg-hero: linear-gradient(180deg, #13203E 0%, var(--c-night) 82%);
-    --surface: #182235;
+    --bg-alt: #26142B;
+    --bg-hero: linear-gradient(180deg, #2A1530 0%, var(--c-night) 82%);
+    --surface: #2F1A36;
     --text: #E2E8F0;
     --heading: #F1F5F9;
     --muted: #94A3B8;
@@ -144,9 +147,9 @@
     --line-strong: rgba(148, 163, 184, .36);
     --blue: var(--c-blue-light);
     --on-blue: var(--c-night);
-    --blue-soft: rgba(119, 153, 248, .13);
-    --blue-mark: rgba(119, 153, 248, .26);
-    --blue-ring: rgba(119, 153, 248, .3);
+    --blue-soft: rgba(212, 155, 221, .13);
+    --blue-mark: rgba(212, 155, 221, .26);
+    --blue-ring: rgba(212, 155, 221, .3);
     --danger: #FCA5A5;
     --focus: var(--c-blue-light);
     --chrome: var(--c-night-deep);
@@ -156,7 +159,7 @@
     --shadow-lg: 0 1px 3px rgba(0, 0, 0, .35), 0 32px 64px -30px rgba(0, 0, 0, .85);
     --sun-d: inline-block;
     --moon-d: none;
-    --bg-stage: linear-gradient(180deg, var(--c-night) 0%, #13203E 100%);
+    --bg-stage: linear-gradient(180deg, var(--c-night) 0%, #2A1530 100%);
     --bezel: var(--c-night-deep);
     --bezel-ring: rgba(148, 163, 184, .3);
     --shadow-phone: 0 1px 2px rgba(0, 0, 0, .4), -14px 22px 34px -14px rgba(0, 0, 0, .85);
@@ -171,7 +174,7 @@
   --line: rgba(148, 163, 184, .2);
   --line-strong: rgba(226, 232, 240, .5);
   --blue: var(--c-blue-light);
-  --focus: #A5BDFB;
+  --focus: #E3BEE9;
   background-color: var(--chrome);
   color: var(--text);
 }

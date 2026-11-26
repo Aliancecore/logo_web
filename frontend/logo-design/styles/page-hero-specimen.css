@@ -88,7 +88,7 @@
     radial-gradient(circle at 97.4% 12%, #334155 0 2.5px, transparent 3.5px),
     radial-gradient(circle at 2.6% 88%, #334155 0 2.5px, transparent 3.5px),
     radial-gradient(circle at 97.4% 88%, #334155 0 2.5px, transparent 3.5px),
-    #0F172A;
+    #1E0F23;
   box-shadow: inset 0 0 0 1px rgba(148, 163, 184, .2), var(--shadow-lg);
 }
 
@@ -99,11 +99,11 @@
 }
 
 .board .lockup__mark {
-  color: #1D4ED8;
+  color: #83308C;
 }
 
 .board .lockup__sub {
-  color: #7799F8;
+  color: #D49BDD;
 }
 
 /* The receipt: one colour, torn edge at the bottom */
@@ -114,22 +114,22 @@
   gap: .6rem;
   padding: 1.1rem 1rem calc(1.25rem + var(--tooth));
   background-color: #FFFFFF;
-  color: #0F172A;
+  color: #1E0F23;
   font-size: .75rem;
   line-height: 1.3;
   -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--tooth)) 100%;
   mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--tooth)) 100%;
-  filter: drop-shadow(0 10px 14px rgba(15, 23, 42, .18));
+  filter: drop-shadow(0 10px 14px rgba(30, 15, 35, .18));
 }
 
 .receipt .lockup {
   --mark-2: #FFFFFF;
-  color: #0F172A;
+  color: #1E0F23;
   font-size: 1.15rem;
 }
 
 .receipt .lockup__mark {
-  color: #0F172A;
+  color: #1E0F23;
 }
 
 .receipt__lines {
@@ -196,7 +196,7 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  color: #1D4ED8;
+  color: #83308C;
   box-shadow: 0 0 0 3px var(--surface);
 }
 

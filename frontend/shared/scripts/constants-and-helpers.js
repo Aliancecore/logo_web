@@ -32,7 +32,7 @@
   // visitor typed (kept for this tab only, so every page shows their business)
   var KEYS = { theme: 'logos-theme', currency: 'logos-currency', name: 'logos-name', tld: 'logos-tld' };
   // Browser bar colour = header colour of each theme
-  var THEME_COLORS = { light: '#0F172A', dark: '#0A101E' };
+  var THEME_COLORS = { light: '#1E0F23', dark: '#14091A' };
 
   // Domains: yearly list prices in US dollars, before the discount.
   // The discount applies to every domain; every first-year price shown is derived from here.

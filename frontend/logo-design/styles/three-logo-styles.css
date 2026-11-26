@@ -45,11 +45,11 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background-color: #FFFFFF;
-  color: #0F172A;
+  color: #1E0F23;
 }
 
 .logo-card__art--night {
-  background-color: #0F172A;
+  background-color: #1E0F23;
   color: #F8FAFC;
 }
 
@@ -110,7 +110,7 @@
   height: .2em;
   margin: 0 0 .1em .06em;
   border-radius: 50%;
-  background-color: #1D4ED8;
+  background-color: #83308C;
 }
 
 .wordmark__sub {
@@ -127,7 +127,7 @@
 }
 
 .logo-card__art .lockup__mark {
-  color: #1D4ED8;
+  color: #83308C;
 }
 
 .logo-card__art .lockup__sub {

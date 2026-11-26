@@ -10,16 +10,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&family=Inter:wght@400;500;600&display=swap">
 <style>
   :root {
-    --navy: #0F172A;
-    --blue: #1D4ED8;
-    --blue-deep: #1E40AF;
-    --blue-light: #7799F8;
-    --orange: #F97316;
+    --navy: #1E0F23;
+    --blue: #83308C;
+    --blue-deep: #5E2166;
+    --blue-light: #D49BDD;
+    --orange: #7CC045;
     --paper: #F8FAFC;
     --paper-soft: #CBD5E1;
     --ink: #1E293B;
     --slate: #64748B;
-    --line: rgba(15, 23, 42, .12);
+    --line: rgba(30, 15, 35, .12);
     --ease: cubic-bezier(.2, .75, .25, 1);
   }
 
@@ -164,13 +164,13 @@
     border: 1px solid var(--line);
     border-radius: 18px;
     padding: clamp(1.25rem, 2.5vw, 2rem);
-    box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+    box-shadow: 0 1px 2px rgba(30, 15, 35, .04);
     transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   }
 
   .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(15, 23, 42, .1);
+    box-shadow: 0 16px 32px rgba(30, 15, 35, .1);
   }
 
   .dark .card {
@@ -243,7 +243,7 @@
     transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   }
 
-  .flow-box:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(15, 23, 42, .08); }
+  .flow-box:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(30, 15, 35, .08); }
 
   .flow-box h3 { font-size: 1.05rem; margin-bottom: .5rem; }
   .flow-box p { font-size: .85rem; color: var(--slate); }
@@ -282,7 +282,7 @@
     font-weight: 700;
     font-size: clamp(1.4rem, 3.2vw, 2.4rem);
     color: var(--orange);
-    background: rgba(249, 115, 22, .14);
+    background: rgba(124, 192, 69, .14);
     border: 2px solid var(--orange);
     border-radius: 16px;
     padding: 1rem 1.75rem;
@@ -294,7 +294,7 @@
 
   .cta-link:hover,
   .cta-link:focus-visible {
-    background: rgba(249, 115, 22, .24);
+    background: rgba(124, 192, 69, .24);
     transform: translateY(-2px);
   }
 
@@ -336,7 +336,7 @@
     background: var(--blue);
     width: 12px;
     height: 12px;
-    box-shadow: 0 0 0 4px rgba(29, 78, 216, .18);
+    box-shadow: 0 0 0 4px rgba(131, 48, 140, .18);
   }
 
   /* ---------- Floating ambient orbs (dark slides) ---------- */
@@ -364,8 +364,8 @@
     }
 
     @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, .25); }
-      50% { box-shadow: 0 0 0 14px rgba(249, 115, 22, 0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124, 192, 69, .25); }
+      50% { box-shadow: 0 0 0 14px rgba(124, 192, 69, 0); }
     }
   }
 
@@ -449,9 +449,9 @@
   <h2 class="heading" data-i18n="design-heading" data-reveal></h2>
   <p class="lead" data-i18n="design-lead1" data-reveal></p>
   <div class="swatches">
-    <div class="swatch" data-reveal style="--d:0; background:#1D4ED8; color:#F8FAFC;">Blue<span data-i18n="swatch-blue"></span></div>
-    <div class="swatch" data-reveal style="--d:1; background:#0F172A; color:#F8FAFC;">Navy<span data-i18n="swatch-navy"></span></div>
-    <div class="swatch" data-reveal style="--d:2; background:#F97316; color:#0F172A;">Orange<span data-i18n="swatch-orange"></span></div>
+    <div class="swatch" data-reveal style="--d:0; background:#83308C; color:#F8FAFC;">Blue<span data-i18n="swatch-blue"></span></div>
+    <div class="swatch" data-reveal style="--d:1; background:#1E0F23; color:#F8FAFC;">Navy<span data-i18n="swatch-navy"></span></div>
+    <div class="swatch" data-reveal style="--d:2; background:#7CC045; color:#1E0F23;">Orange<span data-i18n="swatch-orange"></span></div>
     <div class="swatch" data-reveal style="--d:3; background:#F8FAFC; color:#1E293B; border:1px solid var(--line);">Paper<span data-i18n="swatch-paper"></span></div>
   </div>
   <p class="lead" data-i18n="design-lead2" data-reveal style="--d:4"></p>

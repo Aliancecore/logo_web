@@ -20,10 +20,10 @@
 /* Wax prints, in the site's blues */
 .print {
   display: block;
-  background-color: #1D4ED8;
+  background-color: #83308C;
 }
 
 .print--rings {
   background:
-    radial-gradient(circle, #F8FAFC 0 17%, #0F172A 18% 30%, #7799F8 31% 42%, #1D4ED8 43%) 0 0 / 2.1em 2.1em;
+    radial-gradient(circle, #F8FAFC 0 17%, #1E0F23 18% 30%, #D49BDD 31% 42%, #83308C 43%) 0 0 / 2.1em 2.1em;
 }

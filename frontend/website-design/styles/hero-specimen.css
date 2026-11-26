@@ -31,7 +31,7 @@
   width: .9em;
   height: .9em;
   border-radius: .25em;
-  background-color: #1D4ED8;
+  background-color: #83308C;
 }
 
 .yours__hero {
@@ -65,7 +65,7 @@
   margin-block: .6em;
   overflow: hidden;
   border-radius: .7em;
-  background: linear-gradient(180deg, #0F172A 0%, #1E40AF 165%);
+  background: linear-gradient(180deg, #1E0F23 0%, #5E2166 165%);
 }
 
 .yours__photo svg {

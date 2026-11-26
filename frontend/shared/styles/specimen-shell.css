@@ -141,10 +141,10 @@
 
 .site {
   --s-bg: #F8FAFC;
-  --s-ink: #0F172A;
+  --s-ink: #1E0F23;
   --s-bar: #CBD5E1;
   --s-soft: #E2E8F0;
-  --s-btn: #1D4ED8;
+  --s-btn: #83308C;
   --s-btn-ink: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -263,7 +263,7 @@
 
 .site__line--accent {
   height: .32em;
-  background-color: #1D4ED8;
+  background-color: #83308C;
 }
 
 .site__actions {
@@ -297,7 +297,7 @@
   height: 1.3em;
   margin-bottom: .25em;
   border-radius: .4em;
-  box-shadow: inset 0 0 0 .12em #7799F8;
+  box-shadow: inset 0 0 0 .12em #D49BDD;
 }
 
 /* ----- Specimens: shared surface (the figure wrapper and its sheet/pill helpers) ----- */
